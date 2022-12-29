@@ -47,6 +47,17 @@ class Statistics{
         return $stmt;
     }
 
+    function getMostFavouriteProducts(){
+        $mysql = "select p.id as 'ID_Prodotto', p.name as 'Nome', count(f.product) as 'n_utenti like it' 
+        from product p 
+        inner join favourite f ON f.product = p.id 
+        group by p.id 
+        order by count(f.product) desc;";
+
+        $stmt = $this->conn->query($mysql);
+
+        return $stmt;
+    }
 }
 
 ?>
