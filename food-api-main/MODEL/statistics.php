@@ -19,6 +19,20 @@ class Statistics{
         return $stmt;
     }
 
+    function getBestCustomers(){
+        $mysql = "select u.name as 'Nome', u.surname as 'Cognome', count(o.id) as 'Numero ordini'
+        from `order` o 
+        inner join `user` u on u.id = o.`user` 
+        inner join status s on s.id = o.status 
+        where s.id != 3
+        group by u.id 
+        order by count(o.id) desc;";
+
+        $stmt = $this->conn->query($mysql);
+
+        return $stmt;
+    }
+
 
 }
 
