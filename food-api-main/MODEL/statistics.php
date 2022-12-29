@@ -33,6 +33,19 @@ class Statistics{
         return $stmt;
     }
 
+    function getMonthlyTurnover(){
+        $mysql = "select p.name as 'Prodotto', month(o.created) as 'Mese', sum(po.quantity * p2.price) as 'Incasso mensile'
+        from `order` o 
+        inner join pickup p ON p.id = o.pickup 
+        inner join product_order po on po.`order` = o.id 
+        inner join product p2 on p2.id = po.product 
+        group by p.id, month(o.created)
+        order by sum(po.quantity * p2.price) desc;";
+        
+        $stmt = $this->conn->query($mysql);
+
+        return $stmt;
+    }
 
 }
 
