@@ -70,6 +70,20 @@ class Statistics{
 
         return $stmt;
     }
+
+    function getMostTurnoverDeliveryPoint(){
+        $mysql = "select p.name as 'Punto di consegna', sum(po.quantity * p2.price) as 'Incasso'
+        from `order` o 
+        inner join pickup p ON p.id = o.pickup 
+        inner join product_order po on po.`order` = o.id 
+        inner join product p2 on p2.id = po.product 
+        group by p.id
+        order by sum(po.quantity * p2.price) desc;";
+
+        $stmt = $this->conn->query($mysql);
+
+        return $stmt;
+    }
 }
 
 ?>
