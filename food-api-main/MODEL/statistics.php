@@ -58,6 +58,18 @@ class Statistics{
 
         return $stmt;
     }
+
+    function getBestDeliveryPoint(){
+        $mysql = "select p.name as 'Punto di consegna', count(o.pickup) as 'Numero Ordini'
+        from `order` o 
+        inner join pickup p ON p.id = o.pickup 
+        group by p.id
+        order by count(o.pickup) desc;";
+
+        $stmt = $this->conn->query($mysql);
+
+        return $stmt;
+    }
 }
 
 ?>

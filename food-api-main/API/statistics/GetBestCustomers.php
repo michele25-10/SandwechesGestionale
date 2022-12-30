@@ -13,13 +13,13 @@
     $stmt = $statistics->getBestCustomers();
 
     if ($stmt->num_rows > 0) {
-        $bestSelling_arr = array();
+        $bestCustomers_arr = array();
 
         while ($record = $stmt->fetch_assoc()) {
-            $bestSelling_arr[] = $record;
+            $bestCustomers_arr[] = $record;
         }
 
-        $json = json_encode($bestSelling_arr);
+        $json = json_encode($bestCustomers_arr);
         echo $json;
 
         return $json;

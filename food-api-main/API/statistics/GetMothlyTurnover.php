@@ -13,13 +13,13 @@
     $stmt = $statistics->getMonthlyTurnover();
 
     if ($stmt->num_rows > 0) {
-        $bestSelling_arr = array();
+        $MonthTurnover_arr = array();
 
         while ($record = $stmt->fetch_assoc()) {
-            $bestSelling_arr[] = $record;
+            $MonthTurnover_arr[] = $record;
         }
 
-        $json = json_encode($bestSelling_arr);
+        $json = json_encode($MonthTurnover_arr);
         echo $json;
 
         return $json;

@@ -13,13 +13,13 @@
     $stmt = $statistics->getMostFavouriteProducts();
 
     if ($stmt->num_rows > 0) {
-        $bestSelling_arr = array();
+        $MostFavourite_arr = array();
 
         while ($record = $stmt->fetch_assoc()) {
-            $bestSelling_arr[] = $record;
+            $MostFavourite_arr[] = $record;
         }
 
-        $json = json_encode($bestSelling_arr);
+        $json = json_encode($MostFavourite_arr);
         echo $json;
 
         return $json;
