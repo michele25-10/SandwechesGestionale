@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sandweches_admin/pages/home.dart';
+import 'package:sandweches_admin/pages/Login.dart';
+
 void main() {
   runApp(const myApp());
 }
@@ -15,7 +16,7 @@ class myApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red, //fabulous
       ),
-      home: Home(),
+      home: Login(),
       debugShowCheckedModeBanner: false,
     );
   }
