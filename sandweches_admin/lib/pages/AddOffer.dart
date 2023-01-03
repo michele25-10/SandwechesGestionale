@@ -2,11 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:sandweches_admin/pages/Home.dart';
 import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
+import 'package:flutter/cupertino.dart';
 
-void main() => runApp(const AddOffer());
+class AddOffer extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _AddOffer();
+  }
+}
 
-class AddOffer extends StatelessWidget {
-  const AddOffer({super.key});
+class _AddOffer extends State<AddOffer> {
+  TextEditingController dateinput = TextEditingController();
+  @override
+  void initState() {
+    dateinput.text = ""; //set the initial value of text field
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -98,11 +110,42 @@ class AddOffer extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 20.0),
                             child: TextField(
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                                hintText: 'Data di inizio',
-                              ),
-                            ),
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: 'Data di inizio',
+                                ),
+                                onTap: () async {
+                                  DateTime _chosenDateTime;
+
+                                  // Show the modal that contains the CupertinoDatePicker
+                                  void _showDatePicker(context) {
+                                    // showCupertinoModalPopup is a built-in function of the cupertino library
+                                    showCupertinoModalPopup(
+                                        context: context,
+                                        builder: (_) => Container(
+                                              height: 500,
+                                              color: Color.fromARGB(
+                                                  255, 255, 255, 255),
+                                              child: Column(
+                                                children: [
+                                                  Container(
+                                                    height: 400,
+                                                    child: CupertinoDatePicker(
+                                                        initialDateTime:
+                                                            DateTime.now(),
+                                                        onDateTimeChanged:
+                                                            (val) {
+                                                          setState(() {
+                                                            _chosenDateTime =
+                                                                val;
+                                                          });
+                                                        }),
+                                                  ),
+                                                ],
+                                              ),
+                                            ));
+                                  }
+                                }),
                           ),
                         ),
                         SizedBox(
@@ -116,14 +159,6 @@ class AddOffer extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 20.0),
                             child: TextField(
-                              keyboardType: TextInputType.number,
-                              inputFormatters: <TextInputFormatter>[
-                                // for below version 2 use this
-                                FilteringTextInputFormatter.allow(
-                                    RegExp(r'[0-9]')),
-                                // for version 2 and greater youcan also use this
-                                FilteringTextInputFormatter.digitsOnly
-                              ],
                               decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintText: 'Data termine',
@@ -142,14 +177,6 @@ class AddOffer extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 20.0),
                             child: TextField(
-                              keyboardType: TextInputType.number,
-                              inputFormatters: <TextInputFormatter>[
-                                // for below version 2 use this
-                                FilteringTextInputFormatter.allow(
-                                    RegExp(r'[0-1]')),
-                                // for version 2 and greater youcan also use this
-                                FilteringTextInputFormatter.digitsOnly
-                              ],
                               decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintText: 'Descrizione',
