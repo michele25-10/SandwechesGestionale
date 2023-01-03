@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:sandweches_admin/pages/ViewOrder.dart';
+import 'package:sandweches_admin/pages/AddProduct.dart';
 import 'package:flutter/src/material/list_tile.dart';
 import 'package:flutter/src/widgets/navigator.dart';
 
@@ -73,6 +74,14 @@ class LisTileExample extends StatelessWidget {
               Icons.arrow_right_alt,
               color: Colors.red,
             ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AddProduct(),
+                ),
+              );
+            },
           ),
         ),
         Card(
