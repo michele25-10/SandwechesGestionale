@@ -94,8 +94,10 @@ class _LoginPageState extends State<Login> {
                 child: Center(
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => (Home())));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => (HomePage())));
                     },
                     style: ButtonStyle(
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(

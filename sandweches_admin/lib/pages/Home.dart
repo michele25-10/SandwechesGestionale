@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
+import 'package:sandweches_admin/pages/ViewOrder.dart';
+import 'package:flutter/src/material/list_tile.dart';
+import 'package:flutter/src/widgets/navigator.dart';
 
-void main() => runApp(const Home());
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+  @override
+  State<HomePage> createState() => _Home();
+}
 
+class _Home extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -33,18 +40,26 @@ class LisTileExample extends StatelessWidget {
         )),
         Card(
           child: ListTile(
-              leading: Icon(
-                Icons.add_shopping_cart,
-                color: Colors.orange,
-              ),
-              title: Text('Visualizza Ordini'),
-              subtitle: Text(
-                  'Visualizza gli ordini che gli utenti hanno effettuato.'),
-              trailing: Icon(
-                Icons.arrow_right_alt,
-                color: Colors.red,
-              ),
-              isThreeLine: false),
+            leading: Icon(
+              Icons.add_shopping_cart,
+              color: Colors.orange,
+            ),
+            title: Text('Visualizza Ordini'),
+            subtitle:
+                Text('Visualizza gli ordini che gli utenti hanno effettuato.'),
+            trailing: Icon(
+              Icons.arrow_right_alt,
+              color: Colors.red,
+            ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ViewOrder(),
+                ),
+              );
+            },
+          ),
         ),
         Card(
           child: ListTile(
@@ -58,7 +73,6 @@ class LisTileExample extends StatelessWidget {
               Icons.arrow_right_alt,
               color: Colors.red,
             ),
-            isThreeLine: false,
           ),
         ),
         Card(
