@@ -17,9 +17,15 @@ class _LoginPageState extends State<Login> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Container(
+                child: Image.asset(
+                  "lib/assets/images/app_logo.png",
+                  fit: BoxFit.cover,
+                ),
+              ),
               //IMG
               SizedBox(
-                height: 25,
+                height: 50,
               ),
               Text(
                 'Effettua il tuo accesso',
@@ -38,7 +44,7 @@ class _LoginPageState extends State<Login> {
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.grey[100],
-                    border: Border.all(color: Colors.black),
+                    border: Border.all(color: Colors.redAccent),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Padding(
@@ -62,7 +68,7 @@ class _LoginPageState extends State<Login> {
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.grey[100],
-                    border: Border.all(color: Colors.black),
+                    border: Border.all(color: Colors.redAccent),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Padding(
@@ -86,7 +92,7 @@ class _LoginPageState extends State<Login> {
                 child: Container(
                   padding: EdgeInsets.all(25),
                   decoration: BoxDecoration(
-                      color: Colors.red[500],
+                      color: Colors.orange,
                       borderRadius: BorderRadius.circular(12)),
                   child: Center(
                     child: Text(
