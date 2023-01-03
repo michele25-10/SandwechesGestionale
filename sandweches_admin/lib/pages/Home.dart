@@ -8,14 +8,14 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Home'),
-          backgroundColor: Colors.orange,
+        home: Scaffold(
+          appBar: AppBar(
+            title: const Text('Home'),
+            backgroundColor: Colors.orange,
+          ),
+          body: const LisTileExample(),
         ),
-        body: const LisTileExample(),
-      ),
-    );
+        debugShowCheckedModeBanner: false);
   }
 }
 
