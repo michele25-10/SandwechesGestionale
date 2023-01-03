@@ -33,7 +33,7 @@ class LisTileExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: const <Widget>[
+      children: <Widget>[
         Card(
             child: ListTile(
           title: Text('Opzioni:'),
@@ -51,6 +51,14 @@ class LisTileExample extends StatelessWidget {
               Icons.arrow_right_alt,
               color: Colors.red,
             ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ViewOrder(),
+                ),
+              );
+            },
           ),
         ),
         Card(
