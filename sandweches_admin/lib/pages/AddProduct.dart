@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'package:flutter/services.dart';
 import 'package:sandweches_admin/pages/Home.dart';
 
 void main() => runApp(const AddProduct());
@@ -70,6 +71,14 @@ class AddProduct extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 20.0),
                             child: TextField(
+                              keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                // for below version 2 use this
+                                FilteringTextInputFormatter.allow(
+                                    RegExp(r'[0-9]')),
+                                // for version 2 and greater youcan also use this
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
                               decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintText: 'Prezzo',
@@ -106,6 +115,14 @@ class AddProduct extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 20.0),
                             child: TextField(
+                              keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                // for below version 2 use this
+                                FilteringTextInputFormatter.allow(
+                                    RegExp(r'[0-9]')),
+                                // for version 2 and greater youcan also use this
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
                               decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintText: 'Quantità',
@@ -124,6 +141,14 @@ class AddProduct extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 20.0),
                             child: TextField(
+                              keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                // for below version 2 use this
+                                FilteringTextInputFormatter.allow(
+                                    RegExp(r'[0-1]')),
+                                // for version 2 and greater youcan also use this
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
                               decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintText: 'Attivo (es. 0 = off, 1 = on)',
@@ -152,6 +177,14 @@ class AddProduct extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 20.0),
                             child: TextField(
+                              keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                // for below version 2 use this
+                                FilteringTextInputFormatter.allow(
+                                    RegExp(r'[0-9]')),
+                                // for version 2 and greater youcan also use this
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
                               decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintText: 'Kcal',
@@ -170,6 +203,14 @@ class AddProduct extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 20.0),
                             child: TextField(
+                              keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                // for below version 2 use this
+                                FilteringTextInputFormatter.allow(
+                                    RegExp(r'[0-9]')),
+                                // for version 2 and greater youcan also use this
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
                               decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintText: 'Grassi',
@@ -188,6 +229,14 @@ class AddProduct extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 20.0),
                             child: TextField(
+                              keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                // for below version 2 use this
+                                FilteringTextInputFormatter.allow(
+                                    RegExp(r'[0-9]')),
+                                // for version 2 and greater youcan also use this
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
                               decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintText: 'Grassi saturi',
@@ -206,6 +255,14 @@ class AddProduct extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 20.0),
                             child: TextField(
+                              keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                // for below version 2 use this
+                                FilteringTextInputFormatter.allow(
+                                    RegExp(r'[0-9]')),
+                                // for version 2 and greater youcan also use this
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
                               decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintText: 'Carboidrati',
@@ -224,6 +281,14 @@ class AddProduct extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 20.0),
                             child: TextField(
+                              keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                // for below version 2 use this
+                                FilteringTextInputFormatter.allow(
+                                    RegExp(r'[0-9]')),
+                                // for version 2 and greater youcan also use this
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
                               decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintText: 'Zuccheri',
@@ -242,6 +307,14 @@ class AddProduct extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 20.0),
                             child: TextField(
+                              keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                // for below version 2 use this
+                                FilteringTextInputFormatter.allow(
+                                    RegExp(r'[0-9]')),
+                                // for version 2 and greater youcan also use this
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
                               decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintText: 'Proteine',
@@ -260,6 +333,14 @@ class AddProduct extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 20.0),
                             child: TextField(
+                              keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                // for below version 2 use this
+                                FilteringTextInputFormatter.allow(
+                                    RegExp(r'[0-9]')),
+                                // for version 2 and greater youcan also use this
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
                               decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintText: 'Fibre',
@@ -278,6 +359,14 @@ class AddProduct extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 20.0),
                             child: TextField(
+                              keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                // for below version 2 use this
+                                FilteringTextInputFormatter.allow(
+                                    RegExp(r'[0-9]')),
+                                // for version 2 and greater youcan also use this
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
                               decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintText: 'Sale',
