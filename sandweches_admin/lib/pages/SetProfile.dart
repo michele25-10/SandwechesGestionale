@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:sandweches_admin/pages/Home.dart';
 
-void main() => runApp(const AddOffer());
+void main() => runApp(const SetProfile());
 
-class AddOffer extends StatelessWidget {
-  const AddOffer({super.key});
+class SetProfile extends StatelessWidget {
+  const SetProfile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class AddOffer extends StatelessWidget {
                 ),
               ),
             ),
-            title: const Text('Crea sconti'),
+            title: const Text('Profilo'),
             backgroundColor: Colors.orange,
           ),
         ),

@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'package:sandweches_admin/pages/AddOffer.dart';
+import 'package:sandweches_admin/pages/Login.dart';
+import 'package:sandweches_admin/pages/SetProfile.dart';
+import 'package:sandweches_admin/pages/ViewEfficiency.dart';
 import 'package:sandweches_admin/pages/ViewOrder.dart';
 import 'package:sandweches_admin/pages/AddProduct.dart';
 import 'package:sandweches_admin/pages/AddPickup.dart';
 import 'package:flutter/src/material/list_tile.dart';
 import 'package:flutter/src/widgets/navigator.dart';
+import 'package:sandweches_admin/pages/ViewStats.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -109,74 +114,113 @@ class LisTileExample extends StatelessWidget {
         ),
         Card(
           child: ListTile(
-              leading: Icon(
-                Icons.discount_outlined,
-                color: Colors.orange,
-              ),
-              title: Text('Crea offerta'),
-              subtitle: Text('Aggiungi una nuovo offerta invitante'),
-              trailing: Icon(
-                Icons.arrow_right_alt,
-                color: Colors.red,
-              ),
-              isThreeLine: false),
+            leading: Icon(
+              Icons.discount_outlined,
+              color: Colors.orange,
+            ),
+            title: Text('Crea offerta'),
+            subtitle: Text('Aggiungi una nuovo offerta invitante'),
+            trailing: Icon(
+              Icons.arrow_right_alt,
+              color: Colors.red,
+            ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AddOffer(),
+                ),
+              );
+            },
+          ),
         ),
         Card(
           child: ListTile(
-              leading: Icon(
-                Icons.euro,
-                color: Colors.orange,
-              ),
-              title: Text('Visualizza rendimento'),
-              subtitle:
-                  Text('Visualizza incassi e rendimenti degli ultimi mesi'),
-              trailing: Icon(
-                Icons.arrow_right_alt,
-                color: Colors.red,
-              ),
-              isThreeLine: false),
+            leading: Icon(
+              Icons.euro,
+              color: Colors.orange,
+            ),
+            title: Text('Visualizza rendimento'),
+            subtitle: Text('Visualizza incassi e rendimenti degli ultimi mesi'),
+            trailing: Icon(
+              Icons.arrow_right_alt,
+              color: Colors.red,
+            ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ViewEfficiency(),
+                ),
+              );
+            },
+          ),
         ),
         Card(
           child: ListTile(
-              leading: Icon(
-                Icons.query_stats_outlined,
-                color: Colors.orange,
-              ),
-              title: Text('Visualizza statistiche'),
-              subtitle: Text('Visualizza le statistiche più interessanti'),
-              trailing: Icon(
-                Icons.arrow_right_alt,
-                color: Colors.red,
-              ),
-              isThreeLine: false),
+            leading: Icon(
+              Icons.query_stats_outlined,
+              color: Colors.orange,
+            ),
+            title: Text('Visualizza statistiche'),
+            subtitle: Text('Visualizza le statistiche più interessanti'),
+            trailing: Icon(
+              Icons.arrow_right_alt,
+              color: Colors.red,
+            ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ViewStats(),
+                ),
+              );
+            },
+          ),
         ),
         Card(
           child: ListTile(
-              leading: Icon(
-                Icons.person_outlined,
-                color: Colors.orange,
-              ),
-              title: Text('Profilo'),
-              subtitle: Text('Modifica la tua password e le tue informazioni'),
-              trailing: Icon(
-                Icons.arrow_right_alt,
-                color: Colors.red,
-              ),
-              isThreeLine: false),
+            leading: Icon(
+              Icons.person_outlined,
+              color: Colors.orange,
+            ),
+            title: Text('Profilo'),
+            subtitle: Text('Modifica la tua password e le tue informazioni'),
+            trailing: Icon(
+              Icons.arrow_right_alt,
+              color: Colors.red,
+            ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SetProfile(),
+                ),
+              );
+            },
+          ),
         ),
         Card(
           child: ListTile(
-              leading: Icon(
-                Icons.logout_outlined,
-                color: Colors.orange,
-              ),
-              title: Text('Log out'),
-              subtitle: Text('Esci dal tuo profilo per ragioni di sicurezza'),
-              trailing: Icon(
-                Icons.arrow_right_alt,
-                color: Colors.red,
-              ),
-              isThreeLine: false),
+            leading: Icon(
+              Icons.logout_outlined,
+              color: Colors.orange,
+            ),
+            title: Text('Log out'),
+            subtitle: Text('Esci dal tuo profilo per ragioni di sicurezza'),
+            trailing: Icon(
+              Icons.arrow_right_alt,
+              color: Colors.red,
+            ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Login(),
+                ),
+              );
+            },
+          ),
         )
       ],
     );
