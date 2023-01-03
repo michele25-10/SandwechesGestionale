@@ -51,14 +51,6 @@ class LisTileExample extends StatelessWidget {
               Icons.arrow_right_alt,
               color: Colors.red,
             ),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ViewOrder(),
-                ),
-              );
-            },
           ),
         ),
         Card(
@@ -127,6 +119,34 @@ class LisTileExample extends StatelessWidget {
               ),
               title: Text('Visualizza statistiche'),
               subtitle: Text('Visualizza le statistiche più interessanti'),
+              trailing: Icon(
+                Icons.arrow_right_alt,
+                color: Colors.red,
+              ),
+              isThreeLine: false),
+        ),
+        Card(
+          child: ListTile(
+              leading: Icon(
+                Icons.person_outlined,
+                color: Colors.orange,
+              ),
+              title: Text('Profilo'),
+              subtitle: Text('Modifica la tua password e le tue informazioni'),
+              trailing: Icon(
+                Icons.arrow_right_alt,
+                color: Colors.red,
+              ),
+              isThreeLine: false),
+        ),
+        Card(
+          child: ListTile(
+              leading: Icon(
+                Icons.logout_outlined,
+                color: Colors.orange,
+              ),
+              title: Text('Log out'),
+              subtitle: Text('Esci dal tuo profilo per ragioni di sicurezza'),
               trailing: Icon(
                 Icons.arrow_right_alt,
                 color: Colors.red,
