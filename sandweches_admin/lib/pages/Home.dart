@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:sandweches_admin/pages/ViewOrder.dart';
 import 'package:sandweches_admin/pages/AddProduct.dart';
+import 'package:sandweches_admin/pages/AddPickup.dart';
 import 'package:flutter/src/material/list_tile.dart';
 import 'package:flutter/src/widgets/navigator.dart';
 
@@ -86,18 +87,25 @@ class LisTileExample extends StatelessWidget {
         ),
         Card(
           child: ListTile(
-              leading: Icon(
-                Icons.add_location_outlined,
-                color: Colors.orange,
-              ),
-              title: Text('Aggiungi punto vendita'),
-              subtitle:
-                  Text('Aggiungi un nuovo punto di consegna degli ordini'),
-              trailing: Icon(
-                Icons.arrow_right_alt,
-                color: Colors.red,
-              ),
-              isThreeLine: false),
+            leading: Icon(
+              Icons.add_location_outlined,
+              color: Colors.orange,
+            ),
+            title: Text('Aggiungi punto vendita'),
+            subtitle: Text('Aggiungi un nuovo punto di consegna degli ordini'),
+            trailing: Icon(
+              Icons.arrow_right_alt,
+              color: Colors.red,
+            ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AddPickup(),
+                ),
+              );
+            },
+          ),
         ),
         Card(
           child: ListTile(
