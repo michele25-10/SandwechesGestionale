@@ -12,9 +12,9 @@ class myApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Sandwech',
+      title: 'Sandweches',
       theme: ThemeData(
-        primarySwatch: Colors.red, //fabulous
+        primarySwatch: Colors.orange,
       ),
       home: Login(),
       debugShowCheckedModeBanner: false,

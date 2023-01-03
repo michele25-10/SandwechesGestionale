@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
+import 'package:sandweches_admin/pages/Home.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -88,24 +90,33 @@ class _LoginPageState extends State<Login> {
                 height: 20,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Container(
-                  padding: EdgeInsets.all(25),
-                  decoration: BoxDecoration(
-                      color: Colors.orange,
-                      borderRadius: BorderRadius.circular(12)),
-                  child: Center(
-                    child: Text(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: Center(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => (Home())));
+                    },
+                    style: ButtonStyle(
+                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12))),
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.orange),
+                        shadowColor: MaterialStateProperty.all(
+                            Theme.of(context).colorScheme.onSurface),
+                        minimumSize:
+                            MaterialStateProperty.all(const Size(250, 50))),
+                    child: const Text(
                       'Accedi',
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
-                        fontSize: 18,
+                        fontSize: 20,
                       ),
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
