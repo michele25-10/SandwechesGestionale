@@ -13,7 +13,16 @@ class ViewOrder extends StatelessWidget {
         home: Scaffold(
           backgroundColor: Colors.grey[100],
           appBar: AppBar(
-            title: const Text('Home'),
+            leading: IconButton(
+              icon: Icon(Icons.arrow_back, color: Colors.white),
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HomePage(),
+                ),
+              ),
+            ),
+            title: const Text('Ordini'),
             backgroundColor: Colors.orange,
           ),
         ),
