@@ -27,12 +27,22 @@ class ViewStats extends StatelessWidget {
           ),
           body: Center(
               child: Column(children: <Widget>[
+            SizedBox(
+              height: 15,
+            ),
+            Text(
+              'Prodotti più venduti:',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20),
+            ),
             Container(
               margin: EdgeInsets.all(20),
               child: Table(
-                defaultColumnWidth: FixedColumnWidth(120.0),
+                defaultColumnWidth: FixedColumnWidth(100.0),
                 border: TableBorder.all(
-                    color: Colors.black, style: BorderStyle.solid, width: 2),
+                    color: Colors.red, style: BorderStyle.solid, width: 1),
                 children: [
                   TableRow(children: [
                     Column(children: [
@@ -62,6 +72,9 @@ class ViewStats extends StatelessWidget {
                   ]),
                 ],
               ),
+            ),
+            Divider(
+              color: Colors.black,
             ),
           ])),
         ),
