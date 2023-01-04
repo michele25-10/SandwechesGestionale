@@ -28,7 +28,9 @@ class _Home extends State<HomePage> {
             title: const Text('Home'),
             backgroundColor: Colors.orange,
           ),
-          body: const LisTileExample(),
+          body: SingleChildScrollView(
+            child: LisTileExample(),
+          ),
         ),
         debugShowCheckedModeBanner: false);
   }
@@ -221,7 +223,7 @@ class LisTileExample extends StatelessWidget {
               );
             },
           ),
-        )
+        ),
       ],
     );
   }
