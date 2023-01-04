@@ -28,9 +28,7 @@ class _Home extends State<HomePage> {
             title: const Text('Home'),
             backgroundColor: Colors.orange,
           ),
-          body: SingleChildScrollView(
-            child: LisTileExample(),
-          ),
+          body: const LisTileExample(),
         ),
         debugShowCheckedModeBanner: false);
   }
