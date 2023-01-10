@@ -31,14 +31,16 @@ class _Home extends State<HomePage> {
             title: const Text('Home'),
             backgroundColor: Colors.orange,
           ),
-          body: const LisTileExample(),
+          body: LisTileExample(userData: widget.userData),
         ),
         debugShowCheckedModeBanner: false);
   }
 }
 
 class LisTileExample extends StatelessWidget {
-  const LisTileExample({super.key});
+  const LisTileExample({required this.userData});
+
+  final User userData;
 
   @override
   Widget build(BuildContext context) {
@@ -131,7 +133,7 @@ class LisTileExample extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => AddOffer(Widget.userData),
+                  builder: (context) => AddOffer(userData),
                 ),
               );
             },
