@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:sandweches_admin/pages/Home.dart';
+import 'package:sandweches_admin/types/user.dart';
 
-void main() => runApp(const ViewEfficiency());
+class ViewEfficiency extends StatefulWidget {
+  final User userData;
 
-class ViewEfficiency extends StatelessWidget {
-  const ViewEfficiency({super.key});
+  const ViewEfficiency(this.userData, {super.key});
 
+  @override
+  State<ViewEfficiency> createState() => _ViewEfficiency();
+}
+
+class _ViewEfficiency extends State<ViewEfficiency> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,7 +24,7 @@ class ViewEfficiency extends StatelessWidget {
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => HomePage(),
+                  builder: (context) => HomePage(widget.userData),
                 ),
               ),
             ),
