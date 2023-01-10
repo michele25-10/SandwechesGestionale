@@ -198,7 +198,7 @@ class LisTileExample extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Login(userData),
+                  builder: (context) => Login(),
                 ),
               );
             },

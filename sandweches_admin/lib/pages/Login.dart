@@ -6,7 +6,7 @@ import 'package:sandweches_admin/types/user.dart';
 
 class Login extends StatefulWidget {
   final User userData;
-  const Login(this.userData, {super.key});
+  const Login({super.key});
 
   @override
   State<Login> createState() => _LoginPageState();

@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:sandweches_admin/pages/Login.dart';
 import 'package:sandweches_admin/types/user.dart';
 
+void main() {
+  runApp(const myApp());
+}
+
 // ignore: camel_case_types
 class myApp extends StatelessWidget {
-  const myApp({required this.userData});
-
-  final User userData;
+  const myApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,7 @@ class myApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      home: Login(userData),
+      home: Login(),
       debugShowCheckedModeBanner: false,
     );
   }
