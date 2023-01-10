@@ -111,7 +111,7 @@ class LisTileExample extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => AddPickup(),
+                  builder: (context) => AddPickup(userData),
                 ),
               );
             },

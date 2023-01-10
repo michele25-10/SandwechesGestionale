@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:sandweches_admin/pages/Home.dart';
+import 'package:sandweches_admin/types/user.dart';
 
-class AddPickup extends StatelessWidget {
-  const AddPickup({super.key});
+class AddPickup extends StatefulWidget {
+  final User userData;
 
+  const AddPickup(this.userData, {super.key});
+
+  @override
+  State<AddPickup> createState() => _AddPickup();
+}
+
+class _AddPickup extends State<AddPickup> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,7 +24,7 @@ class AddPickup extends StatelessWidget {
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => HomePage(),
+                  builder: (context) => HomePage(this.userData),
                 ),
               ),
             ),
@@ -66,7 +74,8 @@ class AddPickup extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => (HomePage())));
+                                    builder: (context) =>
+                                        (HomePage(this.userData))));
                           },
                           style: ButtonStyle(
                               shape: MaterialStateProperty.all(

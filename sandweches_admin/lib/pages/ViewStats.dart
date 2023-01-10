@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:sandweches_admin/pages/Home.dart';
 
-void main() => runApp(const ViewStats());
-
 class ViewStats extends StatelessWidget {
   const ViewStats({super.key});
 
