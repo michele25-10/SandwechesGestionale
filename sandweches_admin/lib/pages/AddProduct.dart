@@ -2,12 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';
 import 'package:sandweches_admin/pages/Home.dart';
+import 'package:sandweches_admin/types/user.dart';
 
-void main() => runApp(const AddProduct());
+class AddProduct extends StatefulWidget {
+  final User userData;
 
-class AddProduct extends StatelessWidget {
-  const AddProduct({super.key});
+  const AddProduct(this.userData, {super.key});
 
+  @override
+  State<AddProduct> createState() => _AddProduct();
+}
+
+class _AddProduct extends State<AddProduct> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,7 +25,7 @@ class AddProduct extends StatelessWidget {
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => HomePage(),
+                  builder: (context) => HomePage(widget.userData),
                 ),
               ),
             ),
@@ -385,7 +391,8 @@ class AddProduct extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => (HomePage())));
+                                        builder: (context) =>
+                                            (HomePage(widget.userData))));
                               },
                               style: ButtonStyle(
                                   shape: MaterialStateProperty.all(

@@ -89,7 +89,7 @@ class LisTileExample extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => AddProduct(),
+                  builder: (context) => AddProduct(userData),
                 ),
               );
             },
