@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:sandweches_admin/pages/Home.dart';
+import 'package:sandweches_admin/types/user.dart';
 
-void main() => runApp(const SetProfile());
+class SetProfile extends StatefulWidget {
+  final User userData;
 
-class SetProfile extends StatelessWidget {
-  const SetProfile({super.key});
+  const SetProfile(this.userData, {super.key});
 
+  @override
+  State<SetProfile> createState() => _SetProfile();
+}
+
+class _SetProfile extends State<SetProfile> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,7 +24,7 @@ class SetProfile extends StatelessWidget {
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => HomePage(),
+                  builder: (context) => HomePage(widget.userData),
                 ),
               ),
             ),
@@ -108,7 +114,8 @@ class SetProfile extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => (HomePage())));
+                                  builder: (context) =>
+                                      (HomePage(widget.userData))));
                         },
                         style: ButtonStyle(
                             shape: MaterialStateProperty.all(
