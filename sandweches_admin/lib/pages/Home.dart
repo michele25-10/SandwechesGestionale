@@ -66,7 +66,7 @@ class LisTileExample extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => ViewOrder(),
+                  builder: (context) => ViewOrder(userData),
                 ),
               );
             },
@@ -198,7 +198,7 @@ class LisTileExample extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Login(),
+                  builder: (context) => Login(userData),
                 ),
               );
             },

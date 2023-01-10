@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:sandweches_admin/pages/Home.dart';
 import 'package:flutter/services.dart';
@@ -54,7 +56,7 @@ class _AddOffer extends State<AddOffer> {
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => HomePage(user),
+                  builder: (context) => HomePage(widget.userData),
                 ),
               ),
             ),
@@ -195,7 +197,8 @@ class _AddOffer extends State<AddOffer> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => (HomePage())));
+                                        builder: (context) =>
+                                            (HomePage(widget.userData))));
                               },
                               style: ButtonStyle(
                                   shape: MaterialStateProperty.all(

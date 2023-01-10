@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:sandweches_admin/pages/Home.dart';
 import 'package:sandweches_admin/utils/login_controller.dart';
+import 'package:sandweches_admin/types/user.dart';
 
 class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
+  final User userData;
+  const Login(this.userData, {super.key});
 
   @override
   State<Login> createState() => _LoginPageState();
@@ -101,7 +103,8 @@ class _LoginPageState extends State<Login> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => (HomePage())));
+                              builder: (context) =>
+                                  (HomePage(widget.userData))));
                     },
                     style: ButtonStyle(
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
