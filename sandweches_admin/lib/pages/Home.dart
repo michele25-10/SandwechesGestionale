@@ -9,7 +9,6 @@ import 'package:sandweches_admin/pages/AddProduct.dart';
 import 'package:sandweches_admin/pages/AddPickup.dart';
 import 'package:flutter/src/material/list_tile.dart';
 import 'package:flutter/src/widgets/navigator.dart';
-import 'package:sandweches_admin/pages/ViewStats.dart';
 import 'package:sandweches_admin/types/user.dart';
 
 class HomePage extends StatefulWidget {
@@ -155,29 +154,7 @@ class LisTileExample extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => ViewEfficiency(),
-                ),
-              );
-            },
-          ),
-        ),
-        Card(
-          child: ListTile(
-            leading: Icon(
-              Icons.query_stats_outlined,
-              color: Colors.orange,
-            ),
-            title: Text('Visualizza statistiche'),
-            subtitle: Text('Visualizza le statistiche più interessanti'),
-            trailing: Icon(
-              Icons.arrow_right_alt,
-              color: Colors.red,
-            ),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ViewStats(),
+                  builder: (context) => ViewEfficiency(userData),
                 ),
               );
             },
@@ -199,7 +176,7 @@ class LisTileExample extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => SetProfile(),
+                  builder: (context) => SetProfile(userData),
                 ),
               );
             },
