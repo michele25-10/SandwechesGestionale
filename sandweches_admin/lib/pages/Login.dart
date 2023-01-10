@@ -56,6 +56,7 @@ class _LoginPageState extends State<Login> {
                         border: InputBorder.none,
                         hintText: 'Email',
                       ),
+                      controller: signInController.emailController,
                     ),
                   ),
                 ),
@@ -79,8 +80,10 @@ class _LoginPageState extends State<Login> {
                       obscureText: true,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        hintText: 'Password',
+                        hintText: signInController.passwordHintText[
+                            signInController.isShowPassword.value],
                       ),
+                      controller: signInController.passwordController,
                     ),
                   ),
                 ),

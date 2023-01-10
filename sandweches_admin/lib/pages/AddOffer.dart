@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:sandweches_admin/pages/Home.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
+import 'package:sandweches_admin/types/user.dart';
 
 class AddOffer extends StatefulWidget {
+  final User userData;
+
+  const AddOffer(this.userData, {super.key});
+
   @override
-  State<StatefulWidget> createState() {
-    return _AddOffer();
-  }
+  State<AddOffer> createState() => _AddOffer();
 }
 
 class _AddOffer extends State<AddOffer> {
@@ -51,7 +54,7 @@ class _AddOffer extends State<AddOffer> {
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => HomePage(),
+                  builder: (context) => HomePage(user),
                 ),
               ),
             ),
