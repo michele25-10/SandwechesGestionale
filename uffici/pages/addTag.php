@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include_once dirname(__FILE__) . '/../function/addPickupPost.php';
+include_once dirname(__FILE__) . '/../function/add.php';
 
 $err = "";
 

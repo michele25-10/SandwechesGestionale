@@ -1,17 +1,17 @@
 <?php
 session_start();
 
-include_once dirname(__FILE__) . '/../function/addPickupPost.php';
+include_once dirname(__FILE__) . '/../function/add.php';
 
 $err = "";
 
 //stringa di identificazione del server, quando premi button il metodo diventa post 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
       $data = $_POST['name']; 
+      
       if(addPickup($data) == -1){
-      $err = "Errore di inseri  mento"; 
-      echo $err;
-      } 
+    $err = "Errore dell'API"; 
+      }  
     
 }
 ?>
