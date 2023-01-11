@@ -41,10 +41,14 @@ class PickUp
         return $stmt->execute();*/
     }
 
-    public function addNewPickup($name){ 
-        $sql = $this->conn->prepare("INSERT INTO pickup (name)
-                                    VALUES (?)");
-        $sql->bind_param("s", $name);
-        return $sql->execute(); 
+    public function addPickup($name){ 
+
+        $sql = sprintf("INSERT INTO pickup (name)
+        VALUES('%s');",
+        $this->conn->real_escape_string($name));
+
+        $result = $this->conn->query($sql);
+
+        return $result;
     }
 }
