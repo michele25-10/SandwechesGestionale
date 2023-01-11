@@ -12,9 +12,9 @@
   <body>
 
     <div class="container-fluid">
-        <form method="post" action="/../food-api/API/user/login.php">
+        <form method="post" action="/webApp_sandweches/food-api/API/user/login.php">
             <h1>Login</h1>
-            <input type="text" id="username" placeholder="Username" name="username" maxlength="50" required>
+            <input type="text" id="username" placeholder="Email" name="email" maxlength="50" required>
             <input type="password" id="password" placeholder="Password" name="password" required>
             <button type="submit" name="register">Invia</button>
         </form>
