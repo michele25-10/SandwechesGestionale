@@ -3,7 +3,6 @@ session_start();
 
 include_once dirname(__FILE__) . '/function/login.php';
 
-$err = "";
 $loginErr = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -17,10 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     {
       $loginErr = "Email o password errata";
     }
-  }
-  else
-  {
-    $err = "Campo richiesto";
   }
 }
 ?>
