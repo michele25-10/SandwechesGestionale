@@ -40,4 +40,11 @@ class PickUp
 
         return $stmt->execute();*/
     }
+
+    public function addNewPickup($name){
+        $sql = "INSERT INTO pickup(name)
+                VALUES $name";
+
+        return this->conn->query($sql); 
+    }
 }

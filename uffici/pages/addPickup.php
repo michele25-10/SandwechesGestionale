@@ -29,7 +29,7 @@ if($_SERVER == 'POST'){
 
     <div class="container-fluid">
         <form method="post">
-            <h1>Login</h1>
+            <h1>Aggiungi punto di consegna</h1>
             <input type="" id="name" placeholder="Nome nuovo punto consegna" name="name" maxlength="50" required>
             <button type="submit" name="login">Invia</button>
         </form>
