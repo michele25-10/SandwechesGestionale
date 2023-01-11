@@ -5,14 +5,14 @@ include_once dirname(__FILE__) . '/../function/addPickupPost.php';
 
 $err = "";
 
-$_SERVER['REQUEST_METHOD'];      //stringa di identificazione del server, quando premi button il metodo diventa post
-
-if($_SERVER == 'POST'){
-    if(!empty($_POST['name'])){
-        $data = $_POST['name'];
-
-      addPickup($data); 
-    }
+//stringa di identificazione del server, quando premi button il metodo diventa post 
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+      $data = $_POST['name']; 
+      if(addPickup($data) == -1){
+      $err = "Errore di inseri  mento"; 
+      echo $err;
+      } 
+    
 }
 ?>
 
