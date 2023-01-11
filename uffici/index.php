@@ -10,14 +10,14 @@ session_start();
     <title>Sandwech</title>
   </head>
   <body>
+
     <div class="container-fluid">
-        <form method="post" action="/php/register.php">
+        <form method="post" action="/../food-api/API/user/login.php">
             <h1>Login</h1>
             <input type="text" id="username" placeholder="Username" name="username" maxlength="50" required>
             <input type="password" id="password" placeholder="Password" name="password" required>
             <button type="submit" name="register">Invia</button>
         </form>
-
     </div>
   </body>
 </html>
