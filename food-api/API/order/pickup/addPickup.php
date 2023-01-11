@@ -18,4 +18,9 @@ $db = $database->connect();
 $pickup = new PickUp($db);
 
 $stmt = $pickup->addNewPickup($data);
+if($stmt==true){
+    echo("Corretto");
+}else{
+    echo ("Sbagliato");
+}
 ?>

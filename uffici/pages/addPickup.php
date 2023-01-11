@@ -10,10 +10,8 @@ $_SERVER['REQUEST_METHOD'];      //stringa di identificazione del server, quando
 if($_SERVER == 'POST'){
     if(!empty($_POST['name'])){
         $data = $_POST['name'];
-        
-        if(addPickup($data) == -1){
-            $err = "Errore, spiacenti non siamo stati in grado di aggiungere un nuovo punto consegna";
-        }
+
+      addPickup($data); 
     }
 }
 ?>
