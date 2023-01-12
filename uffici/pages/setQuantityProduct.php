@@ -11,7 +11,11 @@ $err = "";
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
       $data = array(
         "name" => $_POST['name'],
-        "quantity" => $_POST['quantity']
+        "price" => $_POST['price'],
+        "description" => $_POST['description'], 
+        "quantity" => $_POST['quantity'],
+        "nutritional_value" => $_POST['nutritional_value'],
+        "active" => $_POST['active'], 
         ); 
         
       if(setQuantityProduct($data) == -1){
@@ -33,8 +37,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         <form method="post">
             <h1>Inserisci quantita del prodotto</h1>
             <input type="" id="name" placeholder="Nome del prodotto" name="name" maxlength="50" required>
-            <input type="" id="name" placeholder="Quantità" name="quantity" maxlength="50" required>     
-            <button type="submit" name="login">Invia</button>
+            <input type="" id="name" placeholder="Prezzo" name="price" maxlength="50" required>
+            <input type="" id="name" placeholder="descrizione" name="description" maxlength="50" required>
+            <input type="" id="quantity" placeholder="Quantità" name="quantity" maxlength="50" required>    
+            <input type="" id="name" placeholder="Id prodotti nutrizionali" name="nutritional_value" maxlength="50" required> 
+            <input type="" id="name" placeholder="Attivo" name="active" maxlength="50" required>
+            <button type="submit" name="addProduct">Invia</button>
         </form>
     </div>
   </body>
