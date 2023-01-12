@@ -5,14 +5,12 @@ include_once dirname(__FILE__) . '/../function/add.php';
 
 $err = "";
 
-$_SERVER['REQUEST_METHOD'];      //stringa di identificazione del server, quando premi button il metodo diventa post
-
-if($_SERVER == 'POST'){
-    if(!empty($_POST['name'])){
-        $data = $_POST['name'];
-
-      addTag($data); 
-    }
+//stringa di identificazione del server, quando premi button il metodo diventa post
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  if (!empty($_POST['name'])) {
+    $data = $_POST['name'];
+    addTag($data);
+  }
 }
 ?>
 

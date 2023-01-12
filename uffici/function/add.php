@@ -26,12 +26,7 @@ function addPickup($data)
 
     $response = json_decode($responseJson);
 
-    if($response->response == false){
-        echo("OK la funzione è stata eseguita"); 
-    }
-    else{
-        return -1; 
-    }
+    return $response; 
 }
 
 function addTag($data)
@@ -60,12 +55,7 @@ function addTag($data)
 
     $response = json_decode($responseJson);
 
-    if($response->response == false){
-        echo("OK la funzione è stata eseguita"); 
-    }
-    else{
-        return -1; 
-    }
+    return $response; 
 }
 
 ?>
