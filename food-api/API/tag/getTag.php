@@ -21,6 +21,8 @@ $db_connection = $database->connect();
 
 $_tag = new Tag($db_connection);
 
+header("Content-type: application/json; charset=UTF-8");
+
 /*
  * Verifico se nell'URL esiste una delle due proprietà "tag_ID" o "tag_name" ed eventualmente
  * richiamo dal modello il metodo che esegue la query al database più adatta.
@@ -71,14 +73,12 @@ function httpResponse($code)
             break;
         case 201:
             http_response_code(201);
-            echo json_encode(array("Message" => "Created"));
             break;
         case 400:
             http_response_code(400);
-            die(json_encode(array("Message" => "Bad request")));
+            die();
         case 503:
             http_response_code(503);
-            echo json_encode(array("Message" => 'Error'));
             break;
 
     }

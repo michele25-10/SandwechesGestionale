@@ -8,18 +8,17 @@ function deleteTag($data){
     echo $json_data; 
 
     $decode_data = json_decode($json_data);
-
+    
     $tag_data = $decode_data;
-    $tag=array();
+
     foreach ($tag_data as $tag) {
-      $tag_record= array(
-        'id' => $tag["id"],
-        'name' => $tag["name"],
+      $tag_record = array(
+        'id' => $tag['id'],
+        'name' => $tag['name'],
     );
-  array_push($tag,$tag_record);
+        echo $tag_record['name']; 
   }
-  
-  echo $tag_record;
+
 }
 
 ?>
