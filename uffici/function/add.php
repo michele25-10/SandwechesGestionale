@@ -2,7 +2,7 @@
 
 function addPickup($data)
 {
-    $url = 'http://localhost/WebApp_sandweches/food-api/API/order/pickup/addPickup.php';
+    $url = 'http://localhost/webApp_sandweches/food-api/API/order/pickup/addPickup.php';
 
     $curl = curl_init($url); //inizializza una nuova sessione di cUrl
     //Curl contiene il return del curl_init 
@@ -16,9 +16,9 @@ function addPickup($data)
         "Content-Lenght: 0",
     );
 
-    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers); // setta gli headers della request
+    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers); // setta gli headers della request 
 
-    curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
+    curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode(array("name" => "$data")));
 
     $responseJson = curl_exec($curl);
 
@@ -27,7 +27,7 @@ function addPickup($data)
     $response = json_decode($responseJson);
 
     if($response->response == false){
-        header('Location: addPickup.php');
+        echo("OK la funzione è stata eseguita"); 
     }
     else{
         return -1; 
