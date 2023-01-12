@@ -11,14 +11,9 @@ function deleteTag($data){
     
     $tag_data = $decode_data;
 
-    foreach ($tag_data as $tag) {
-      $tag_record = array(
-        'id' => $tag['id'],
-        'name' => $tag['name'],
-    );
-        echo $tag_record['name']; 
-  }
+    $id = $tag_data[0]->id;
 
+  echo $id; 
 }
 
 ?>
