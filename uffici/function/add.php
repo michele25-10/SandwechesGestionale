@@ -36,7 +36,7 @@ function addPickup($data)
 
 function addTag($data)
 {
-    $url = 'http://localhost/WebApp_sandweches/food-api/API/order/pickup/addPickup.php';
+    $url = 'http://localhost/WebApp_sandweches/food-api/API/tag/createTag.php';
 
     $curl = curl_init($url); //inizializza una nuova sessione di cUrl
     //Curl contiene il return del curl_init 
@@ -52,11 +52,20 @@ function addTag($data)
 
     curl_setopt($curl, CURLOPT_HTTPHEADER, $headers); // setta gli headers della request
 
-    curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
+    curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode(array("tag_name" => "$data")));
 
-    curl_exec($curl);
+    $responseJson = curl_exec($curl);
 
     curl_close($curl);
+
+    $response = json_decode($responseJson);
+
+    if($response->response == false){
+        echo("OK la funzione è stata eseguita"); 
+    }
+    else{
+        return -1; 
+    }
 }
 
 ?>
