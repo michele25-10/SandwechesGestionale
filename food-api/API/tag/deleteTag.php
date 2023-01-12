@@ -20,6 +20,7 @@ $database = new Database();
 $db_connection = $database->connect();
 
 $data = json_decode(file_get_contents("php://input"));
+ 
 
 if (!empty($data)) {
     $_tag = new Tag($db_connection);

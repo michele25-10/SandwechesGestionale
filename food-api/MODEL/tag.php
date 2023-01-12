@@ -54,7 +54,8 @@ class Tag
 
     public function deleteTag($tag_id)
     {
-        $query = "DELETE FROM $this->table_name WHERE id=$tag_id";
+        $query = "DELETE FROM $this->table_name WHERE id='$tag_id'";
+
         $stmt = $this->conn->query($query);
         return $stmt;
     }
