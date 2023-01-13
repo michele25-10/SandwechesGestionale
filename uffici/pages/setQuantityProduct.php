@@ -17,6 +17,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         "nutritional_value" => $_POST['nutritional_value'],
         "active" => $_POST['active'], 
         ); 
+
+        var_dump($data); 
         
       if(setQuantityProduct($data) == -1){
             $err = "Errore dell'API"; 

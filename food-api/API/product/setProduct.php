@@ -4,6 +4,7 @@ require("../../MODEL/product.php");
 
 if (isset($_GET["name"]))
     $name = $_GET["name"];
+    echo("ok"); 
 
 if (isset($_GET["price"]))
     $price = $_GET["price"];
@@ -20,6 +21,8 @@ if (isset($_GET["nutritional_value"]))
     
 if (isset($_GET["active"]))
 $active = $_GET["active"];
+
+
 
 $database = new Database();
 $db_connection = $database->connect();
