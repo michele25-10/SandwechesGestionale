@@ -109,7 +109,7 @@ class ProductController extends BaseController
                 ('$name', '$price', '$description', '$quantity', '$nutritional_value', '$active');";
 
 
-                $this->conn->query($sql);
+        $this->conn->query($sql);
         ($this->conn->query($sql));
         $this->CheckProduct();
     }
@@ -139,6 +139,7 @@ class ProductController extends BaseController
     }
 
     public function getArchiveProductsLike($name) // mostra i panini che hanno un nome simile a quello passato
+
     {
         $formattedName = str_replace("+", " ", $name);
         $sql = "SELECT distinct p.id as 'ID',p.name as 'Nome prodotto', p.price as 'Prezzo', t.id as 'Tag'
@@ -164,5 +165,44 @@ class ProductController extends BaseController
 
         $result = $this->conn->query($sql);
         $this->SendOutput($result, JSON_OK);
+    }
+    public function setProductQuantity($id, $value)
+    {
+        $sql = sprintf("UPDATE product
+        SET quantity = %d
+        WHERE id = %d",
+            $this->conn->real_escape_string($value),
+            $this->conn->real_escape_string($id)
+        );
+        $result = $this->conn->query($sql);
+        if ($result == 1) {
+            //echo json_encode("Well done");
+        }
+    }
+    public function addProductQuantity($id, $value)
+    {
+        $sql = sprintf("UPDATE product
+        SET quantity = quantity + %d
+        WHERE id = %d",
+            $this->conn->real_escape_string($value),
+            $this->conn->real_escape_string($id)
+        );
+        $result = $this->conn->query($sql);
+        if ($result == 1) {
+            //echo json_encode("Well done");
+        }
+    }
+    public function removeProductQuantity($id, $value)
+    {
+        $sql = sprintf("UPDATE product
+        SET quantity = quantity - %d
+        WHERE id = %d",
+            $this->conn->real_escape_string($value),
+            $this->conn->real_escape_string($id)
+        );
+        $result = $this->conn->query($sql);
+        if ($result == 1) {
+            //echo json_encode("Well done");
+        }
     }
 }
