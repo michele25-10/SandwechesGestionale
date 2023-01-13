@@ -3,7 +3,7 @@
 function login($data)
     {
        // $url = 'http://localhost:8080/Progetto-Panini/food-api/API/user/login.php';
-        $url = 'http://localhost/webApp_sandweches-main/food-api/API/user/login.php';
+        $url = 'http://localhost/webApp_sandweches/food-api/API/user/login.php';
 
         $curl = curl_init($url);    //inizializza una nuova sessione di cUrl
         //Curl contiene il return del curl_init 
