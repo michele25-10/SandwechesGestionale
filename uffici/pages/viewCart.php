@@ -3,10 +3,15 @@ session_start();
 
 include_once dirname(__FILE__) . '/../function/cart.php';
 
-$data = 1;
-      viewCart($data);   
-  
-  ?>
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  if (!empty($_POST['id'])) {
+    $data = $_POST['id'];
+
+    viewCart($data);   
+  }
+}
+ 
+?>
 
 <!doctype html>
 <html lang="en">
@@ -19,13 +24,12 @@ $data = 1;
 
     <div class="container-fluid">
         <form method="post">
-            <p>
-                <?php
-                    
-                    
-
-                ?>
-            </p>
+            <form method="post">
+              <h1>Id carrello da visualizzare</h1>
+              <input type="" id="name" placeholder="id" name="id" maxlength="50" required>
+              <button type="submit" name="user">Invia</button>
+            </form>
+            
         </form>
     </div>
   </body>

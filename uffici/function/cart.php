@@ -1,7 +1,7 @@
 <?php
 function viewCart($data){
 
-    $url = 'http://localhost/WebApp_sandweches/food-api/API/order/getCart.php?user=' . $data;
+    $url = 'http://localhost/WebApp_sandweches/food-api/API/cart/getCart.php?user=' . $data;
     
     $json_data = file_get_contents($url);
 
