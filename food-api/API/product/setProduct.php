@@ -2,9 +2,11 @@
 require("../../COMMON/connect.php");
 require("../../MODEL/product.php");
 
+echo("Sono arrivato fino a qua"); 
+
 if (isset($_GET["name"]))
     $name = $_GET["name"];
-    echo("ok"); 
+
 
 if (isset($_GET["price"]))
     $price = $_GET["price"];
@@ -20,7 +22,7 @@ if (isset($_GET["nutritional_value"]))
 
     
 if (isset($_GET["active"]))
-$active = $_GET["active"];
+    $active = $_GET["active"];
 
 
 
