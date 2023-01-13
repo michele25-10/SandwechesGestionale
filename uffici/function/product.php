@@ -30,6 +30,18 @@ function setQuantityProduct($data){
     echo $json_data; 
 }
 
+function getFavouriteProduct($data){
+
+    $url = "http://localhost/webApp_sandweches/food-api/API/user/favourite/getArchiveFavourite.php?id=" . $data; 
+
+    $json_data = file_get_contents($url);
+
+    $decode_data = json_decode($json_data);
+
+    echo $json_data; 
+
+}
+
 
 
 ?>
