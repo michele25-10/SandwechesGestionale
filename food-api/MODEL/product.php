@@ -108,10 +108,9 @@ class ProductController extends BaseController
                 values
                 ('$name', '$price', '$description', '$quantity', '$nutritional_value', '$active');";
 
-        echo ("\n".$sql); 
 
                 $this->conn->query($sql);
-        var_dump($this->conn->query($sql));
+        ($this->conn->query($sql));
         $this->CheckProduct();
     }
 

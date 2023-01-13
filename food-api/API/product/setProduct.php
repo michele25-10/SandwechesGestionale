@@ -2,7 +2,6 @@
 require("../../COMMON/connect.php");
 require("../../MODEL/product.php");
 
-echo("Sono arrivato fino a qua"); 
 
 if (isset($_GET["name"]))
     $name = $_GET["name"];
