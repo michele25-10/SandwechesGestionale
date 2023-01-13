@@ -1,4 +1,5 @@
 <?php
+use LDAP\Result;
 require("base.php");
 class ProductController extends BaseController
 {
@@ -175,6 +176,9 @@ class ProductController extends BaseController
             $this->conn->real_escape_string($id)
         );
         $result = $this->conn->query($sql);
+
+        echo $result; 
+
         if ($result == 1) {
             //echo json_encode("Well done");
         }
