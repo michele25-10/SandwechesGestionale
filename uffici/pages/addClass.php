@@ -7,11 +7,13 @@ $err = "";
 
 //stringa di identificazione del server, quando premi button il metodo diventa post 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-      $data = $_POST['name']; 
+      $data = array(
+      "year"  => $_POST ['year'],
+      "section" => $_POST['section'],
+      );
+
       
-      if(addPickup($data) == -1){
-    $err = "Errore dell'API"; 
-      }  
+      addClass($data); 
     
 }
 ?>
@@ -27,8 +29,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     <div class="container-fluid">
         <form method="post">
-            <h1>Aggiungi punto di consegna</h1>
-            <input type="" id="name" placeholder="Nome nuovo punto consegna" name="name" maxlength="50" required>
+            <h1>Inserisci dati della classe da creare</h1>
+            <input type="" id="year" placeholder="anno" name="year" maxlength="10" required>
+            <input type="" id="section" placeholder="sezione" name="section" maxlength="10" required>
             <button type="submit" name="login">Invia</button>
         </form>
     </div>
