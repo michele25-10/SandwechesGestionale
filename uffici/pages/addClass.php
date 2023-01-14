@@ -1,3 +1,24 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sandwech</title>
+  </head>
+  <body>
+
+    <div class="container-fluid">
+        <form method="post">
+            <h1>Inserisci dati della classe da creare</h1>
+            <input type="" id="year" placeholder="anno" name="year" maxlength="10" required>
+            <input type="" id="section" placeholder="sezione" name="section" maxlength="10" required>
+            <button type="submit" name="login">Invia</button>
+        </form>
+    </div>
+  </body>
+</html>
+
 <?php
 session_start();
 
@@ -19,23 +40,3 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
       }
 }
 ?>
-
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sandwech</title>
-  </head>
-  <body>
-
-    <div class="container-fluid">
-        <form method="post">
-            <h1>Inserisci dati della classe da creare</h1>
-            <input type="" id="year" placeholder="anno" name="year" maxlength="10" required>
-            <input type="" id="section" placeholder="sezione" name="section" maxlength="10" required>
-            <button type="submit" name="login">Invia</button>
-        </form>
-    </div>
-  </body>
-</html>
