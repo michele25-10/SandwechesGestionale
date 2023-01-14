@@ -34,6 +34,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $data = $_POST['id'];
 
     $cart_arr = viewCart($data);  
+
+    if(!empty($cart_arr)){
       //trasforma un array di array in una tabella
       echo('<table>');
       foreach($cart_arr as $row) {
@@ -46,6 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           echo("</tr>\n");
       }
       echo('</table>');
+    }
   } 
   }
  
