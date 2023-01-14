@@ -177,11 +177,7 @@ class ProductController extends BaseController
         );
         $result = $this->conn->query($sql);
 
-        echo $result; 
-
-        if ($result == 1) {
-            //echo json_encode("Well done");
-        }
+        return $result; 
     }
     public function addProductQuantity($id, $value)
     {
@@ -192,9 +188,8 @@ class ProductController extends BaseController
             $this->conn->real_escape_string($id)
         );
         $result = $this->conn->query($sql);
-        if ($result == 1) {
-            //echo json_encode("Well done");
-        }
+
+        return $result; 
     }
     public function removeProductQuantity($id, $value)
     {
@@ -205,8 +200,7 @@ class ProductController extends BaseController
             $this->conn->real_escape_string($id)
         );
         $result = $this->conn->query($sql);
-        if ($result == 1) {
-            //echo json_encode("Well done");
-        }
+
+        return $result; 
     }
 }

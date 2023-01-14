@@ -30,11 +30,8 @@ include_once dirname(__FILE__) . '/../function/getOrder.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (!empty($_POST['id'])) {
-    $data = $_POST['id'];
-
-
+    $data = $_POST['id']; 
   
-
     if(!empty($order_arr)){
       $order_arr = viewOrder(); 
       echo('<table>');

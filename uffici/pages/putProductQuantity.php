@@ -1,24 +1,3 @@
-<?php
-session_start();
-
-include_once dirname(__FILE__) . '/../function/product.php';
-
-$err = "";
-
-//stringa di identificazione del server, quando premi button il metodo diventa post
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-    $data = array(
-        "ID"=>$_POST['product'],
-        "quantity"=>$_POST['quantity'], 
-        "action"=>"set", 
-    );
-
-    putProductQuantity($data);
-
-}
-?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -35,6 +14,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="" id="name" placeholder="Quantità totale" name="quantity" maxlength="50" required>
             <button type="submit" name="user">Invia</button>
         </form>
-    </div>
+
+<?php
+session_start();
+
+include_once dirname(__FILE__) . '/../function/product.php';
+
+$err = "";
+
+//stringa di identificazione del server, quando premi button il metodo diventa post
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    $data = array(
+        "ID"=>$_POST['product'],
+        "quantity"=>$_POST['quantity'], 
+        "action"=>"set", 
+    );
+
+    $response = putProductQuantity($data);
+    if(!empty($response->Message)){
+    echo ('<p>' . $response->Message . '</p>'); 
+    }
+}
+?>
+
+      </div>
   </body>
 </html>

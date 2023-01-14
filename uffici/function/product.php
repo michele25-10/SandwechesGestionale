@@ -97,7 +97,7 @@ function setOffer($data){
 
 }
 
-function putProductQuantity($dati){
+function putProductQuantity($data){
 
     $url = 'http://localhost/webApp_sandweches/food-api/API/product/putProductQuantity.php';
 
@@ -115,19 +115,11 @@ function putProductQuantity($dati){
 
     curl_setopt($curl, CURLOPT_HTTPHEADER, $headers); // setta gli headers della request
 
-    $dati = json_encode($dati); 
-
-    $data = array(
-        "products" => $dati, 
-    );
-
     $data = json_encode($data);
 
     curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
     $responseJson = curl_exec($curl);
-
-    echo $responseJson; 
 
     curl_close($curl);
 

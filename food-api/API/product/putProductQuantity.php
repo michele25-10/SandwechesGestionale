@@ -9,7 +9,7 @@ require __DIR__ . '/../../MODEL/product.php';
 $data = json_decode(file_get_contents("php://input"));
 
 if(empty($data)){
-    echo json_encode(["message" => "Bad Request"]);
+    echo json_encode(["Message" => "Bad Request"]);
 }
 
 $db = new Database();
@@ -27,24 +27,24 @@ $product = new ProductController($db_conn);
 }
 */
 
-//  var_dump(json_decode(json_encode($data), true));
-//var_dump((array)json_decode($data));
-
-//foreach(json_decode($data->products, true) as $single_mod){
-    //var_dump($single_mod);
-    $order = array($data->products);
-    var_dump(json_decode($order[0]));
-    switchjson_decode($order[0])['action']){
+    switch ($data->action){
         case "set":
-            $product->setProductQuantity($order['ID'], $order->quantity);
+            $response = $product->setProductQuantity($data->ID, $data->quantity);
             break;
         case "add":
-            $product->addProductQuantity($order['ID'], $order['quantity']);
+            $response = $product->addProductQuantity($data->ID, $data->quantity);
             break;
         case "remove":
-            $product->removeProductQuantity($order['ID'], $order['quantity']);
+            $response = $product->removeProductQuantity($data->ID, $data->quantity);
             break;
     }
-//}
-die();
+
+if($response == 1){
+    http_response_code(201);
+    die(json_encode(array("Message"=> "Well Done")));
+}else{
+    http_response_code(503);
+    die(json_encode(array("Message"=>'Error')));
+}
+ 
 ?>
