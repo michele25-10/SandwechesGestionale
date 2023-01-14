@@ -7,9 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (!empty($_POST['id'])) {
     $data = $_POST['id'];
 
-    $array= viewCart($data);
-
-    var_dump($array); 
+    $cart_arr = viewCart($data);   
   }
 }
  
