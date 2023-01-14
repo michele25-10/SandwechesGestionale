@@ -1,21 +1,4 @@
-<?php
-session_start();
 
-include_once dirname(__FILE__) . '/../function/product.php';
-
-$err = "";
-
-//stringa di identificazione del server, quando premi button il metodo diventa post 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-      $data = array(
-        "product" => $_POST['product'],
-        "offer" => $_POST['offer'],
-        );
-
-    setOffer($data);
-    
-}
-?>
 
 <!doctype html>
 <html lang="en">
@@ -32,6 +15,27 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             <input type="" id="name" placeholder="Id offerta" name="offer" maxlength="50" required>
             <button type="submit" name="addProductOffer">Invia</button>
         </form>
+        <?php
+session_start();
+
+include_once dirname(__FILE__) . '/../function/product.php';
+
+$err = "";
+
+//stringa di identificazione del server, quando premi button il metodo diventa post 
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+      $data = array(
+        "product" => $_POST['product'],
+        "offer" => $_POST['offer'],
+        );
+
+    $response = setOffer($data);
+    if(!empty($response)){
+      echo ('<p>' . $response . '</p>'); 
+    }
+}
+?>
     </div>
   </body>
 </html>
+

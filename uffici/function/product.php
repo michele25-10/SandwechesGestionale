@@ -28,6 +28,8 @@ function setQuantityProduct($data){
     $decode_data = json_decode($json_data);
 
     echo $json_data; 
+
+   
 }
 
 function getFavouriteProduct($data){
@@ -78,8 +80,8 @@ function setOffer($data){
     curl_close($curl);
 
     $response = json_decode($responseJson);
-
-    return $response;
+    
+    return $response->message; 
 
 }
 
