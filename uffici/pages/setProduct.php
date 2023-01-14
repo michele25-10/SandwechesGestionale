@@ -80,7 +80,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         "tag" => $_POST['tag'],
         );
 
-  $prod_arr = setProduct($data); 
+  $prod_arr = setProduct($data);
+
   if(!empty($prod_arr)){
     echo('<table>');
     echo('<tr>'); 
@@ -98,7 +99,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     echo('</table>');
   }
 
-  $allergen_response = setAllergenProduct($data); 
+  $product_id = max($prod_arr);
+
+  $id_max = $product_id['id']; 
+
+  $allergen_response = setAllergenProduct($data, $id_max); 
+
+  if(!empty($allergen_response)){
+    echo ('<p>' . $allergen_response->message . '</p>'); 
+  }
+
+  $tag_res = setTagProduct($data, $id_max); 
+
+  if(!empty($tag_res)){
+    echo ('<p>' . $tag_res->Setting . '</p>'); 
+  }
 }
 ?>
       </div>

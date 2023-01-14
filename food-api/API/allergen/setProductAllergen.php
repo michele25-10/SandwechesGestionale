@@ -22,7 +22,7 @@ $stmt = $productAllergen->setProductAllergen($data->product, $data->allergen);
 if ($stmt > 0)
 {
     http_response_code(200);
-    echo json_encode(["message" => "Association inserted"]);
+    echo json_encode(["message" => "Add Allergen product"]);
 }
 else {
     http_response_code(400);

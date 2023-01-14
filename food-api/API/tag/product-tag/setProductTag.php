@@ -25,10 +25,10 @@ if (!empty($data)) {
     $_product_tag = new ProductTag($db_connection);
     if ($_product_tag->setProductTag($data->product_id, $data->tag_id) > 0) {
         http_response_code(201);
-        echo json_encode(array("Setting" => "Done"));
+        echo json_encode(array("Setting" => "ADD Tag Product"));
     } else {
         http_response_code(503);
-        echo json_encode(array("Setting" => 'Error'));
+        echo json_encode(array("Setting" => 'Error tag'));
     }
 } else {
     http_response_code(400);
