@@ -1,24 +1,3 @@
-<?php
-session_start();
-
-include_once dirname(__FILE__) . '/../function/add.php';
-
-$err = "";
-
-//stringa di identificazione del server, quando premi button il metodo diventa post 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-      $data = array(
-        "price" => $_POST['price'],
-        "start" => $_POST['start'],
-        "expiry" => $_POST['expiry'],
-        "description" => $_POST['description'], 
-        );
-
-    addOffer($data); 
-    
-}
-?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -36,6 +15,31 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             <input type="" id="quantity" placeholder="Descrizione" name="description" maxlength="50" required>    
             <button type="submit" name="addProduct">Invia</button>
         </form>
+
+        <?php
+session_start();
+
+include_once dirname(__FILE__) . '/../function/add.php';
+
+$err = "";
+
+//stringa di identificazione del server, quando premi button il metodo diventa post 
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+      $data = array(
+        "price" => $_POST['price'],
+        "start" => $_POST['start'],
+        "expiry" => $_POST['expiry'],
+        "description" => $_POST['description'], 
+        );
+
+    $response = addOffer($data);
+
+  if (!empty($response)){
+    echo ('<p>' . $response . '</p>'); 
+  }
+
+}
+?>
     </div>
   </body>
 </html>

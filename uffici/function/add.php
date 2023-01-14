@@ -112,6 +112,8 @@ function addOffer($data){
 
     $response = json_decode($responseJson);
 
+    $response = $response->Message; 
+
     return $response;
 }
 function addClass($data){
