@@ -12,7 +12,7 @@ function getProductArchive(){
     $product_data = $decode_data;
 }
 
-function setQuantityProduct($data){
+function setProduct($data){
     $name = $data['name'];
     $price = $data['price'];
     $description = $data['description'];
@@ -25,9 +25,21 @@ function setQuantityProduct($data){
 
     $json_data = file_get_contents($url);
 
-    $decode_data = json_decode($json_data);
+    $decode_data = json_decode($json_data, $assoc = true);
+    $prod_data = $decode_data;
+    $prod_arr = array();
 
-    echo $json_data; 
+    foreach ($prod_data as $prod) {
+        $prod_record = array(
+            'id' => $prod['id'],
+            'name' => $prod['name'],
+            'quantity' => $prod['quantity'],
+            'kcal' => $prod['kcal'],
+        );
+        array_push($prod_arr, $prod_record);
+    }
+
+    return $prod_arr; 
 
    
 }

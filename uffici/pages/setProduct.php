@@ -1,30 +1,3 @@
-<?php
-session_start();
-
-include_once dirname(__FILE__) . '/../function/product.php';
-
-getProductArchive();
-
-$err = "";
-
-//stringa di identificazione del server, quando premi button il metodo diventa post 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-      $data = array(
-        "name" => $_POST['name'],
-        "price" => $_POST['price'],
-        "description" => $_POST['description'], 
-        "quantity" => $_POST['quantity'],
-        "nutritional_value" => $_POST['nutritional_value'],
-        "active" => $_POST['active'], 
-        ); 
-        
-      if(setQuantityProduct($data) == -1){
-            $err = "Errore dell'API"; 
-      }  
-    
-}
-?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -44,6 +17,39 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             <input type="" id="name" placeholder="Attivo" name="active" maxlength="50" required>
             <button type="submit" name="addProduct">Invia</button>
         </form>
-    </div>
-  </body>
+
+<?php
+session_start();
+
+include_once dirname(__FILE__) . '/../function/product.php';
+
+getProductArchive();
+
+$err = "";
+
+//stringa di identificazione del server, quando premi button il metodo diventa post 
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+      $data = array(
+        "name" => $_POST['name'],
+        "price" => $_POST['price'],
+        "description" => $_POST['description'], 
+        "quantity" => $_POST['quantity'],
+        "nutritional_value" => $_POST['nutritional_value'],
+        "active" => $_POST['active'], 
+        );
+
+  $response = setProduct($data); 
+  
+  if(!empty($response)){
+    
+  }
+    
+}
+?>
+
+      </div>
+
+
+
+    </body>
 </html>
