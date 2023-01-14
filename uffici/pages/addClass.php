@@ -12,9 +12,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
       "section" => $_POST['section'],
       );
 
-      
-      addClass($data); 
+      $response = addClass($data); 
     
+      if(!empty($response)){
+    echo ('<p>' . $response . '</p>'); 
+      }
 }
 ?>
 
