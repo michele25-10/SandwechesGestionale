@@ -8,14 +8,13 @@
   <body>
     <div class="container-fluid">
         <form method="post">
-            <h1>Inserisci quantita del prodotto</h1>
+            <h1>Inserisci informazioni prodotto</h1>
             <input type="" id="name" placeholder="Nome del prodotto" name="name" maxlength="50" required>
             <input type="" id="name" placeholder="Prezzo" name="price" maxlength="50" required>
             <input type="" id="name" placeholder="descrizione" name="description" maxlength="50" required>
             <input type="" id="quantity" placeholder="Quantità" name="quantity" maxlength="50" required>    
             <input type="" id="name" placeholder="Id prodotti nutrizionali" name="nutritional_value" maxlength="50" required> 
             <input type="" id="name" placeholder="Attivo" name="active" maxlength="50" required>
-            <button type="submit" name="addProduct">Invia</button>
         </form>
 
 <?php
@@ -38,18 +37,30 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         "active" => $_POST['active'], 
         );
 
-  $response = setProduct($data); 
+  $prod_arr = setProduct($data); 
   
-  if(!empty($response)){
-    
+  if(!empty($prod_arr)){
+    echo('<table>');
+    echo('<tr>'); 
+    echo('<td>ID prodotto</td><td>Nome</td><td>quantità</td><td>Kcal</td>'); 
+    echo('</tr>');  
+    foreach($prod_arr as $row) {
+        //ogni elemento dell'array è un array a sua volta, per la precisione una riga della tabella
+        echo('<tr>');
+        foreach($row as $cell) {
+            //ogni elemento della riga è finalmente una cella
+            echo('<td>'.$cell.'</td>');
+        }
+        echo("</tr>\n");
+    }
+    echo('</table>');
   }
     
 }
 ?>
 
+
+
       </div>
-
-
-
     </body>
 </html>

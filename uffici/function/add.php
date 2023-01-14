@@ -145,4 +145,32 @@ function addClass($data){
     return $response;
 }
 
+function addIngredient($data){
+    $name = $data['name'];
+    $description = $data['description'];
+    $price = $data['price'];
+    $quantity = $data['quantity']; 
+
+    $url = 'http://localhost/webApp_sandweches/food-api/API/product/setIngredient.php?name='.$name.'&description='.$description.'&price='.$price.'&quantity='.$quantity; 
+
+    $json_data = file_get_contents($url);
+
+    $decode_data = json_decode($json_data, $assoc = true);
+
+    $ing_data = $decode_data;
+    $ing_arr = array();
+
+    foreach ($ing_data as $ing) {
+        $ing_record = array(
+            'name' => $ing['name'],
+            'price' => $ing['price'],
+            'quantity' => $ing['quantity'],
+        );
+        array_push($ing_arr, $ing_record);
+    }
+
+    return $ing_arr; 
+
+}
+
 ?>

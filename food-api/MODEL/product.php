@@ -97,7 +97,7 @@ class ProductController extends BaseController
     {
         $sql = "insert into ingredient(name, description, price,quantity)
         values
-        (" . $name . "," . $description . "," . $price . "," . $quantity . ");";
+        ('$name','$description','$price','$quantity');";
 
         $this->conn->query($sql);
         $this->CheckIngredient();
