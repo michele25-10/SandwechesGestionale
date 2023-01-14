@@ -8,7 +8,9 @@ function disactiveUser($data){
 
     $json_data = file_get_contents($url);
 
-    return $json_data; 
+    $response = json_decode($json_data); 
+
+    return $response->message; 
 }
 
 function changePassword($data){

@@ -1,20 +1,3 @@
-<?php
-session_start();
-
-include_once dirname(__FILE__) . '/../function/user.php';
-
-$err = "";
-
-//stringa di identificazione del server, quando premi button il metodo diventa post
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  if (!empty($_POST['id'])) {
-    $data = $_POST['id'];
-
-    disactiveUser($data);
-  }
-}
-?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -30,6 +13,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="" id="name" placeholder="Id utente" name="id" maxlength="50" required>
             <button type="submit" name="user">Invia</button>
         </form>
-    </div>
+
+<?php
+session_start();
+
+include_once dirname(__FILE__) . '/../function/user.php';
+
+$err = "";
+
+//stringa di identificazione del server, quando premi button il metodo diventa post
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  if (!empty($_POST['id'])) {
+    $data = $_POST['id'];
+
+    $response = disactiveUser($data);
+    
+    if(!empty($response)){
+      echo ('<p>' . $response . '</p>'); 
+    }
+  }
+}
+?>
+
+      </div>
   </body>
 </html>
