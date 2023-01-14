@@ -34,7 +34,7 @@ $product = new ProductController($db_conn);
     //var_dump($single_mod);
     $order = array($data->products);
     var_dump(json_decode($order[0]));
-    switch($order['action']){
+    switchjson_decode($order[0])['action']){
         case "set":
             $product->setProductQuantity($order['ID'], $order->quantity);
             break;

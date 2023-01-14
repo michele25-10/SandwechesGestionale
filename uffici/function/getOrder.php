@@ -6,13 +6,11 @@ function viewOrder(){
     
     $json_data = file_get_contents($url);
 
-    echo $json_data; 
+    $decode_data = json_decode($json_data, $assoc=true);
+    $order_data = $decode_data;
+    $order_arr=array();
 
-    $decode_data = json_decode($json_data);
-
-    $order_data = $decode_data; 
-
-    /*foreach ($order_data as $order) {
+    foreach ($order_data as $order) {
       $order_record = array(
         'id' => $order['id'],
         'user' => $order['user'],
@@ -20,10 +18,13 @@ function viewOrder(){
         'pickup' => $order['pickup'], 
         'break' => $order['break'],
         'status' => $order['status'], 
-    );
-        echo $order_record['user']; 
+        );
+        array_push($order_arr,$order_record);
     }
-    */
+
+    var_dump($order_arr);
+
+    return $order_arr;  
 }
 
 function getOrderUser($data){
