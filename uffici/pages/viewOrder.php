@@ -32,11 +32,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (!empty($_POST['id'])) {
     $data = $_POST['id'];
 
-    $order_arr = viewOrder(); 
-    echo('<table>');
-    echo('<tr>'); 
-    echo('<td>id</td><td>user</td><td>created</td><td>pickup</td><td>break</td><td>status</td>'); 
-    echo('</tr>');  
+
+  
+
+    if(!empty($order_arr)){
+      $order_arr = viewOrder(); 
+      echo('<table>');
+      echo('<tr>'); 
+      echo('<td>ID ordine</td><td>ID user</td><td>Creazione</td><td>Punto consegna ID</td><td>Intervallo id</td><td>Id status</td><td>json</td>'); 
+      echo('</tr>'); 
       //trasforma un array di array in una tabella
       foreach($order_arr as $row) {
           //ogni elemento dell'array è un array a sua volta, per la precisione una riga della tabella
@@ -48,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           echo("</tr>\n");
       }
       echo('</table>');
+    }
   } 
   }
  

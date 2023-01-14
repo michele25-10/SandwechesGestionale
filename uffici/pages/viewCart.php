@@ -33,13 +33,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (!empty($_POST['id'])) {
     $data = $_POST['id'];
 
+
     $cart_arr = viewCart($data); 
-    echo('<table>');
-    echo('<tr>'); 
-    echo('<td>product</td><td>quantity</td><td>name</td><td>price</td><td>description</td><td>tag_id</td>'); 
-    echo('</tr>');  
+
+    if(!empty($cart_arr)){
       //trasforma un array di array in una tabella
-      
+      echo('<table>');
+      echo('<tr>'); 
+      echo('<td>product</td><td>quantity</td><td>name</td><td>price</td><td>description</td><td>tag_id</td>'); 
+      echo('</tr>');  
       foreach($cart_arr as $row) {
           //ogni elemento dell'array è un array a sua volta, per la precisione una riga della tabella
           echo('<tr>');
@@ -50,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           echo("</tr>\n");
       }
       echo('</table>');
+    }
   } 
   }
  

@@ -83,7 +83,7 @@ function addAllergen($data){
 
     $response = json_decode($responseJson);
 
-    return $response; 
+    return $response->Message; 
 }
 
 function addOffer($data){
