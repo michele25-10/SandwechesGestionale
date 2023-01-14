@@ -102,12 +102,12 @@ class ProductController extends BaseController
         $this->conn->query($sql);
         $this->CheckIngredient();
     }
-    public function setProduct($name, $price, $description, $quantity, $active)
+    public function setProduct($name, $price, $description, $quantity, $nutritional_value, $active)
     {
 
-        $sql = "insert into sandwiches.product(name, price, description, quantity, nutritional_value, active)
+        $sql = "insert into sandwiches.product(name, price, description, quantity, nutritional_value,active)
                 values
-                ('$name', '$price', '$description', '$quantity', '0', '$active');";
+                ('$name', '$price', '$description', '$quantity', '$nutritional_value', '$active');";
 
 
         $this->conn->query($sql);
