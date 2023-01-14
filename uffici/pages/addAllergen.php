@@ -1,19 +1,3 @@
-<?php
-session_start();
-
-include_once dirname(__FILE__) . '/../function/add.php';
-
-$err = "";
-
-//stringa di identificazione del server, quando premi button il metodo diventa post
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  if (!empty($_POST['name'])) {
-    $data = $_POST['name'];
-    addAllergen($data);
-  }
-}
-?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -32,3 +16,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
   </body>
 </html>
+
+<?php
+session_start();
+
+include_once dirname(__FILE__) . '/../function/add.php';
+
+$err = "";
+
+//stringa di identificazione del server, quando premi button il metodo diventa post
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  if (!empty($_POST['name'])) {
+    $data = $_POST['name'];
+    $response = addAllergen($data);
+    if (!empty($response)){
+      echo ('<p>' . $response . '</p>'); 
+    }
+
+  }
+}
+?>
