@@ -16,7 +16,7 @@
             <button type="submit" name="addProduct">Invia</button>
         </form>
 
-        <?php
+<?php
 session_start();
 
 include_once dirname(__FILE__) . '/../function/add.php';
