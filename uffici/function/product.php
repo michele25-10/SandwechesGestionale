@@ -36,9 +36,20 @@ function getFavouriteProduct($data){
 
     $json_data = file_get_contents($url);
 
-    $decode_data = json_decode($json_data);
+    $decode_data = json_decode($json_data, $assoc = true);
+    $product_data = $decode_data;
+    $product_arr = array();
 
-    echo $json_data; 
+    foreach ($product_data as $prod) {
+        $product_record = array(
+            'product' => $prod['product'],
+            'id_product' => $prod['id_product'],
+            'email' => $prod['email'],
+        );
+        array_push($product_arr, $product_record);
+    }
+
+    return $product_arr;
 
 }
 
