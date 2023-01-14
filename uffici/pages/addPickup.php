@@ -1,21 +1,3 @@
-<?php
-session_start();
-
-include_once dirname(__FILE__) . '/../function/add.php';
-
-$err = "";
-
-//stringa di identificazione del server, quando premi button il metodo diventa post 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-      $data = $_POST['name']; 
-      
-      if(addPickup($data) == -1){
-    $err = "Errore dell'API"; 
-      }  
-    
-}
-?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -31,6 +13,27 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             <input type="" id="name" placeholder="Nome nuovo punto consegna" name="name" maxlength="50" required>
             <button type="submit" name="login">Invia</button>
         </form>
+
+<?php
+session_start();
+
+include_once dirname(__FILE__) . '/../function/add.php';
+
+$err = "";
+
+//stringa di identificazione del server, quando premi button il metodo diventa post 
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+      
+  $data = $_POST['name']; 
+      
+  $response = addPickup($data); 
+    
+  if(!empty($response)){
+    echo('<p>'.$response.'</p>'); 
+  }
+}
+?>
+
     </div>
   </body>
 </html>
