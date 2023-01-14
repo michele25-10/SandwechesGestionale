@@ -1,17 +1,4 @@
-<?php
-session_start();
 
-include_once dirname(__FILE__) . '/../function/cart.php';
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  if (!empty($_POST['id'])) {
-    $data = $_POST['id'];
-
-    $cart_arr = viewCart($data);   
-  }
-}
- 
-?>
 
 <!doctype html>
 <html lang="en">
@@ -34,3 +21,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
   </body>
 </html>
+<?php
+session_start();
+
+include_once dirname(__FILE__) . '/../function/cart.php';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  if (!empty($_POST['id'])) {
+    $data = $_POST['id'];
+
+    $cart_arr = viewCart($data);  
+      //trasforma un array di array in una tabella
+      echo('<table>');
+      foreach($cart_arr as $row) {
+          //ogni elemento dell'array è un array a sua volta, per la precisione una riga della tabella
+          echo('<tr>');
+          foreach($row as $cell) {
+              //ogni elemento della riga è finalmente una cella
+              echo('<td>'.$cell.'</td>');
+          }
+          echo("</tr>\n");
+      }
+      echo('</table>');
+  } 
+  }
+ 
+?>
