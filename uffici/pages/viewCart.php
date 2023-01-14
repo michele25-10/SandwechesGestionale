@@ -15,6 +15,9 @@
               <h1>Id carrello da visualizzare</h1>
               <input type="" id="name" placeholder="id" name="id" maxlength="50" required>
               <button type="submit" name="user">Invia</button>
+              <br>
+              <br>
+              <br>
             </form>
             
         </form>
