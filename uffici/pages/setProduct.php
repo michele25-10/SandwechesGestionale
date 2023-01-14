@@ -15,6 +15,8 @@
             <input type="" id="quantity" placeholder="Quantità" name="quantity" maxlength="50" required>    
             <input type="" id="name" placeholder="Id prodotti nutrizionali" name="nutritional_value" maxlength="50" required> 
             <input type="" id="name" placeholder="Attivo" name="active" maxlength="50" required>
+            <input type="" id="name" placeholder="Id Allergeno" name="allergen" maxlength="50" required>
+            <input type="" id="name" placeholder="Id Tag" name="tag" maxlength="50" required>
             <button type="submit">Invia</button>
         </form>
 
@@ -61,6 +63,7 @@ if(!empty($tag_arr)){
         echo("</tr>\n");
     }
     echo('</table>');
+  echo ('<hr>'); 
 }
 
 
@@ -73,10 +76,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         "quantity" => $_POST['quantity'],
         "nutritional_value" => $_POST['nutritional_value'],
         "active" => $_POST['active'], 
+        "allergen" => $_POST['allergen'],
+        "tag" => $_POST['tag'],
         );
 
   $prod_arr = setProduct($data); 
-  
   if(!empty($prod_arr)){
     echo('<table>');
     echo('<tr>'); 
@@ -93,12 +97,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
     echo('</table>');
   }
-    
+
+  $allergen_response = setAllergenProduct($data); 
 }
 ?>
-
-
-
       </div>
     </body>
 </html>
