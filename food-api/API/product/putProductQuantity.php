@@ -8,8 +8,6 @@ require __DIR__ . '/../../MODEL/product.php';
 
 $data = json_decode(file_get_contents("php://input"));
 
-var_dump($data); 
-
 if(empty($data)){
     echo json_encode(["message" => "Bad Request"]);
 }
@@ -29,19 +27,24 @@ $product = new ProductController($db_conn);
 }
 */
 
-foreach(json_decode(json_encode($data->products), true) as $single_mod){
-    echo json_encode($single_mod, true);
-    switch($single_mod['action']){
+//  var_dump(json_decode(json_encode($data), true));
+//var_dump((array)json_decode($data));
+
+//foreach(json_decode($data->products, true) as $single_mod){
+    //var_dump($single_mod);
+    $order = array($data->products);
+    var_dump(json_decode($order[0]));
+    switch($order['action']){
         case "set":
-            $product->setProductQuantity($single_mod['ID'], $single_mod['quantity']);
+            $product->setProductQuantity($order['ID'], $order->quantity);
             break;
         case "add":
-            $product->addProductQuantity($single_mod['ID'], $single_mod['quantity']);
+            $product->addProductQuantity($order['ID'], $order['quantity']);
             break;
         case "remove":
-            $product->removeProductQuantity($single_mod['ID'], $single_mod['quantity']);
+            $product->removeProductQuantity($order['ID'], $order['quantity']);
             break;
     }
-}
+//}
 die();
 ?>
