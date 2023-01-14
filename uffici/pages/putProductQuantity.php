@@ -32,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     );
 
     $response = putProductQuantity($data);
+    
     if(!empty($response->Message)){
     echo ('<p>' . $response->Message . '</p>'); 
     }

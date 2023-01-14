@@ -5,11 +5,21 @@ function getProductArchive(){
 
     $json_data = file_get_contents($url);
 
-    $decode_data = json_decode($json_data);
+    $decode_data = json_decode($json_data, $assoc = true);
+    $prod_data = $decode_data;
+    $prod_arr = array();
 
-//    echo ("\n".$json_data); 
+    foreach ($prod_data as $prod) {
+        $prod_record = array(
+            'ID' => $prod['ID'],
+            'name' => $prod['Nome prodotto'],
+            'price' => $prod['Prezzo'],
+            'tag' => $prod['Tag'],
+        );
+        array_push($prod_arr, $prod_record);
+    }
 
-    $product_data = $decode_data;
+    return $prod_arr; 
 }
 
 function setProduct($data){
@@ -39,9 +49,30 @@ function setProduct($data){
         array_push($prod_arr, $prod_record);
     }
 
-    return $prod_arr; 
+    return $prod_arr;   
+}
 
-   
+function getArchiveOffer(){
+    $url = 'http://localhost/webApp_sandweches/food-api/API/offer/getArchiveOffer.php';
+
+    $json_data = file_get_contents($url);
+
+    $decode_data = json_decode($json_data, $assoc = true);
+    $off_data = $decode_data;
+    $off_arr = array(); 
+
+    foreach ($off_data as $off) {
+        $off_record = array(
+            'id' => $off['id'],
+            'price' => $off['price'],
+            'start' => $off['start'],
+            'expiry' => $off['expiry'],
+            'description' => $off['description'],
+        );
+        array_push($off_arr, $off_record);
+    }
+
+    return $off_arr;
 }
 
 function getFavouriteProduct($data){

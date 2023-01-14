@@ -20,7 +20,46 @@ session_start();
 
 include_once dirname(__FILE__) . '/../function/product.php';
 
-$err = "";
+$prod_arr = getProductArchive(); 
+if(!empty($prod_arr)){
+  echo ('<hr>'); 
+  echo ('<h3>Tabella prodotti</h3>'); 
+  echo('<table>');
+      echo('<tr>'); 
+      echo('<td>ID prodotto</td><td>Nome prodotto</td><td>Prezzo</td><td>Tag</td>'); 
+      echo('</tr>');  
+      foreach($prod_arr as $row) {
+          //ogni elemento dell'array è un array a sua volta, per la precisione una riga della tabella
+          echo('<tr>');
+          foreach($row as $cell) {
+              //ogni elemento della riga è finalmente una cella
+              echo('<td>'.$cell.'</td>');
+          }
+          echo("</tr>\n");
+      }
+      echo('</table>');
+}
+
+$off_arr = getArchiveOffer(); 
+
+if(!empty($off_arr)){
+  echo ('<hr>'); 
+  echo ('<h3>Tabella Offerte</h3>'); 
+  echo('<table>');
+      echo('<tr>'); 
+      echo('<td>ID offerta</td><td>Prezzo</td><td>Data di inizio</td><td>Data di fine</td><td>Descrizione</td>'); 
+      echo('</tr>');  
+      foreach($off_arr as $row) {
+          //ogni elemento dell'array è un array a sua volta, per la precisione una riga della tabella
+          echo('<tr>');
+          foreach($row as $cell) {
+              //ogni elemento della riga è finalmente una cella
+              echo('<td>'.$cell.'</td>');
+          }
+          echo("</tr>\n");
+      }
+      echo('</table>');
+}
 
 //stringa di identificazione del server, quando premi button il metodo diventa post 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
