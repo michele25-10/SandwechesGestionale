@@ -274,4 +274,14 @@ function setTagProduct($data, $prod_id){
 }
 
 
+function disactiveProduct($data){
+    $url = 'http://localhost/webApp_sandweches/food-api/API/product/deleteProduct.php?product_id='.$data;
+
+    $json_data = file_get_contents($url);
+
+    $decode_data = json_decode($json_data, $assoc = true); 
+
+    return $decode_data;   
+}
+
 ?>
