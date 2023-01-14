@@ -13,7 +13,6 @@
             <input type="" id="name" placeholder="Prezzo" name="price" maxlength="50" required>
             <input type="" id="name" placeholder="descrizione" name="description" maxlength="50" required>
             <input type="" id="quantity" placeholder="Quantità" name="quantity" maxlength="50" required>    
-            <input type="" id="name" placeholder="Id prodotti nutrizionali" name="nutritional_value" maxlength="50" required> 
             <input type="" id="name" placeholder="Attivo" name="active" maxlength="50" required>
             <input type="" id="name" placeholder="Id Allergeno" name="allergen" maxlength="50" required>
             <input type="" id="name" placeholder="Id Tag" name="tag" maxlength="50" required>
@@ -74,7 +73,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         "price" => $_POST['price'],
         "description" => $_POST['description'], 
         "quantity" => $_POST['quantity'],
-        "nutritional_value" => $_POST['nutritional_value'],
         "active" => $_POST['active'], 
         "allergen" => $_POST['allergen'],
         "tag" => $_POST['tag'],
