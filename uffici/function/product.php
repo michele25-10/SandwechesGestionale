@@ -160,5 +160,44 @@ function putProductQuantity($data){
 
 }
 
+function getAllergen(){
+    $url = 'http://localhost/webApp_sandweches/food-api/API/allergen/getArchiveAllergen.php';
+
+    $json_data = file_get_contents($url);
+
+    $decode_data = json_decode($json_data, $assoc = true);
+    $allergen_data = $decode_data;
+    $all_arr = array();
+
+    foreach ($allergen_data as $all) {
+        $allergen_record = array(
+            'id' => $all['id'],
+            'name' => $all['name'],
+        );
+        array_push($all_arr, $allergen_record);
+    }
+
+    return $all_arr;
+}
+
+function getTag(){
+    $url = 'http://localhost/webApp_sandweches/food-api/API/tag/getArchiveTag.php';
+
+    $json_data = file_get_contents($url);
+
+    $decode_data = json_decode($json_data, $assoc = true);
+    $tag_data = $decode_data;
+    $tag_arr = array();
+
+    foreach ($tag_data as $tag) {
+        $tag_record = array(
+            'id' => $tag['id'],
+            'name' => $tag['name'],
+        );
+        array_push($tag_arr, $tag_record);
+    }
+
+    return $tag_arr;
+}
 
 ?>

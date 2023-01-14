@@ -15,6 +15,7 @@
             <input type="" id="quantity" placeholder="Quantità" name="quantity" maxlength="50" required>    
             <input type="" id="name" placeholder="Id prodotti nutrizionali" name="nutritional_value" maxlength="50" required> 
             <input type="" id="name" placeholder="Attivo" name="active" maxlength="50" required>
+            <button type="submit">Invia</button>
         </form>
 
 <?php
@@ -22,9 +23,46 @@ session_start();
 
 include_once dirname(__FILE__) . '/../function/product.php';
 
-getProductArchive();
+$allergen_arr = getAllergen();
+if(!empty($allergen_arr)){
+  echo ('<hr>');
+  echo ('<h3>Lista Allergeni</h3>'); 
+  echo('<table>');
+    echo('<tr>'); 
+    echo('<td>ID allergeno</td><td>Nome Allergeno</td>'); 
+    echo('</tr>');  
+    foreach($allergen_arr as $row) {
+        //ogni elemento dell'array è un array a sua volta, per la precisione una riga della tabella
+        echo('<tr>');
+        foreach($row as $cell) {
+            //ogni elemento della riga è finalmente una cella
+            echo('<td>'.$cell.'</td>');
+        }
+        echo("</tr>\n");
+    }
+    echo('</table>');
+}
 
-$err = "";
+$tag_arr = getTag();
+if(!empty($tag_arr)){
+  echo ('<hr>');
+  echo ('<h3>Lista Tag</h3>'); 
+  echo('<table>');
+    echo('<tr>'); 
+    echo('<td>ID Tag</td><td>Nome Tag</td>'); 
+    echo('</tr>');  
+    foreach($tag_arr as $row) {
+        //ogni elemento dell'array è un array a sua volta, per la precisione una riga della tabella
+        echo('<tr>');
+        foreach($row as $cell) {
+            //ogni elemento della riga è finalmente una cella
+            echo('<td>'.$cell.'</td>');
+        }
+        echo("</tr>\n");
+    }
+    echo('</table>');
+}
+
 
 //stringa di identificazione del server, quando premi button il metodo diventa post 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
