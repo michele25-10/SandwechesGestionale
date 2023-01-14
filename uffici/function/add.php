@@ -55,7 +55,7 @@ function addTag($data)
 
     $response = json_decode($responseJson);
 
-    return $response; 
+    return $response->Creation; 
 }
 
 function addAllergen($data){
