@@ -5,8 +5,9 @@ include_once dirname(__FILE__) . '/../function/getOrder.php';
 
 $err = "";
 
-viewOrder();     
+$array = viewOrder();
 
+var_dump($array[0]); 
 
 ?>
 

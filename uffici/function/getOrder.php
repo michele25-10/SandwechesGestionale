@@ -22,8 +22,6 @@ function viewOrder(){
         array_push($order_arr,$order_record);
     }
 
-    var_dump($order_arr);
-
     return $order_arr;  
 }
 
