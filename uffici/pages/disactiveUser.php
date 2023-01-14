@@ -9,7 +9,7 @@
 
     <div class="container-fluid">
         <form method="post">
-            <h1>Aggiungi un nuovo allergeno</h1>
+            <h1>Disattiva utente</h1>
             <input type="" id="name" placeholder="Id utente" name="id" maxlength="50" required>
             <button type="submit" name="user">Invia</button>
         </form>
