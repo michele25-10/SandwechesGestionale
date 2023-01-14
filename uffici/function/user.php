@@ -37,9 +37,9 @@ function changePassword($data){
 
     curl_close($curl);
 
-    $response = json_decode($responseJson); 
+    $response = json_decode($responseJson);
 
-    return $response;
+    return $response->message;
 
 }
 

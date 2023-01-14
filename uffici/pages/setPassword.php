@@ -1,21 +1,3 @@
-<?php
-session_start();
-
-include_once dirname(__FILE__) . '/../function/user.php';
-
-$err = ""; 
-
-//stringa di identificazione del server, quando premi button il metodo diventa post
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $data = array(
-        "email" => $_POST['email'],
-        "password" => $_POST['password'],
-        "newPassword" => $_POST['newPassword'],
-    );
-    changePassword($data);
-}
-?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -33,6 +15,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="" id="name" placeholder="Nuova password" name="newPassword" maxlength="50" required>
             <button type="submit" name="changePassword">Invia</button>
         </form>
+
+<?php
+include_once dirname(__FILE__) . '/../function/user.php';
+
+$err = ""; 
+
+//stringa di identificazione del server, quando premi button il metodo diventa post
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $data = array(
+        "email" => $_POST['email'],
+        "password" => $_POST['password'],
+        "newPassword" => $_POST['newPassword'],
+    );
+    $response=changePassword($data);
+    if(!empty($response)){
+    echo ('<p>' . $response . '</p>'); 
+    }
+  }
+?>
     </div>
   </body>
 </html>
