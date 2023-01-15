@@ -26,7 +26,7 @@ session_start();
 include_once dirname(__FILE__) . '/../function/product.php';
 
 $allergen_arr = getAllergen();
-if(!empty($allergen_arr)){
+if(!empty($allergen_arr)&& $allergen_arr != -1){
   echo ('<hr>');
   echo ('<h3>Lista Allergeni</h3>'); 
   echo('<table>');
@@ -43,10 +43,12 @@ if(!empty($allergen_arr)){
         echo("</tr>\n");
     }
     echo('</table>');
+}else{
+  echo ('<p>Errore, non ci sono allergeni nel db</p>'); 
 }
 
 $tag_arr = getTag();
-if(!empty($tag_arr)){
+if(!empty($tag_arr) && $tag_arr != -1){
   echo ('<hr>');
   echo ('<h3>Lista Tag</h3>'); 
   echo('<table>');
@@ -64,6 +66,8 @@ if(!empty($tag_arr)){
     }
     echo('</table>');
   echo ('<hr>'); 
+}else{
+  echo ('<p>Errore, non ci sono tag presenti nel db</p>'); 
 }
 
 
@@ -82,7 +86,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
   $prod_arr = setProduct($data);
 
-  if(!empty($prod_arr)){
+  if(!empty($prod_arr) && $prod_arr != -1){
     echo('<table>');
     echo('<tr>'); 
     echo('<td>ID prodotto</td><td>Nome</td><td>quantità</td><td>Kcal</td>'); 
@@ -97,8 +101,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         echo("</tr>\n");
     }
     echo('</table>');
-  }
-
+    
   $product_id = max($prod_arr);
 
   $id_max = $product_id['id']; 
@@ -113,6 +116,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
   if(!empty($tag_res)){
     echo ('<p>' . $tag_res->Setting . '</p>'); 
+  }
+  }
+  else{
+    echo ('<p>Errore inserimento dati dei prodotti nel db'); 
   }
 }
 ?>

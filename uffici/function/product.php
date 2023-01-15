@@ -40,22 +40,30 @@ function setProduct($data){
     $url = 'http://localhost/webApp_sandweches/food-api/API/product/setProduct.php?name='.$name.'&price='.$price.'&description='.$description.'&quantity='.$quantity.'&nutritional_value='.$nutritional_value.'&active='.$active; 
 
     $json_data = file_get_contents($url);
+    if($json_data != false){
+        $decode_data = json_decode($json_data, $assoc = true);
+        $prod_data = $decode_data;
+        if (!empty($decode_data)) {
+            $prod_arr = array();
 
-    $decode_data = json_decode($json_data, $assoc = true);
-    $prod_data = $decode_data;
-    $prod_arr = array();
+            foreach ($prod_data as $prod) {
+                $prod_record = array(
+                    'id' => $prod['id'],
+                    'name' => $prod['name'],
+                    'quantity' => $prod['quantity'],
+                    'kcal' => $prod['kcal'],
+                );
+                array_push($prod_arr, $prod_record);
+            }
 
-    foreach ($prod_data as $prod) {
-        $prod_record = array(
-            'id' => $prod['id'],
-            'name' => $prod['name'],
-            'quantity' => $prod['quantity'],
-            'kcal' => $prod['kcal'],
-        );
-        array_push($prod_arr, $prod_record);
+            return $prod_arr;
+        }else{
+            return -1; 
+        }
+    }else{
+        return -1; 
     }
-
-    return $prod_arr;   
+     
 }
 
 function getArchiveOffer(){
@@ -187,17 +195,22 @@ function getAllergen(){
 
     $decode_data = json_decode($json_data, $assoc = true);
     $allergen_data = $decode_data;
-    $all_arr = array();
+    if(!empty($allergen_data)){
+        $all_arr = array();
 
-    foreach ($allergen_data as $all) {
-        $allergen_record = array(
-            'id' => $all['id'],
-            'name' => $all['name'],
-        );
-        array_push($all_arr, $allergen_record);
+        foreach ($allergen_data as $all) {
+            $allergen_record = array(
+                'id' => $all['id'],
+                'name' => $all['name'],
+            );
+            array_push($all_arr, $allergen_record);
+        }
+    
+        return $all_arr;
     }
-
-    return $all_arr;
+    else{
+        return -1; 
+    }
 }
 
 function getTag(){
@@ -207,17 +220,22 @@ function getTag(){
 
     $decode_data = json_decode($json_data, $assoc = true);
     $tag_data = $decode_data;
-    $tag_arr = array();
+    if(!empty($tag_data)){
+        $tag_arr = array();
 
-    foreach ($tag_data as $tag) {
-        $tag_record = array(
-            'id' => $tag['id'],
-            'name' => $tag['name'],
-        );
-        array_push($tag_arr, $tag_record);
+        foreach ($tag_data as $tag) {
+            $tag_record = array(
+                'id' => $tag['id'],
+                'name' => $tag['name'],
+            );
+            array_push($tag_arr, $tag_record);
+        }
+    
+        return $tag_arr;
+    }else{
+        return -1; 
     }
 
-    return $tag_arr;
 }
 
 function setAllergenProduct($data, $prod_id){
