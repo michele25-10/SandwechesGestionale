@@ -9,31 +9,14 @@
   <body>
 
     <div class="container-fluid">
-        <form method="post">
-            <form method="post">
-              <h1>Id ordine da visualizzare</h1>
-              <input type="" id="name" placeholder="id" name="id" maxlength="50" required>
-              <button type="submit" name="user">Invia</button>
-              <br>
-              <br>
-              <br>
-            </form>
-            
-        </form>
-    </div>
-  </body>
-</html>
-<?php
+    <?php
 session_start();
 
 include_once dirname(__FILE__) . '/../function/getOrder.php';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  if (!empty($_POST['id'])) {
-    $data = $_POST['id']; 
-  
-    if(!empty($order_arr)){
-      $order_arr = viewOrder(); 
+    $order_arr = viewOrder(); 
+
+    if(!empty($order_arr) && $order_arr != -1){
       echo('<table>');
       echo('<tr>'); 
       echo('<td>ID ordine</td><td>ID user</td><td>Creazione</td><td>Punto consegna ID</td><td>Intervallo id</td><td>Id status</td><td>json</td>'); 
@@ -49,8 +32,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           echo("</tr>\n");
       }
       echo('</table>');
+    }else{
+      echo ('<p>Nessun ordine presente</p>'); 
     }
-  } 
-  }
  
 ?>
+    </div>
+  </body>
+</html>
