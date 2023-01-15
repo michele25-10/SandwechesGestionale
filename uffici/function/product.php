@@ -80,21 +80,30 @@ function getFavouriteProduct($data){
     $url = "http://localhost/webApp_sandweches/food-api/API/user/favourite/getArchiveFavourite.php?id=" . $data; 
 
     $json_data = file_get_contents($url);
-
-    $decode_data = json_decode($json_data, $assoc = true);
-    $product_data = $decode_data;
-    $product_arr = array();
-
-    foreach ($product_data as $prod) {
-        $product_record = array(
-            'product' => $prod['product'],
-            'id_product' => $prod['id_product'],
-            'email' => $prod['email'],
-        );
-        array_push($product_arr, $product_record);
+    if($json_data!=false){
+        $decode_data = json_decode($json_data, $assoc = true);
+        $product_data = $decode_data;
+        $product_arr = array();
+        if(empty($product_data->message)){
+            foreach ($product_data as $prod) {
+                $product_record = array(
+                    'product' => $prod['product'],
+                    'id_product' => $prod['id_product'],
+                    'email' => $prod['email'],
+                );
+                array_push($product_arr, $product_record);
+            }
+        
+            return $product_arr;
+        }else{
+            $res = "Errore"; 
+            return $res; 
+        }
     }
-
-    return $product_arr;
+    else{
+        $res =-1; 
+        return $res; 
+    }
 
 }
 

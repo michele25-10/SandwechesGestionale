@@ -14,8 +14,6 @@
               <input type="" id="name" placeholder="id utente" name="id" maxlength="50" required>
               <button type="submit" name="favourite">Invia</button>
             </form>
-            
-        </form>
     </div>
   </body>
 </html>
@@ -31,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $prod_arr = getFavouriteProduct($data);
 
-    if(!empty($prod_arr)){
+    if(!empty($prod_arr) && $prod_arr != -1){
       echo('<table>');
       echo('<tr>'); 
       echo('<td>prodotto</td><td>Id Prodotto</td><td>Email User</td>'); 
@@ -46,6 +44,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo("</tr>\n");
         }
         echo('</table>');
+    }
+    else{
+      echo('<p>Errore, ID utente inesistente, oppure utente non attivo</p>'); 
     }
 
 }
