@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $cart_arr = viewCart($data); 
 
-    if(!empty($cart_arr)){
+    if(!empty($cart_arr) && $cart_arr != -1){
       //trasforma un array di array in una tabella
       echo('<table>');
       echo('<tr>'); 
@@ -52,6 +52,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           echo("</tr>\n");
       }
       echo('</table>');
+    }
+    else{
+      echo ('<p>Errore id carrello inesistente</p>');  
     }
   } 
   }
