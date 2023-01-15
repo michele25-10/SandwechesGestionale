@@ -65,20 +65,25 @@ function getArchiveOffer(){
 
     $decode_data = json_decode($json_data, $assoc = true);
     $off_data = $decode_data;
-    $off_arr = array(); 
+    if (!empty($off_data)) {
+        $off_arr = array();
 
-    foreach ($off_data as $off) {
-        $off_record = array(
-            'id' => $off['id'],
-            'price' => $off['price'],
-            'start' => $off['start'],
-            'expiry' => $off['expiry'],
-            'description' => $off['description'],
-        );
-        array_push($off_arr, $off_record);
+        foreach ($off_data as $off) {
+            $off_record = array(
+                'id' => $off['id'],
+                'price' => $off['price'],
+                'start' => $off['start'],
+                'expiry' => $off['expiry'],
+                'description' => $off['description'],
+            );
+            array_push($off_arr, $off_record);
+        }
+
+        return $off_arr;
     }
-
-    return $off_arr;
+    else{
+        return -1; 
+    }
 }
 
 function getFavouriteProduct($data){

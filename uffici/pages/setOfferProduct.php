@@ -44,7 +44,7 @@ if(!empty($prod_arr)&&$prod_arr != -1){
 
 $off_arr = getArchiveOffer(); 
 
-if(!empty($off_arr)){
+if(!empty($off_arr) && $off_arr != -1){
   echo ('<hr>'); 
   echo ('<h3>Tabella Offerte</h3>'); 
   echo('<table>');
@@ -61,6 +61,8 @@ if(!empty($off_arr)){
           echo("</tr>\n");
       }
       echo('</table>');
+}else{
+  echo('<p>Errore, non ci sono offerte nel db</p>'); 
 }
 
 //stringa di identificazione del server, quando premi button il metodo diventa post 
