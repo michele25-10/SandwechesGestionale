@@ -284,4 +284,14 @@ function disactiveProduct($data){
     return $decode_data;   
 }
 
+function reactiveProduct($data){
+    $url = 'http://localhost/webApp_sandweches/food-api/API/product/reactiveProduct.php?product_id='.$data;
+
+    $json_data = file_get_contents($url);
+
+    $decode_data = json_decode($json_data, $assoc = true); 
+
+    return $decode_data;   
+}
+
 ?>
