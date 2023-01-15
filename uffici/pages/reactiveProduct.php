@@ -26,6 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     if(!empty($response) && $response == 1){
       echo ('<p>Prodotto Riattivato</p>'); 
+    }else{
+      echo ('<p>' . $response . '</p>'); 
     }
   }
 }

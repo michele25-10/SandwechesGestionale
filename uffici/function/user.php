@@ -7,10 +7,13 @@ function disactiveUser($data){
     $url = "http://localhost/webApp_sandweches/food-api/API/user/deleteAccount.php?id=" . $id; 
 
     $json_data = file_get_contents($url);
+    if($json_data != false){
+        $response = json_decode($json_data); 
 
-    $response = json_decode($json_data); 
-
-    return $response->message; 
+        return $response->message;    
+    }else{
+        return "Errore, Utente insesistente"; 
+    }
 }
 
 function changePassword($data){

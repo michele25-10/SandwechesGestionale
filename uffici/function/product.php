@@ -293,20 +293,26 @@ function disactiveProduct($data){
     $url = 'http://localhost/webApp_sandweches/food-api/API/product/deleteProduct.php?product_id='.$data;
 
     $json_data = file_get_contents($url);
+    if ($json_data != false) {
+        $decode_data = json_decode($json_data, $assoc = true);
 
-    $decode_data = json_decode($json_data, $assoc = true); 
-
-    return $decode_data;   
+        return $decode_data;
+    }else{
+        return "Errore, prodotto inesistente"; 
+    }
 }
 
 function reactiveProduct($data){
     $url = 'http://localhost/webApp_sandweches/food-api/API/product/reactiveProduct.php?product_id='.$data;
 
     $json_data = file_get_contents($url);
+    if ($json_data != false) {
+        $decode_data = json_decode($json_data, $assoc = true);
 
-    $decode_data = json_decode($json_data, $assoc = true); 
-
-    return $decode_data;   
+        return $decode_data;
+    }else{
+        return "Errore, prodotto inesistente"; 
+    } 
 }
 
 ?>

@@ -21,7 +21,7 @@ session_start();
 include_once dirname(__FILE__) . '/../function/product.php';
 
 $prod_arr = getProductArchive(); 
-if(!empty($prod_arr)){
+if(!empty($prod_arr)&&$prod_arr != -1){
   echo ('<hr>'); 
   echo ('<h3>Tabella prodotti</h3>'); 
   echo('<table>');
@@ -38,6 +38,8 @@ if(!empty($prod_arr)){
           echo("</tr>\n");
       }
       echo('</table>');
+}else{
+  echo ('<p>Errore, i prodotti non sono presenti nel db</p>'); 
 }
 
 $off_arr = getArchiveOffer(); 
