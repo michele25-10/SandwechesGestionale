@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Sandwech | Home</title>
+        <title>Sandwech | Ordini</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <link rel="stylesheet" href="assets/style.css">
         <link rel="icon" type="image/x-icon" href="assets/img/logo.png">
@@ -23,12 +23,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                            <a class="nav-link" aria-current="page" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="viewAllProducts.php">Prodotti</a>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown active">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
                                 Ordini
@@ -52,12 +52,51 @@
             </div>
         </nav>
   
-        <div class="container mt-5">
-            <div class="row">
-                <h2>Ciao, <b>Alessio</b>.</h2>
-                <h2>Ci sono 27 ordini da completare.</h2>
+        <div class="container">
+            <div class="row mt-5">
+                <h2>Ecco gli ordini da ritirare in <b>Atrio</b>:</h2>
+            </div>
+            <div class="row mt-5">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Utente</th>
+                            <th scope="col">Creato</th>
+                            <!-- <th scope="col">Ritiro</th> -->
+                            <th scope="col">Orario</th>
+                            <th scope="col">Stato</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>1</td>
+                            <td>01/01/2023</td>
+                            <!-- <td>Atrio</td> -->
+                            <td>10:30</td>
+                            <td>?</td>
+                            <td>
+                                <button type="button" class="btn btn-primary">Completato</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>1</td>
+                            <td>01/01/2023</td>
+                            <!-- <td>Atrio</td> -->
+                            <td>10:30</td>
+                            <td>?</td>
+                            <td>
+                                <button type="button" class="btn btn-primary">Completato</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     </body>
 </html>
