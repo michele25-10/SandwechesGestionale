@@ -89,7 +89,7 @@ function getFavouriteProduct($data){
                 $product_record = array(
                     'product' => $prod['product'],
                     'id_product' => $prod['id_product'],
-                    'email' => $    ['email'],
+                    'email' => $prod['email'],
                 );
                 array_push($product_arr, $product_record);
             }

@@ -15,8 +15,6 @@
         </form>
 
 <?php
-session_start();
-
 include_once dirname(__FILE__) . '/../function/product.php';
 
 //stringa di identificazione del server, quando premi button il metodo diventa post
@@ -34,6 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 
 <?php
+
+session_start();
 
 include_once dirname(__FILE__) . '/../function/product.php';
 
