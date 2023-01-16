@@ -69,28 +69,29 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>1</td>
-                            <td>01/01/2023</td>
-                            <td>Atrio</td>
-                            <td>10:30</td>
-                            <td>?</td>
-                            <td>
-                                <button type="button" class="btn btn-primary">Completato</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>2</td>
-                            <td>01/01/2023</td>
-                            <td>Atrio</td>
-                            <td>10:30</td>
-                            <td>?</td>
-                            <td>
-                                <button type="button" class="btn btn-primary">Completato</button>
-                            </td>
-                        </tr>
+                    <?php
+
+include_once dirname(__FILE__) . '/../function/order.php';
+
+$ord_arr = viewOrder();
+if (!empty($ord_arr) && $ord_arr != -1) {
+    foreach ($ord_arr as $row) {
+        //ogni elemento dell'array è un array a sua volta, per la precisione una riga della tabella
+        echo ('<tr>');
+        foreach ($row as $cell) {
+            //ogni elemento della riga è finalmente una cella
+            echo ('<td>' . $cell . '</td>');
+        }  echo ('<td>
+        <button type="button" class="btn btn-primary">Modifica</button>
+        </td>');
+        echo ("</tr>\n");
+    }
+    echo ('</table>');
+} else {
+    echo ('<p>Errore,  ordini non presenti nel db</p>');
+}
+
+?>
                     </tbody>
                 </table>
             </div>

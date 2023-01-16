@@ -74,7 +74,7 @@
                           
 <?php
 
-        include_once dirname(__FILE__) . '/function/product.php';
+        include_once dirname(__FILE__) . '/../function/product.php';
 
         $prod_arr = getProductArchive();
         if (!empty($prod_arr) && $prod_arr != -1) {
