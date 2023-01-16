@@ -1,3 +1,30 @@
+
+<?php
+session_start();
+
+include_once dirname(__FILE__) . '/function/login.php';
+
+$inputs = "";
+$errors = "";
+
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+  if (!empty($_POST['email']) && !empty($_POST['password'])) {//se la variabile mail o password che devono essere inviate non sono vuote all'ora si invia
+    $data = [       //Immetto i dati all'interno di data
+      "email" => $_POST['email'],
+      "password" => $_POST['password'],
+    ];
+
+    if (login($data) == -1)
+    {
+      $inputs = "Email o password errata";
+    }
+  }
+  else
+  {
+    $err = "Campo richiesto";
+  }
+}
+?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -10,7 +37,7 @@
     </head>
 
     <body>
-        <form class="form-signin">
+        <form class="form-signin" method="post" action="pages\index.php">
             <div class="row">
                 <div class="col-7 mx-auto">
                     <img class="mb-4" src="assets/img/logo.png" alt="" width="100%" height=""> 
@@ -18,9 +45,9 @@
             </div>
             <h1 class="h3 mb-3 fw-bold">Inserisci le credenziali</h1>
             <label for="inputEmail" class="sr-only mb-2">Indirizzo Email</label>
-            <input type="email" id="inputEmail" class="form-control mb-4" placeholder="Indirizzo Email" required autofocus>
+            <input type="email" id="inputEmail" class="form-control mb-4" placeholder="Indirizzo Email" name = "email" required autofocus>
             <label for="inputPassword" class="sr-only mb-2">Password</label>
-            <input type="password" id="inputPassword" class="form-control mb-4" placeholder="Password" required>
+            <input type="password" id="inputPassword" class="form-control mb-4" placeholder="Password" name = "password" required>
             <div class="checkbox mb-3">
                 <label>
                     <input type="checkbox" value="remember-me"> Ricorda i dati
