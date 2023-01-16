@@ -29,6 +29,19 @@
             return $stmt;
         }
 
+        function getArchiveOrderPaninara(){
+            $query = "select o.id as 'id', u.email as 'user', o.created as 'created', p.name as 'pickup', b.`time` as 'break', s.description as 'status'
+            from `order` o 
+            left join `user` u on u.id = o.`user` 
+            left join break b on b.id  = o.break 
+            left join pickup p on p.id = o.pickup 
+            left join status s ON s.id = o.id; ";
+
+            $stmt = $this->conn->query($query);
+
+            return $stmt;
+        }
+
         function getOrder($id) // Ottiene l'ordine con l'id passato alla funzione
         {
             $query = "SELECT * FROM $this->table_name WHERE id = $id";

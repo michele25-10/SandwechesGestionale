@@ -65,7 +65,6 @@
                             <th scope="col">Ritiro</th>
                             <th scope="col">Orario</th>
                             <th scope="col">Stato</th>
-                            <th scope="col">Descrizione</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
