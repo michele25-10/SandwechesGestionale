@@ -54,8 +54,33 @@
   
         <div class="container">
             <div class="row mt-5">
-                <h2>Ecco gli ordini da ritirare in <b>Atrio</b>:</h2>
+                <h2>Inserisci il punto di consegna interessato:</h2>
+                <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="input" placeholder="Cerca gli ordini di un punto di consegna..." aria-label="Search" name="name">
+                        <button class="btn btn-outline-primary me-4" type="submit">Cerca</button>
+                    </form>
             </div>
+<?php
+session_start();             
+
+include_once dirname(__FILE__) . '/../function/order.php';
+         
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (!empty($_POST['name'])) {
+      $data = $_POST['name'];
+      $response = getPickupId($data);
+      if (!empty($response) && $response != -1){
+        echo ('<p>' . $response . '</p>'); 
+      }
+      else{
+            echo ('<p>Il nome del punto di consegna da lei inserito è inesistente</p>'); 
+      }
+    }
+    else{
+        echo ('<p>devi inserire qualcosa</p>'); 
+    }
+}
+?>
             <div class="row mt-5">
                 <table class="table table-striped">
                     <thead>

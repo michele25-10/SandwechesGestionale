@@ -51,4 +51,14 @@ class PickUp
 
         return $result;
     }
+
+    public function getPickupId($name){
+        $sql = "select p.id
+                from pickup p
+                where p.name = '".$name."';";
+
+        $result = $this->conn->query($sql);
+        var_dump($result); 
+        return $result;
+    }
 }

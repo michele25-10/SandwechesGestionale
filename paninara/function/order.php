@@ -67,6 +67,25 @@ function getArchiveOrderByClass(){
     }else{
       return -1; 
     }
+}
 
+function getPickupId($data){
+  $url = 'http://localhost/WebApp_sandweches/food-api/API/order/pickup/getPickupId.php?name='.$data;
+  
+  $json_data = file_get_contents($url);
+
+  if($json_data != false){
+    $decode_data = json_decode($json_data, $assoc=true);
+    $res = $decode_data;
+
+  if (!empty($res)) {
+      var_dump($res); 
+    return $res;
+  }else{
+    return -1; 
+  }
+  }else{
+    return -1; 
+  }
 }
 ?>
