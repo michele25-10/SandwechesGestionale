@@ -21,6 +21,7 @@ function viewOrder(){
           'pickup' => $order['pickup'],
           'break' => $order['break'],
           'status' => $order['status'],
+          'json' => $order['json'],
         );
         array_push($order_arr, $order_record);
       }

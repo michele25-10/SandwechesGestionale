@@ -25,7 +25,7 @@ if ($stmt->num_rows > 0) // Se la funzione getArchiveOrder ha ritornato dei reco
         'pickup' => $pickup,
         'break' => $break,
         'status' => $status,
-        'json' => json_decode($json)
+        'json' => $json
        );
        array_push($order_arr, $order_record);
     }
