@@ -28,4 +28,13 @@ function getProductArchive(){
     }
 }
 
+function deleteOne($id){
+    
+}
+
+function addOne($id){
+
+}
+
+
 ?>
