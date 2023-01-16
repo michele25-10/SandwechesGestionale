@@ -51,7 +51,7 @@
                 </div>
             </div>
         </nav>
-  
+
         <div class="container">
             <div class="row mt-5">
                 <h2>Ecco tutti i prodotti</h2>
@@ -71,39 +71,46 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Panino al salame</td>
-                            <td>20</td>
-                            <td>5€</td>
-                            <td>
-                                <button type="button" class="btn btn-primary">Modifica</button>
-                            </td>
-                            <td>
-                                <button type="button" class="btn btn-danger">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
-                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                        <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
-                                    </svg>
-                                </button>
-                                <button type="button" class="btn btn-success">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                                    </svg>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Panino al salame</td>
-                            <td>20</td>
-                            <td>5€</td>
-                            <td>
-                                <button type="button" class="btn btn-primary">Modifica</button>
-                            </td>
-                            <td></td>
-                        </tr>
+                          
+<?php
+
+        include_once dirname(__FILE__) . '/function/product.php';
+
+        $prod_arr = getProductArchive();
+        if (!empty($prod_arr) && $prod_arr != -1) {
+            foreach ($prod_arr as $row) {
+                //ogni elemento dell'array è un array a sua volta, per la precisione una riga della tabella
+                echo ('<tr>');
+                foreach ($row as $cell) {
+                    //ogni elemento della riga è finalmente una cella
+                    echo ('<td>' . $cell . '</td>');
+                }
+                echo ('<td>
+                <button type="button" class="btn btn-primary">Modifica</button>
+                </td>');
+                echo ('                            <td>
+                <button type="button" class="btn btn-danger">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                    </svg>
+                </button>
+                <button type="button" class="btn btn-success">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                    </svg>
+                </button>
+            </td>');
+
+                echo ("</tr>\n");
+            }
+            echo ('</table>');
+        } else {
+            echo ('<p>Errore, i prodotti non sono presenti nel db</p>');
+        }
+
+?>
                     </tbody>
                 </table>
             </div>
