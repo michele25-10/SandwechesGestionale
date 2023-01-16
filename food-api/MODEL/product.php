@@ -27,6 +27,16 @@ class ProductController extends BaseController
         $result = $this->conn->query($sql);
         $this->SendOutput($result, JSON_OK);
     }
+
+    public function GetArchiveProductsPaninara(){
+        $sql = "SELECT distinct p.id as 'ID',p.name as 'Nome prodotto', p.quantity as 'Quantita', p.price as 'Prezzo'
+        from product p
+        where 1=1; 
+        ";
+
+$result = $this->conn->query($sql);
+$this->SendOutput($result, JSON_OK);
+    }
     public function GetArchiveIngredients($product_ID) //mostra gli ingredienti di un singolo prodotto
 
     {

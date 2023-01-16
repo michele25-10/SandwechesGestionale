@@ -1,7 +1,7 @@
 <?php
 
 function getProductArchive(){
-    $url = 'http://localhost/webApp_sandweches/food-api/API/product/getArchiveProducts.php';
+    $url = 'http://localhost/webApp_sandweches/food-api/API/product/getArchiveProductsPaninara.php';
 
     $json_data = file_get_contents($url);
     if($json_data != false){
@@ -13,8 +13,8 @@ function getProductArchive(){
                 $prod_record = array(
                     'ID' => $prod['ID'],
                     'name' => $prod['Nome prodotto'],
-                    'price' => $prod['Prezzo'],
-                    'tag' => $prod['Tag'],
+                    'quantity' => $prod['Quantita'],
+                    'Price' => $prod['Prezzo'],
                 );
                 array_push($prod_arr, $prod_record);
             }
