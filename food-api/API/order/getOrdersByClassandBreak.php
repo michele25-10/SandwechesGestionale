@@ -14,7 +14,7 @@ $result = $order->getOrderByClassAndBreak();
 if($result->num_rows > 0){
     $output = array();
     while($row = $result->fetch_assoc()){
-        array_push($output, [$row['year'], $row['section'], $row['quantity'], $row['product']]);
+        array_push($output, [$row['id'],$row['year'], $row['section'], $row['created'], $row['pickup'], $row['break'],$row['status']]);
     }
     echo json_encode($output);
 }

@@ -54,13 +54,15 @@
   
         <div class="container">
             <div class="row mt-5">
-                <h2>Ecco gli ordini della classe <b>5F</b>:</h2>
+                <h2>Ecco gli ordini delle classi:</h2>
             </div>
             <div class="row mt-5">
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th scope="col">Id</th>
+                            <th scope="col">Anno</th>
+                            <th scope="col">Sezione</th>                      
                             <th scope="col">Creato</th>
                             <th scope="col">Ritiro</th>
                             <th scope="col">Orario</th>
@@ -69,26 +71,30 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>01/01/2023</td>
-                            <td>Atrio</td>
-                            <td>10:30</td>
-                            <td>?</td>
-                            <td>
-                                <button type="button" class="btn btn-primary">Completato</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>01/01/2023</td>
-                            <td>Atrio</td>
-                            <td>10:30</td>
-                            <td>?</td>
-                            <td>
-                                <button type="button" class="btn btn-primary">Completato</button>
-                            </td>
-                        </tr>
+<?php
+session_start(); 
+
+include_once dirname(__FILE__) . '/../function/order.php';
+
+$ord_arr = getArchiveOrderByClass();
+if (!empty($ord_arr) && $ord_arr != -1) {
+    foreach ($ord_arr as $row) {
+        //ogni elemento dell'array è un array a sua volta, per la precisione una riga della tabella
+        echo ('<tr>');
+        foreach ($row as $cell) {
+            //ogni elemento della riga è finalmente una cella
+            echo ('<td>' . $cell . '</td>');
+        }  echo ('<td>
+        <button type="button" class="btn btn-primary">Completato</button>
+        </td>');
+        echo ("</tr>\n");
+    }
+} else {
+    echo ('<p>Errore,  ordini non presenti nel db</p>');
+}
+
+
+?>
                     </tbody>
                 </table>
             </div>

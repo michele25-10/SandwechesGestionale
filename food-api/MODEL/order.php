@@ -165,12 +165,14 @@
         }
 
         function getOrderByClassAndBreak(){
-        $sql = "SELECT c.id, c.`year` , c.`section` , o.break , count(po.product) as quantity, po.product  
-            from product_order po 
-            inner join `order` o on o.id = po.`order`
-            inner join user_class uc on uc.`user` = o.`user` 
-            inner join class c on c.id = uc.class 
-            group by c.id , o.break ;";
+        $sql = "select distinct  o.id as 'id', c.`year` as 'year', c.`section` as 'section', o.created as 'created', p.name as 'pickup', b.`time` as 'break', s.description as 'status'
+        from `order` o 
+        inner join `user` u on u.id = o.`user` 
+        inner join user_class uc on uc.`user` = u.id 
+        inner join class c on c.id = uc.class 
+        left join break b on b.id  = o.break 
+        left join pickup p on p.id = o.pickup 
+        left join status s ON s.id = o.id; ";
 
         $result = $this->conn->query($sql);
 
