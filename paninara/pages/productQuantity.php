@@ -71,7 +71,7 @@ include_once dirname(__FILE__) . '/../function/product.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $data = array(
-        "ID" => $_GET['id'],
+        "ID" => $_GET['ID'],
         "quantity"=>$_POST['quantity'], 
         "action"=>"set", 
     );

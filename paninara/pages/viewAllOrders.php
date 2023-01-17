@@ -71,7 +71,7 @@
                     <tbody>
                     <?php
 session_start();
-                     
+
 include_once dirname(__FILE__) . '/../function/order.php';
 
 $ord_arr = viewOrder();

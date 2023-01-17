@@ -120,41 +120,80 @@ if (!empty($prod_arr) && $prod_arr != -1) {
 }
 ?>
 
-        <div class="container">
+<div class="container">
             <div class="row mt-5">
-            <div form="post">
             <div class="col-6">
-                <button type="submit" id="deleteButton" name="button" class="btn btn-primary" value="3">Annulla</button>
+            <form method="post">
+                <button type="submit" id="deleteButton" name="annulla" class="btn btn-danger">Annulla ordine</button>
+                </form> 
             </div>
             <div class="col-6">
-                <button type="submit" id="readyButton" name="button" class="btn btn-primary" value="2">Pronto</button>
+            <form method="post">
+                <button type="submit" id="readyButton" name="pronto" class="btn btn-success">Ordine pronto</button>
+                </form> 
             </div>
-            </form> 
             </div>
         </div>
 <?php
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (!empty($_POST['button'])) {
-        if($_POST['button'] == "3"){
-            $res = setStatus($id, 3); 
+if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['annulla'])) {
+    $data = array(
+        "id"  => $id,
+        "status" => '3',
+        );  
+    $res = setStatus($data); 
             if($res == 1){
-                echo ('<p>Done</p>'); 
-            }else{
-                echo ('<p>Error</p>'); 
-            }
-        }
-        if($_POST['button'] == "2"){
-            $res = setStatus($id, 2); 
-            if($res == 1){
-                echo ('<p>Done</p>'); 
-            }else{
-                echo ('<p>Error</p>'); 
-            }
-        }
-    }
+                echo('
+                <div class="row mt-5">
+                <div class="col-6">
+                <p class="text-success">Ordine annullato</p>
+                </div>
+                <div class="col-6">
 
-}
+                </div>
+                </div>'); 
+            }else{
+                echo('
+                <div class="row mt-5">
+                <div class="col-6">
+                <p class="text-danger">Errore</p>
+                </div>
+                <div class="col-6">
+
+                </div>
+                </div>'); 
+            }
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['pronto'])) {
+            $data = array(
+                "id"  => $id,
+                "status" => '2',
+                );    
+            $res = setStatus($data); 
+            if($res == 1){
+                echo ('
+                <div class="row mt-5">
+                <div class="col-6">
+                </div>
+                <div class="col-6">
+                <p class="text-success">Ordine aggiornato a pronto</p>
+                </div>
+                </div>'); 
+            }else{
+                echo('
+                <div class="row mt-5">
+                <div class="col-6">
+
+                </div>
+                <div class="col-6">
+                <p class="text-danger">Errore</p>
+                </div>
+                </div>'); 
+            }
+        }
+
+
 
 ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>

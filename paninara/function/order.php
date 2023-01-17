@@ -157,7 +157,7 @@ function getProductOrder($id_order){
   }
 }
 
-function setStatus($id, $status){
+function setStatus($data){
   $url = 'http://localhost/webApp_sandweches/food-api/API/order/status/setStatus.php';
 
         $curl = curl_init($url);    //inizializza una nuova sessione di cUrl
@@ -172,11 +172,6 @@ function setStatus($id, $status){
             "Content-Lenght: 0",
         );
 
-        $data = array(
-          'id' => $id, 
-          'status' => $status,
-        ); 
-
         curl_setopt($curl, CURLOPT_HTTPHEADER, $headers); // setta gli headers della request
 
         curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
@@ -186,7 +181,7 @@ function setStatus($id, $status){
         curl_close($curl);  //chiudo sessione
 
         $response = json_decode($responseJson);     //decodifico la response dal json
-        
+
         if ($response == 1)        //response == true vuol dire sessione senza errori
         {
           return 1; 

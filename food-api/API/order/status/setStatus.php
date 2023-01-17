@@ -14,11 +14,11 @@ if(empty($data) || empty($data->id) || empty($data->status)){
 
 $db = new Database();
 $db_conn = $db->connect();
-$pickup = new PickUp($db_conn);
+$order = new Order($db_conn);
 
 $result = $order->setStatusPaninara($data->id, $data->status);
 
-if($result == 1){
+if($result == true){
     echo json_encode("1");
 }
 else{
