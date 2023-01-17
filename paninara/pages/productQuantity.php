@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Sandwech | Prodotti</title>
+        <title>Sandwech | Ordini</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <link rel="stylesheet" href="assets/style.css">
         <link rel="icon" type="image/x-icon" href="assets/img/logo.png">
@@ -26,15 +26,14 @@
                             <a class="nav-link" aria-current="page" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="viewAllProducts.php">Prodotti</a>
+                            <a class="nav-link" href="viewAllProducts.php">Prodotti</a>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown active">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
                                 Ordini
                             </a>
                             <ul class="dropdown-menu">
-                                <!-- <li><a class="dropdown-item" href="#">Tutti gli Ordini</a></li> -->
                                 <li><a class="dropdown-item" href="viewAllOrders.php">Ordini attivi</a></li>
                                 <li><a class="dropdown-item" href="viewOrdersByClass.php">Ordini attivi per classe</a></li>
                                 <li><a class="dropdown-item" href="viewOrdersByPlace.php">Ordini attivi per consegna</a></li>
@@ -51,56 +50,25 @@
                 </div>
             </div>
         </nav>
-
+  
         <div class="container">
             <div class="row mt-5">
-                <h2>Ecco tutti i prodotti</h2>
+                <h2>Ecco tutti gli ordini</h2>
             </div>
             <div class="row mt-5">
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th scope="col">Id</th>
-                            <th scope="col">Descrizione</th>
-                            <th scope="col">Quantità</th>
-                            <th scope="col">Prezzo</th>
-                            <th scope="col"></th>
+                            <th scope="col">Utente</th>
+                            <th scope="col">Creato</th>
+                            <th scope="col">Ritiro</th>
+                            <th scope="col">Orario</th>
+                            <th scope="col">Stato</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
-                          
-<?php
-
-        include_once dirname(__FILE__) . '/../function/product.php';
-
-        $prod_arr = getProductArchive();
-        if (!empty($prod_arr) && $prod_arr != -1) {
-            foreach ($prod_arr as $row) {
-                //ogni elemento dell'array è un array a sua volta, per la precisione una riga della tabella
-                echo ('<tr>');
-                foreach ($row as $cell) {
-                    //ogni elemento della riga è finalmente una cella
-                    echo ('<td>' . $cell . '</td>');
-                }
-                echo ('<td>
-                <button type="button" id = "productButton" class="btn btn-primary">Modifica</button>
-                </td>');
-               
-
-                echo ("</tr>\n");
-            }
-            echo ('</table>');
-        } else {
-            echo ('<p>Errore, i prodotti non sono presenti nel db</p>');
-        }
-
-?>
-<script type="text/javascript">
-    document.getElementById("productButton").onclick = function () {
-        document.location.href = "productQuantity.php";
-    };
-</script>
                     </tbody>
                 </table>
             </div>
