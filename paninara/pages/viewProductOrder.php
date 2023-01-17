@@ -123,10 +123,16 @@ if (!empty($prod_arr) && $prod_arr != -1) {
         <div class="container">
             <div class="row mt-5">
             <div class="col-6">
-                <button type="button" id="readyButton" class="btn btn-primary">Pronto</button>
+                <button type="button" id="readyButton" class="btn btn-primary" onClick="
+                <?php
+                setStatus($id, 3)
+                ?>
+                ">Annulla</button>
             </div>
             <div class="col-6">
-                <button type="button" id="completeButton" class="btn btn-primary">Consegnato</button>
+                <button type="button" id="completeButton" class="btn btn-primary" onClick="<?php
+                setStatus($id, 2)
+                ?>">Pronto</button>
             </div>
             </div>
         </div>

@@ -36,7 +36,7 @@
             left join break b on b.id  = o.break 
             left join pickup p on p.id = o.pickup 
             left join status s ON s.id = o.id
-            where o.id = '1'; ";
+            where o.id = '1';";
 
             $stmt = $this->conn->query($query);
 
@@ -88,15 +88,6 @@
             return $stmt;
         }
 
-        
-        function setStatus($id){ // setta lo stato di un ordine a 2, pronto
-
-            $query = "UPDATE $this->table_name SET status = 2 WHERE id = $id";
-
-            $stmt = $this->conn->query($query);
-
-            return $stmt;
-        }
 
 
         /*
@@ -180,5 +171,14 @@
         return $result;
         }
         
+        function setStatusPaninara($id, $status){
+            $sql = "update `order` o
+                    set status = '".$status."'
+                    where o.id = '".$id."';";
+    
+            $result = $this->conn->query($sql);
+    
+            return $result;
+        }
     }
 ?>
