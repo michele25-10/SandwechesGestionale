@@ -142,14 +142,13 @@ function getProductOrder($id_order){
 
       foreach ($prod_data as $prod) {
         $prod_record = array(
-          'id' => $prod['id'],
-          'name' => $prod['name'],
-          'quantity' => $prod['quantity'],
-          'price' => $prod['price'],
+          'id' => $prod[0],
+          'name' => $prod[1],
+          'quantity' => $prod[2],
+          'price' => $prod[3],
         );
         array_push($prod_arr, $prod_record);
-      }
-      var_dump($prod_arr); 
+      } 
       return $prod_arr;
     }else{
     return -1; 

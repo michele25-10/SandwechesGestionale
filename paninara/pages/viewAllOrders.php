@@ -70,7 +70,8 @@
                     </thead>
                     <tbody>
                     <?php
-
+session_start();
+                     
 include_once dirname(__FILE__) . '/../function/order.php';
 
 $ord_arr = viewOrder();
@@ -82,25 +83,22 @@ if (!empty($ord_arr) && $ord_arr != -1) {
             //ogni elemento della riga è finalmente una cella
             echo ('<td>' . $cell . '</td>');
         }  echo ('<td>
+        <a href="viewProductOrder.php?id='.$row['id'].'&pickup='.$row['pickup'].'&break='.$row['break'].'">
         <button type="button" id="orderButton" class="btn btn-primary">Visualizza ordine</button>
-        </td>');
+        </td>
+        </a>');
         echo ("</tr>\n");
     }
-    echo ('</table>');
+    echo ('</tbody>
+    </table>');
 } else {
     echo ('<p>Errore,  ordini non presenti nel db</p>');
 }
 
 ?>
-                    </tbody>
-                </table>
+
             </div>
         </div>
-<script type="text/javascript">
-    document.getElementById("orderButton").onclick = function () {
-        document.location.href = "viewProductOrder.php";
-    };
-</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     </body>
 </html>

@@ -35,7 +35,8 @@
             left join `user` u on u.id = o.`user` 
             left join break b on b.id  = o.break 
             left join pickup p on p.id = o.pickup 
-            left join status s ON s.id = o.id; ";
+            left join status s ON s.id = o.id
+            where o.id = '1'; ";
 
             $stmt = $this->conn->query($query);
 

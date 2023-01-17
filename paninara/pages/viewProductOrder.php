@@ -51,70 +51,85 @@
             </div>
         </nav>
 
-        <div class="container">
-            <div class="row mt-5">
-                <div class="col">
-                    <h2>ID ordine: 5</h2>
-                </div>
-                <div class="col">
-                    <h2>Punto di ritiro: 5</h2>
-                </div>
-                <div class="col">
-                    <h2>Orario: </h2>
-                </div>
-            </div>
-            <div class="row mt-5">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">Id prodotto</th>
-                            <th scope="col">nome</th>
-                            <th scope="col">quantità</th>
-                            <th scope="col">prezzo</th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
                     <?php
 
 include_once dirname(__FILE__) . '/../function/order.php';
+if (isset($_REQUEST['id'])){
+    $id = $_REQUEST['id']; //valore al ritorno alla pagina
+}
+if (isset($_REQUEST['pickup'])){
+    $pickup = $_REQUEST['pickup']; //valore al ritorno alla pagina
+}
+if (isset($_REQUEST['break'])){
+    $break = $_REQUEST['break']; //valore al ritorno alla pagina
+}
+
+if(empty($id) || empty($pickup) || empty($break)){
+                        echo ('<p>Non ho i giusti dati per aprire questa pagina</p>'); 
+}else{
+
+echo('
+<div class="container">
+            <div class="row mt-5">
+                <div class="col-3">
+                    <h2>ID ordine: '.$id.'</h2>
+                </div>
+                <div class="col-6">
+                    <h2>Punto di ritiro: '.$pickup.'</h2>
+                </div>
+                <div class="col-3">
+                    <h2>Orario: '.$break.'</h2>
+                </div>
+            </div>
+'); 
 
 $prod_arr = getProductOrder($id);
 if (!empty($prod_arr) && $prod_arr != -1) {
+    echo('
+    <div class="row mt-5">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id prodotto</th>
+                <th scope="col">nome</th>
+                <th scope="col">quantità</th>
+                <th scope="col">prezzo</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+    '); 
     foreach ($prod_arr as $row) {
         //ogni elemento dell'array è un array a sua volta, per la precisione una riga della tabella
         echo ('<tr>');
         foreach ($row as $cell) {
             //ogni elemento della riga è finalmente una cella
             echo ('<td>' . $cell . '</td>');
-        }  echo ('<td>
-        <button type="button" id="orderButton" class="btn btn-primary">Visualizza ordine</button>
-        </td>');
+        }  
         echo ("</tr>\n");
     }
-    echo ('</table>');
+    echo ('                    
+    </tbody>
+    </table>
+    </div>
+');
 } else {
     echo ('<p>Errore,  ordini non presenti nel db</p>');
 }
-
+}
 ?>
-                    </tbody>
-                </table>
-            </div>
+
+        <div class="container">
             <div class="row mt-5">
-            <div class="col">
-                <button type="button" id="backButton" class="btn btn-primary"><--</button>
-            </div>
-            <div class="col">
+            <div class="col-6">
                 <button type="button" id="readyButton" class="btn btn-primary">Pronto</button>
             </div>
-            <div class="col">
+            <div class="col-6">
                 <button type="button" id="completeButton" class="btn btn-primary">Consegnato</button>
             </div>
             </div>
         </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     </body>
 </html>
