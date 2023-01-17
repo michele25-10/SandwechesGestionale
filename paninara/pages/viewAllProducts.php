@@ -84,6 +84,7 @@
                     echo ('<td>' . $cell . '</td>');
                 }
                 echo ('<td>
+                <a href="productQuantity.php?ID='.$row['ID'].'">
                 <button type="button" id = "productButton" class="btn btn-primary">Modifica</button>
                 </td>');
                
@@ -94,13 +95,7 @@
         } else {
             echo ('<p>Errore, i prodotti non sono presenti nel db</p>');
         }
-
 ?>
-<script type="text/javascript">
-    document.getElementById("productButton").onclick = function () {
-        document.location.href = "productQuantity.php";
-    };
-</script>
                     </tbody>
                 </table>
             </div>

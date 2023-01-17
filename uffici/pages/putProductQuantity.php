@@ -9,7 +9,7 @@
 
     <div class="container-fluid">
         <form method="post">
-            <h1>Aggiungi un nuovo</h1>
+            <h1>Inserisci quantità prodotto</h1>
             <input type="" id="name" placeholder="Id prodotto" name="product" maxlength="50" required>
             <input type="" id="name" placeholder="Quantità totale" name="quantity" maxlength="50" required>
             <button type="submit" name="user">Invia</button>

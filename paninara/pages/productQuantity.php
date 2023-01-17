@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Sandwech | Ordini</title>
+        <title>Sandwech | prodottiQuantità </title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <link rel="stylesheet" href="assets/style.css">
         <link rel="icon" type="image/x-icon" href="assets/img/logo.png">
@@ -53,27 +53,33 @@
   
         <div class="container">
             <div class="row mt-5">
-                <h2>Ecco tutti gli ordini</h2>
+                <h2>Modifca quantità prodotto</h2>
+                <div class="container-fluid">
+        <form method="post">
+            <input type="" id="name" placeholder="Quantità totale" name="quantity" maxlength="50" required>
+            <button type="submit" name="user">Invia</button>
+        </form>
             </div>
-            <div class="row mt-5">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Utente</th>
-                            <th scope="col">Creato</th>
-                            <th scope="col">Ritiro</th>
-                            <th scope="col">Orario</th>
-                            <th scope="col">Stato</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
             </div>
         </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     </body>
 </html>
+<?php
+//stringa di identificazione del server, quando premi button il metodo diventa post
+include_once dirname(__FILE__) . '/../function/product.php';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    $data = array(
+        "ID" => $_GET['id'],
+        "quantity"=>$_POST['quantity'], 
+        "action"=>"set", 
+    );
+
+    $response = putProductQuantity($data);
+    
+    if(!empty($response->Message)){
+    echo ('<p>' . $response->Message . '</p>'); 
+    }
+}
+?>
