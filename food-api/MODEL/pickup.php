@@ -52,13 +52,17 @@ class PickUp
         return $result;
     }
 
-    public function getPickupId($name){
-        $sql = "select p.id
-                from pickup p
-                where p.name = '".$name."';";
+    public function getPickupId($id){
+        $query = "select o.id as 'id', u.email as 'user', o.created as 'created', p.name as 'pickup', b.`time` as 'break', s.description as 'status'
+            from `order` o 
+            left join `user` u on u.id = o.`user` 
+            left join break b on b.id  = o.break 
+            left join pickup p on p.id = o.pickup 
+            left join status s ON s.id = o.id
+            where p.id = '".$id."'; ";
 
-        $result = $this->conn->query($sql);
-        var_dump($result); 
-        return $result;
+            $stmt = $this->conn->query($query);
+
+            return $stmt;
     }
 }

@@ -93,31 +93,12 @@ else{
 
 
                 <h2>Inserisci ID del punto di consegna interessato:</h2>
-                <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="input" placeholder="Cerca gli ordini di un punto di consegna..." aria-label="Search" name="id">
+                <form class="d-flex" method="POST">
+                        <input class="form-control me-2" type="input" placeholder="Cerca gli ordini di un punto di consegna..." aria-label="Search" name="id" required>
                         <button class="btn btn-outline-primary me-4" type="submit">Cerca</button>
                     </form>
             </div>
-<?php         
 
-include_once dirname(__FILE__) . '/../function/order.php';
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (!empty($_POST['id'])) {
-      $data = $_POST['id'];
-      $response = getPickup();
-      if (!empty($response) && $response != -1){
-        echo ('<p>' . $response . '</p>'); 
-      }
-      else{
-            echo ('<p>Il nome del punto di consegna da lei inserito è inesistente</p>'); 
-      }
-    }
-    else{
-        echo ('<p>devi inserire qualcosa</p>'); 
-    }
-}
-?>
             <div class="row mt-5">
                 <table class="table table-striped">
                     <thead>
@@ -132,30 +113,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>1</td>
-                            <td>01/01/2023</td>
-                            <!-- <td>Atrio</td> -->
-                            <td>10:30</td>
-                            <td>?</td>
-                            <td>
-                                <button type="button" class="btn btn-primary">Completato</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>1</td>
-                            <td>01/01/2023</td>
-                            <!-- <td>Atrio</td> -->
-                            <td>10:30</td>
-                            <td>?</td>
-                            <td>
-                                <button type="button" class="btn btn-primary">Completato</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <?php         
+
+include_once dirname(__FILE__) . '/../function/order.php';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (!empty($_POST['id'])) {
+      $data = $_POST['id'];
+      $order_arr = getPickupOrder($data);
+      if (!empty($order_arr) && $order_arr != -1){
+        foreach ($order_arr as $row) {
+            //ogni elemento dell'array è un array a sua volta, per la precisione una riga della tabella
+            echo ('<tr>');
+            foreach ($row as $cell) {
+                //ogni elemento della riga è finalmente una cella
+                echo ('<td>' . $cell . '</td>');
+            }  
+            echo ("</tr>\n");
+        }
+        echo('</tbody>'); 
+        echo ('</table>');
+    }
+      }
+      else{
+            echo ('<p>ID del punto di consegna da lei inserito è inesistente</p>'); 
+      }
+    }
+    else{
+        echo ('<p>devi inserire qualcosa</p>'); 
+    }
+?>
+
             </div>
         </div>
 
