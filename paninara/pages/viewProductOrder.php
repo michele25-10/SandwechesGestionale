@@ -123,19 +123,41 @@ if (!empty($prod_arr) && $prod_arr != -1) {
         <div class="container">
             <div class="row mt-5">
             <div class="col-6">
-                <button type="button" id="readyButton" class="btn btn-primary" onClick="
-                <?php
-                setStatus($id, 3)
-                ?>
-                ">Annulla</button>
+                <button type="button" id="deleteButton" class="btn btn-primary" onclick="annulla()">Annulla</button>
             </div>
             <div class="col-6">
-                <button type="button" id="completeButton" class="btn btn-primary" onClick="<?php
-                setStatus($id, 2)
-                ?>">Pronto</button>
+                <button type="button" id="readyButton" class="btn btn-primary" onclick="pronto()">Pronto</button>
             </div>
             </div>
         </div>
+    <script>
+        function annulla() {
+        var result = "<?php setStatus($id, 3);  ?>"; 
+        if(result == 1){
+            <?php
+            echo ('<p>Done</p>'); 
+            ?>
+        }else{
+            <?php
+            echo ('<p>Error</p>');    
+            ?>
+        }
+    };
+</script>
+<script>
+        function pronto() {
+        var result = "<?php setStatus($id, 2);  ?>"; 
+        if(result == 1){
+            <?php
+            echo ('<p>Done</p>'); 
+            ?>
+        }else{
+            <?php
+            echo ('<p>Error</p>');    
+            ?>
+        }
+    };
+</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     </body>
 </html>

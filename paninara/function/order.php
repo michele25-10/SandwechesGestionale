@@ -189,11 +189,11 @@ function setStatus($id, $status){
         
         if ($response == 1)        //response == true vuol dire sessione senza errori
         {
-            echo('<p>Modificato</p>'); 
+          return 1; 
         }
         else
         {
-            echo('<p>Errore</p>'); 
+            return -1; 
         }
     }
 

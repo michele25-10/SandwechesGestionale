@@ -84,9 +84,12 @@ if (!empty($ord_arr) && $ord_arr != -1) {
         foreach ($row as $cell) {
             //ogni elemento della riga è finalmente una cella
             echo ('<td>' . $cell . '</td>');
-        }  echo ('<td>
-        <button type="button" class="btn btn-primary">Completato</button>
-        </td>');
+        } 
+         echo ('<td>
+        <a href="viewProductOrder.php?id='.$row['id'].'&pickup='.$row['pickup'].'&break='.$row['break'].'">
+        <button type="button" id="orderButton" class="btn btn-primary">Visualizza ordine</button>
+        </td>
+        </a>');
         echo ("</tr>\n");
     }
 } else {
