@@ -151,13 +151,13 @@
                 return "";
             }
         }
-        function getProductsOrder(){
-        $sql = "SELECT po.product, p.name ,count(po.product) as 'quantity'
-        from product_order po
-        inner join `order` o on o.id = po.`order`
+        function getProductsOrder($id_order){
+        $sql = "select p.id as 'id', p.name as 'name', po.quantity as 'quantity', sum(po.quantity*p.price) as 'price'
+        from `order` o 
+        inner join product_order po on po.`order` = o.id 
         inner join product p on p.id = po.product 
-        where o.status = 1 and o.created > Now() - interval 6 hour and o.created < Now() + interval 6 hour 
-        group by po.product ;";
+        where o.id='".$id_order."' 
+        group by p.id;";
 
         $result = $this->conn->query($sql);
 

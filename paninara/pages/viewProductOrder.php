@@ -34,7 +34,6 @@
                                 Ordini
                             </a>
                             <ul class="dropdown-menu">
-                                <!-- <li><a class="dropdown-item" href="#">Tutti gli Ordini</a></li> -->
                                 <li><a class="dropdown-item" href="viewAllOrders.php">Ordini attivi</a></li>
                                 <li><a class="dropdown-item" href="viewOrdersByClass.php">Ordini attivi per classe</a></li>
                                 <li><a class="dropdown-item" href="viewOrdersByPlace.php">Ordini attivi per consegna</a></li>
@@ -51,101 +50,68 @@
                 </div>
             </div>
         </nav>
-  
+
         <div class="container">
             <div class="row mt-5">
-            <h2>Tabella punti di consegna:</h2>
-            <br>
-            <br>
+                <div class="col">
+                    <h2>ID ordine: 5</h2>
+                </div>
+                <div class="col">
+                    <h2>Punto di ritiro: 5</h2>
+                </div>
+                <div class="col">
+                    <h2>Orario: </h2>
+                </div>
+            </div>
+            <div class="row mt-5">
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Nome</th>
+                            <th scope="col">Id prodotto</th>
+                            <th scope="col">nome</th>
+                            <th scope="col">quantità</th>
+                            <th scope="col">prezzo</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-<?php
-
-session_start();    
+                    <?php
 
 include_once dirname(__FILE__) . '/../function/order.php';
 
-$pick_arr = getPickup();
-if (!empty($pick_arr) && $pick_arr != -1){
-    foreach ($pick_arr as $row) {
+$prod_arr = getProductOrder($id);
+if (!empty($prod_arr) && $prod_arr != -1) {
+    foreach ($prod_arr as $row) {
         //ogni elemento dell'array è un array a sua volta, per la precisione una riga della tabella
         echo ('<tr>');
         foreach ($row as $cell) {
             //ogni elemento della riga è finalmente una cella
             echo ('<td>' . $cell . '</td>');
-        }  
+        }  echo ('<td>
+        <button type="button" id="orderButton" class="btn btn-primary">Visualizza ordine</button>
+        </td>');
         echo ("</tr>\n");
     }
-    echo('</tbody>'); 
     echo ('</table>');
+} else {
+    echo ('<p>Errore,  ordini non presenti nel db</p>');
 }
-else{
-      echo ('<p>Il nome del punto di consegna da lei inserito è inesistente</p>'); 
-}
+
 ?>
-
-
-                <h2>Inserisci ID del punto di consegna interessato:</h2>
-                <form class="d-flex" method="POST">
-                        <input class="form-control me-2" type="input" placeholder="Cerca gli ordini di un punto di consegna..." aria-label="Search" name="id" required>
-                        <button class="btn btn-outline-primary me-4" type="submit">Cerca</button>
-                    </form>
+                    </tbody>
+                </table>
             </div>
-
-                    <?php         
-
-include_once dirname(__FILE__) . '/../function/order.php';
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (!empty($_POST['id'])) {
-      $data = $_POST['id'];
-      $order_arr = getPickupOrder($data);
-      if (!empty($order_arr) && $order_arr != -1){
-        echo('
-        <div class="row mt-5">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Utente</th>
-                            <th scope="col">Creato</th>
-                            <!-- <th scope="col">Ritiro</th> -->
-                            <th scope="col">Orario</th>
-                            <th scope="col">Stato</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-        '); 
-        foreach ($order_arr as $row) {
-            //ogni elemento dell'array è un array a sua volta, per la precisione una riga della tabella
-            echo ('<tr>');
-            foreach ($row as $cell) {
-                //ogni elemento della riga è finalmente una cella
-                echo ('<td>' . $cell . '</td>');
-            }  
-            echo ("</tr>\n");
-        }
-        echo('</tbody>'); 
-        echo ('</table>');
-    }
-      }
-      else{
-            echo ('<p>ID del punto di consegna da lei inserito è inesistente</p>'); 
-      }
-    }
-    else{
-        echo ('<p>devi inserire qualcosa</p>'); 
-    }
-?>
-
+            <div class="row mt-5">
+            <div class="col">
+                <button type="button" id="backButton" class="btn btn-primary"><--</button>
+            </div>
+            <div class="col">
+                <button type="button" id="readyButton" class="btn btn-primary">Pronto</button>
+            </div>
+            <div class="col">
+                <button type="button" id="completeButton" class="btn btn-primary">Consegnato</button>
+            </div>
             </div>
         </div>
 

@@ -128,4 +128,34 @@ function getPickupOrder($data){
     return -1; 
   }
 }
+
+function getProductOrder($id_order){
+  $url = 'http://localhost/WebApp_sandweches/food-api/API/order/getProductsOrders.php?id='.$id_order;
+
+  $json_data = file_get_contents($url);
+
+  if($json_data != false){
+    $decode_data = json_decode($json_data, $assoc=true);
+    $prod_data = $decode_data;
+    if (!empty($prod_data)) {
+      $prod_arr = array();
+
+      foreach ($prod_data as $prod) {
+        $prod_record = array(
+          'id' => $prod['id'],
+          'name' => $prod['name'],
+          'quantity' => $prod['quantity'],
+          'price' => $prod['price'],
+        );
+        array_push($prod_arr, $prod_record);
+      }
+      var_dump($prod_arr); 
+      return $prod_arr;
+    }else{
+    return -1; 
+  }
+  }else{
+    return -1; 
+  }
+}
 ?>
