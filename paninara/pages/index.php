@@ -54,6 +54,13 @@
   
         <div class="container mt-5">
             <div class="row">
+                <?php
+
+                session_start(); 
+
+                include_once dirname(__FILE__) . '/../function/login.php';
+
+                ?>
                 <h2>Ciao, <b>Alessio</b>.</h2>
                 <h2>Ci sono 27 ordini da completare.</h2>
             </div>
