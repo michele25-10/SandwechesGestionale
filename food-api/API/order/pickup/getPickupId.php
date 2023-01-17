@@ -8,15 +8,15 @@ include_once dirname(__FILE__) . '/../../../MODEL/pickup.php';
 $database = new Database();
 $db = $database->connect();
 
-if (!strpos($_SERVER["REQUEST_URI"], "?name=")) // Controlla se l'URI contiene ?BREAK_ID
+if (!strpos($_SERVER["REQUEST_URI"], "?id=")) // Controlla se l'URI contiene ?BREAK_ID
 {
     http_response_code(400);
     die(json_encode(array("Message" => "Bad request")));
 }
 
-$name = explode("?name=" ,$_SERVER['REQUEST_URI'])[1]; // Viene ricavato quello che c'è dopo ?BREAK_ID
+$id = explode("?id=" ,$_SERVER['REQUEST_URI'])[1]; // Viene ricavato quello che c'è dopo ?BREAK_ID
 
-if(empty($name)){
+if(empty($id)){
     http_response_code(400);
     echo json_encode(["Message" => "No id found"]);
     die();

@@ -82,7 +82,7 @@ if (!empty($ord_arr) && $ord_arr != -1) {
             //ogni elemento della riga è finalmente una cella
             echo ('<td>' . $cell . '</td>');
         }  echo ('<td>
-        <button type="button" class="btn btn-primary">Modifica</button>
+        <button type="button" class="btn btn-primary">Visualizza ordine</button>
         </td>');
         echo ("</tr>\n");
     }

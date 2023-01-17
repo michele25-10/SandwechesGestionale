@@ -54,21 +54,58 @@
   
         <div class="container">
             <div class="row mt-5">
-                <h2>Inserisci il punto di consegna interessato:</h2>
+            <h2>Tabella punti di consegna:</h2>
+            <br>
+            <br>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Nome</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+<?php
+
+session_start();    
+
+include_once dirname(__FILE__) . '/../function/order.php';
+
+$pick_arr = getPickup();
+if (!empty($pick_arr) && $pick_arr != -1){
+    foreach ($pick_arr as $row) {
+        //ogni elemento dell'array è un array a sua volta, per la precisione una riga della tabella
+        echo ('<tr>');
+        foreach ($row as $cell) {
+            //ogni elemento della riga è finalmente una cella
+            echo ('<td>' . $cell . '</td>');
+        }  
+        echo ("</tr>\n");
+    }
+    echo('</tbody>'); 
+    echo ('</table>');
+}
+else{
+      echo ('<p>Il nome del punto di consegna da lei inserito è inesistente</p>'); 
+}
+?>
+
+
+                <h2>Inserisci ID del punto di consegna interessato:</h2>
                 <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="input" placeholder="Cerca gli ordini di un punto di consegna..." aria-label="Search" name="name">
+                        <input class="form-control me-2" type="input" placeholder="Cerca gli ordini di un punto di consegna..." aria-label="Search" name="id">
                         <button class="btn btn-outline-primary me-4" type="submit">Cerca</button>
                     </form>
             </div>
-<?php
-session_start();             
+<?php         
 
 include_once dirname(__FILE__) . '/../function/order.php';
-         
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (!empty($_POST['name'])) {
-      $data = $_POST['name'];
-      $response = getPickupId($data);
+    if (!empty($_POST['id'])) {
+      $data = $_POST['id'];
+      $response = getPickup();
       if (!empty($response) && $response != -1){
         echo ('<p>' . $response . '</p>'); 
       }

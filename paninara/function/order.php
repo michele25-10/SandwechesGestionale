@@ -69,19 +69,27 @@ function getArchiveOrderByClass(){
     }
 }
 
-function getPickupId($data){
-  $url = 'http://localhost/WebApp_sandweches/food-api/API/order/pickup/getPickupId.php?name='.$data;
+function getPickup(){
+  $url = 'http://localhost/WebApp_sandweches/food-api/API/order/pickup/getPickup.php';
   
   $json_data = file_get_contents($url);
 
   if($json_data != false){
     $decode_data = json_decode($json_data, $assoc=true);
-    $res = $decode_data;
+    $pickup_data = $decode_data;
+    if (!empty($pickup_data)) {
+      $pickup_arr = array();
 
-  if (!empty($res)) {
-      var_dump($res); 
-    return $res;
-  }else{
+      foreach ($pickup_data as $pick) {
+        $pickup_record = array(
+          'id' => $pick['id'],
+          'name' => $pick['name'],
+        );
+        array_push($pickup_arr, $pickup_record);
+      }
+
+      return $pickup_arr;
+    }else{
     return -1; 
   }
   }else{
