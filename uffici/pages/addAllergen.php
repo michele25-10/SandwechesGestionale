@@ -52,7 +52,7 @@
                     $data = $_POST['name'];
                     $response = addAllergen($data);
                     if (!empty($response)){
-                      echo ('<p>' . $response . '</p>'); 
+                      echo ('<p class="text-success fw-bold mt-3 ms-3">' . $response . '</p>'); 
                     }
 
                   }
