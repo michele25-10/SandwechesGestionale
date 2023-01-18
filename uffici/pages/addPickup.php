@@ -111,8 +111,8 @@
                          }
                        }
                        ?>
-                      </form>
                       </td>
+                    </form>
                   </tr>
                 </tbody>
               </table>
