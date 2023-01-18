@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <a class="navbar-brand fw-bold" href="#">
-            <img src="assets/img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top me-2">
+            <img src="../assets/img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top me-2">
             Sandwech | Admin
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -19,7 +19,7 @@
                         Caratteristiche
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="pages/addAllergen.php">Aggiungi Allergeni</a></li>
+                        <li><a class="dropdown-item" href="addAllergen.php">Aggiungi Allergeni</a></li>
                         <li><a class="dropdown-item" href="">Aggiungi Classi</a></li>
                         <li><a class="dropdown-item" href="">Aggiungi Ingredienti</a></li>
                         <li><a class="dropdown-item" href="">Aggiungi Offerte</a></li>
