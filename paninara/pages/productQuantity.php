@@ -59,27 +59,34 @@
             <input type="" id="name" placeholder="Quantità totale" name="quantity" maxlength="50" required>
             <button type="submit" name="user">Invia</button>
         </form>
+        <?php
+//stringa di identificazione del server, quando premi button il metodo diventa post
+include_once dirname(__FILE__) . '/../function/product.php';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+     $quantity=$_POST['quantity'];
+
+    if($quantity > 0){
+        $data = array(
+            "ID" => $_GET['ID'],
+            "quantity"=>$quantity, 
+            "action"=>"set",
+        );
+        $response = putProductQuantity($data);
+    
+    if(!empty($response->Message)){
+    echo ('<p>' . $response->Message . '</p>'); 
+    }
+    }
+
+     else{
+        echo('<p class = "text-danger">Inserisci quantità positive</p>');
+     }
+    
+}
+?>
             </div>
             </div>
         </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     </body>
 </html>
-<?php
-//stringa di identificazione del server, quando premi button il metodo diventa post
-include_once dirname(__FILE__) . '/../function/product.php';
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-    $data = array(
-        "ID" => $_GET['ID'],
-        "quantity"=>$_POST['quantity'], 
-        "action"=>"set", 
-    );
-
-    $response = putProductQuantity($data);
-    
-    if(!empty($response->Message)){
-    echo ('<p>' . $response->Message . '</p>'); 
-    }
-}
-?>
