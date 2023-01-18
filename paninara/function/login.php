@@ -12,6 +12,7 @@ function login($data)
         curl_setopt($curl, CURLOPT_POST, true); // specifica che è una post request
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true); // ritorna il risultato come stringa
 
+
         $headers = array(
             "Content-Type: application/json",
             "Content-Lenght: 0",
@@ -31,7 +32,7 @@ function login($data)
         if ($response->response == true)        //response == true vuol dire sessione senza errori
         {
             $_SESSION['user_id'] = $response->userID;
-            header('Location: index.php');
+            header('Location: pages/index.php');
         }
         else
         {
