@@ -40,4 +40,12 @@ function login($data)
         }
     }
 
+    function getUser(){
+        $url = 'http://localhost/WebApp_sandweches/food-api/API/user/getUser.php?id='.$_SESSION['user_id'];
+
+        $json_data = file_get_contents($url);
+        $res = json_decode($json_data);
+        return $res[0]->name; 
+    }
+
 ?>
