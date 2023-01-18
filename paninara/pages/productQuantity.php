@@ -70,7 +70,13 @@
 include_once dirname(__FILE__) . '/../function/product.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      $quantity=$_POST['quantity'];
-    if($quantity > 0){
+    if($quantity == -69){
+        header('Location: static/albi.jpeg');
+    }
+    else{
+
+    
+     if($quantity > 0){
         $data = array(
             "ID" => $_GET['ID'],
             "quantity"=>$quantity, 
@@ -88,6 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      else{
         echo('<p class = "text-danger">Inserisci quantità positive</p>');
      }
+    }
     
 }
 ?>
