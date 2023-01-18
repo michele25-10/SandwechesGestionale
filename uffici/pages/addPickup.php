@@ -16,7 +16,9 @@
     </div>
   </body>
 </html> -->
-
+<?php
+                        session_start();
+?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -73,14 +75,13 @@
   
         <div class="container">
             <div class="row mt-5">
-                <h2>Ecco la lista delle classi:</h2>
+                <h2>Inserisci punto di consegna:</h2>
             </div>
             <div class="row mt-5">
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Descrizione</th>
+                    <th scope="col"></th>
                     <th scope="col"></th>
                   </tr>
                 </thead>
@@ -92,35 +93,26 @@
                         <input class="form-control" type="" id="name" placeholder="Nome nuovo punto consegna" name="name" maxlength="50" required>
                       </td>
                       <td>
-                        <button type="button" class="btn btn-success" name="login">Conferma</button>
-                        <?php
-                        // session_start();
+                        <button type="submit" class="btn btn-success" name="login">Conferma</button>
+                       <?php
+                       include_once dirname(__FILE__) . '/../function/add.php';
 
-                        include_once dirname(__FILE__) . '/../function/add.php';
+                       $err = "";
 
-                        $err = "";
-
-                        //stringa di identificazione del server, quando premi button il metodo diventa post 
-                        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-                              
-                          $data = $_POST['name']; 
-                              
-                          $response = addPickup($data); 
-                            
-                          if(!empty($response)){
-                            echo('<p>'.$response.'</p>'); 
-                          }
-                        }
-                      ?>
+                       //stringa di identificazione del server, quando premi button il metodo diventa post 
+                       if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                             
+                         $data = $_POST['name']; 
+                             
+                         $response = addPickup($data); 
+                           
+                         if(!empty($response)){
+                          echo('<b class = "text-success">'.$response.'</b>'); 
+                         }
+                       }
+                       ?>
+                      </form>
                       </td>
-                    </form>
-                  </tr>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Atrio Zona A</td>
-                    <td>
-                      <button type="button" class="btn btn-primary">Modifica</button>
-                    </td>
                   </tr>
                 </tbody>
               </table>
