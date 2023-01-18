@@ -54,18 +54,22 @@
         <div class="container">
             <div class="row mt-5">
                 <div class="col-6">
+                <div class="mycontent-left">
                 <h2>Modifca quantità prodotto</h2>
-                <div class="container-fluid">
-                    <form method="post">
-                        <input type="" id="name" placeholder="Quantità totale" name="quantity" maxlength="50" required>
-                        <button type="submit" name="user">Invia</button>
-                    </form>
+                </br>
+                <form method="post" name="quantità">
+                <div class="input-group" style="width:200px">
+
+                        <input type="text" class="form-control" aria-label="Quantità totale" name="quantity" placeholder="Quantità totale">
+                        <button type="submit" class="btn btn-outline-success">Invia</button>
+                </div>
+                </div>
+                </form>
         <?php
 //stringa di identificazione del server, quando premi button il metodo diventa post
 include_once dirname(__FILE__) . '/../function/product.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      $quantity=$_POST['quantity'];
-
     if($quantity > 0){
         $data = array(
             "ID" => $_GET['ID'],
@@ -75,7 +79,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $response = putProductQuantity($data);
     
     if(!empty($response->Message)){
-    echo ('<p>' . $response->Message . '</p>'); 
+    echo ('
+    </br>
+    <p class="text-success">' . $response->Message . '</p>'); 
     }
     }
 
@@ -85,31 +91,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
 }
 ?>
-            </div>
-            </div>
-            <div class="col-6">
-            <h2>Aggiungi o togli quantità prodotto</h2>
-                <div class="container-fluid">
-                    <form method="post">
-                        <input type="" id="name" placeholder="Quantità totale" name="quantity" maxlength="50" required>
-                        <button type="submit" name="user">Invia</button>
-                        <button type="button" class="btn btn-danger" name="plus">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16" onclick="'.deleteOne($row['ID']).'">
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                        <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
-                    </svg>
-                </button>
-                <button type="button" class="btn btn-success" name="minus">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16" onclick="'.addOne($row['ID']).'">
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                    </svg>
-                </button>
-                    </form>
-</div>
-            </div>
-
         </div>
+            <div class="col-6">
+                    <h2>Vendità</h2>
+                    </br>        
+                        <div class="input-group mb-3" style="width:150px">
+                                <button class="input-group-text decrement-btn">-</button>
+                                <input type="text" class="form-control text-center input-qty bg-white" value="1" disabled>
+                                <button class="input-group-text increment-btn">+</button>
+                            </div>
+                                <button class="btn btn-outline-primary" type="submit" name="submit">Invia</button>
+                    </div>
+                
+            </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    </body>
+    <script src="custom.js"></script>    
+</body>
 </html>
+
