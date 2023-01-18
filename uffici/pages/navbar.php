@@ -20,7 +20,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="addAllergen.php">Aggiungi Allergeni</a></li>
-                        <li><a class="dropdown-item" href="">Aggiungi Classi</a></li>
+                        <li><a class="dropdown-item" href="addClass.php">Aggiungi Classi</a></li>
                         <li><a class="dropdown-item" href="">Aggiungi Ingredienti</a></li>
                         <li><a class="dropdown-item" href="">Aggiungi Offerte</a></li>
                         <li><a class="dropdown-item" href="">Aggiungi Ritiro</a></li>
