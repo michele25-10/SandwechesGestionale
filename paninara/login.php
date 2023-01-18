@@ -1,30 +1,4 @@
 
-<?php
-session_start();
-
-include_once dirname(__FILE__) . '/function/login.php';
-
-$inputs = "";
-$errors = "";
-
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-  if (!empty($_POST['email']) && !empty($_POST['password'])) {//se la variabile mail o password che devono essere inviate non sono vuote all'ora si invia
-    $data = [       //Immetto i dati all'interno di data
-      "email" => $_POST['email'],
-      "password" => $_POST['password'],
-    ];
-
-    if (login($data) == -1)
-    {
-      $inputs = "Email o password errata";
-    }
-  }
-  else
-  {
-    $err = "Campo richiesto";
-  }
-}
-?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -37,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     </head>
 
     <body>
-        <form class="form-signin" method="post" action="pages\index.php">
+        <form class="form-signin" method="post">
             <div class="row">
                 <div class="col-7 mx-auto">
                     <img class="mb-4" src="assets/img/logo.png" alt="" width="100%" height=""> 
@@ -53,6 +27,34 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     <input type="checkbox" value="remember-me"> Ricorda i dati
                 </label>
             </div>
+
+            <?php
+session_start();
+
+include_once dirname(__FILE__) . '/function/login.php';
+
+$inputs = "";
+$errors = "";
+
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+  if (!empty($_POST['email']) && !empty($_POST['password'])) {//se la variabile mail o password che devono essere inviate non sono vuote all'ora si invia
+    $data = array(       //Immetto i dati all'interno di data
+      "email" => $_POST['email'],
+      "password" => $_POST['password'],
+    );
+
+    if (login($data) == -1)
+    {
+      echo('<p class=text-danger>Email o password errata</p>');
+    }
+  }
+  else
+  {
+    echo('<p class="text-danger">Campo richiesto</p>');
+  }
+}
+?>
+
             <div class="row">
                 <button class="btn btn-lg btn-primary btn-block mx-auto" type="submit">Accedi</button>
             </div>
