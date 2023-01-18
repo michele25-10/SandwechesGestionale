@@ -1,21 +1,3 @@
-<!-- <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sandwech</title>
-  </head>
-  <body>
-
-    <div class="container-fluid">
-        <form method="post">
-            <h1>Aggiungi punto di consegna</h1>
-            <input type="" id="name" placeholder="Nome nuovo punto consegna" name="name" maxlength="50" required>
-            <button type="submit" name="login">Invia</button>
-        </form>
-    </div>
-  </body>
-</html> -->
 <?php
                         session_start();
 ?>
@@ -111,32 +93,11 @@
                          }
                        }
                        ?>
-                      </form>
                       </td>
+                    </form>
                   </tr>
                 </tbody>
               </table>
-
-              <!-- <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Descrizione</th>
-                    <th scope="col">
-                      <button type="button" class="btn btn-success">Aggiungi ingrediente</button>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Atrio Zona A</td>
-                    <td>
-                      <button type="button" class="btn btn-primary">Modifica</button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table> -->
             </div>
         </div>
 
