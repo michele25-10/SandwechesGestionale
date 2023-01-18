@@ -164,7 +164,7 @@
         inner join class c on c.id = uc.class 
         left join break b on b.id  = o.break 
         left join pickup p on p.id = o.pickup 
-        left join status s ON s.id = o.id; ";
+        left join status s ON s.id = o.status;";
 
         $result = $this->conn->query($sql);
 

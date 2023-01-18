@@ -58,8 +58,8 @@ class PickUp
             left join `user` u on u.id = o.`user` 
             left join break b on b.id  = o.break 
             left join pickup p on p.id = o.pickup 
-            left join status s ON s.id = o.id
-            where p.id = '".$id."'; ";
+            left join status s ON s.id = o.status
+            where o.pickup = '".$id."'; ";
 
             $stmt = $this->conn->query($query);
 
