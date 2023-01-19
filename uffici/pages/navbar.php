@@ -23,7 +23,7 @@
                         <li><a class="dropdown-item" href="addClass.php">Aggiungi Classi</a></li>
                         <li><a class="dropdown-item" href="addIngredient.php">Aggiungi Ingredienti</a></li>
                         <li><a class="dropdown-item" href="addOffer.php">Aggiungi Offerte</a></li>
-                        <li><a class="dropdown-item" href="">Aggiungi Ritiro</a></li>
+                        <li><a class="dropdown-item" href="addPickup.php">Aggiungi Ritiro</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -33,9 +33,9 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="">Aggiungi Prodotti</a></li>
-                        <li><a class="dropdown-item" href="">Aggiungi Tags</a></li>
+                        <li><a class="dropdown-item" href="addTag.php">Aggiungi Tags</a></li>
                         <li><a class="dropdown-item" href="">Cancella Tags</a></li>
-                        <li><a class="dropdown-item" href="">Disattiva Prodotti</a></li>
+                        <li><a class="dropdown-item" href="disactiveProduct.php">Disattiva Prodotti</a></li>
                         <li><a class="dropdown-item" href="">Cambia Quantità</a></li>
                         <li><a class="dropdown-item" href="">Cambia Offerte</a></li>
                     </ul>
@@ -46,7 +46,7 @@
                         Utenti
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="">Disattiva Utenti</a></li>
+                        <li><a class="dropdown-item" href="disactiveUser.php">Disattiva Utenti</a></li>
                         <li><a class="dropdown-item" href="">Visualizza Preferiti</a></li>
                         <li><a class="dropdown-item" href="">Visualizza Ordini</a></li>
                         <li><a class="dropdown-item" href="">Visualizza Ordini Singoli</a></li>
