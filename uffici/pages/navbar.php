@@ -62,7 +62,7 @@
                         <li><a class="dropdown-item" href="">Visualizza Preferiti</a></li>
                         <li><a class="dropdown-item" href="">Visualizza Ordini</a></li>
                         <li><a class="dropdown-item" href="">Visualizza Ordini Singoli</a></li>
-                        <li><a class="dropdown-item" href="">Cambia Password</a></li>
+                        <li><a class="dropdown-item" href="setPassword.php">Cambia Password</a></li>
                         <li><a class="dropdown-item" href="">Visualizza Carrelli</a></li>
                     </ul>
                 </li>
