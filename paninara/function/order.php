@@ -158,23 +158,23 @@ function getProductOrder($id_order){
 }
 
 function getPriceOrder($id_order){
-  $url = 'http://localhost/WebApp_sandweches/food-api/API/order/getProductsOrders.php?id='.$id_order;
+  $url = 'http://localhost/WebApp_sandweches/food-api/API/order/getPriceOrder.php?id='.$id_order;
 
   $json_data = file_get_contents($url);
 
   if($json_data != false){
     $decode_data = json_decode($json_data, $assoc=true);
     $price_data = $decode_data;
-    if (!empty($prod_data)) {
-      $prod_arr = array();
+    if (!empty($price_data)) {
+      $price_arr = array();
 
-      foreach ($prod_data as $prod) {
-        $prod_record = array(
-          'price' => $prod[0],
+      foreach ($price_data as $pri) {
+        $price_record = array(
+          'price' => $pri[0],
         );
-        array_push($prod_arr, $prod_record);
+        array_push($price_arr, $price_record);
       } 
-      return $prod_arr;
+      return $price_arr[0]['price']; 
     }else{
     return -1; 
   }

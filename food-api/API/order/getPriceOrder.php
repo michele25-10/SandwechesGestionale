@@ -24,7 +24,7 @@ if(empty($id_order)){
 
 $order = new Order($db_conn);
 
-$result = $order->getPriceOrder($id_order);
+$result = $order->getPriceOrder($id_order); 
 
 if($result==true){
     $output = array();

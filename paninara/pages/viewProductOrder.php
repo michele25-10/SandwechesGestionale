@@ -13,7 +13,7 @@
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
                 <a class="navbar-brand fw-bold" href="#">
-                    <img src="../assets/img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top me-2">
+                    <img src="assets/img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top me-2">
                     Sandwech
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -109,7 +109,15 @@ if (!empty($prod_arr) && $prod_arr != -1) {
         }  
         echo ("</tr>\n");
     }
-    echo ('                    
+    $price = getPriceOrder($id);
+    echo ('  
+    <tr>
+        <hr>
+        <th>Totale</th>
+        <th></th>
+        <th></th>
+        <th>'.$price.'</th>
+        </tr>                  
     </tbody>
     </table>
     </div>
