@@ -61,7 +61,7 @@
                 $response = putProductQuantity($data);
 
                 if (!empty($response->Message)) {
-                  echo ('<p>' . $response->Message . '</p>');
+                  echo ('<p class="text-success fw-bold mt-3 ms-3">' . $response->Message . '</p>');
                 }
               }
               ?>
