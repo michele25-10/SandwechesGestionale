@@ -48,6 +48,7 @@
                         <li><a class="dropdown-item" href="addTag.php">Aggiungi Tags</a></li>
                         <li><a class="dropdown-item" href="">Cancella Tags</a></li>
                         <li><a class="dropdown-item" href="disactiveProduct.php">Disattiva Prodotti</a></li>
+                        <li><a class="dropdown-item" href="reactiveProduct.php">Attiva Prodotti</a></li>
                         <li><a class="dropdown-item" href="putProductQuantity.php">Cambia Quantità</a></li>
                         <li><a class="dropdown-item" href="">Cambia Offerte</a></li>
                     </ul>
