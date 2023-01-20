@@ -78,8 +78,6 @@ if(empty($_SESSION['user_id'])){
                         <tr>
 <?php
 
-session_start();    
-
 include_once dirname(__FILE__) . '/../function/order.php';
 
 $pick_arr = getPickup();

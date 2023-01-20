@@ -79,7 +79,6 @@ if(empty($_SESSION['user_id'])){
                     </thead>
                     <tbody>
                     <?php
-session_start();
 
 include_once dirname(__FILE__) . '/../function/order.php';
 
