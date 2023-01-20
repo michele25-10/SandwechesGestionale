@@ -72,32 +72,36 @@
                             <button type="submit" class="btn btn-outline-success">Invia</button>
                         </div>
                 </div>
-                </form>
                 <?php
                 //stringa di identificazione del server, quando premi button il metodo diventa post
                 include_once dirname(__FILE__) . '/../function/product.php';
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
                     $quantity = $_POST['quantity'];
-                    if ($quantity == -69) {
-                        header('Location: static/albi.jpeg');
-                    } else {
+
+                    if (isset($quantity) && $_POST['qty'] == "1") {
+
+                        if ($quantity == -69) {
+                            header('Location: static/albi.jpeg');
+                        } else {
 
 
-                        if ($quantity > 0) {
-                            $data = array(
-                                "ID" => $_GET['ID'],
-                                "quantity" => $quantity,
-                                "action" => "set",
-                            );
-                            $response = putProductQuantity($data);
+                            if ($quantity > 0) {
+                                $data = array(
+                                    "ID" => $_GET['ID'],
+                                    "quantity" => $quantity,
+                                    "action" => "set",
+                                );
+                                $response = putProductQuantity($data);
 
-                            if (!empty($response->Message)) {
-                                echo ('
+                                if (!empty($response->Message)) {
+                                    echo ('
                                     </br>
                                     <p class="text-success">' . $response->Message . '</p>');
+                                }
+                            } else {
+                                echo ('<p class = "text-danger">Inserisci quantità positive</p>');
                             }
-                        } else {
-                            echo ('<p class = "text-danger">Inserisci quantità positive</p>');
                         }
                     }
 
@@ -107,12 +111,11 @@
             <div class="col-6">
                 <h2>Vendità</h2>
                 </br>
-                <form method="POST" name="vendita">
                 <div class="input-group quantity" style="width: 150px">
                     <div class="input-group-prepend decrement-btn" style="cursor: pointer">
                         <span class="input-group-text">-</span>
                     </div>
-                    <input type="text" name="qty" class="qty-input form-control" maxlength="2" max="50" value="1" disabled>
+                    <input type="text" name="qty" class="qty-input form-control" maxlength="3" max="50" value="1" >
                     <div class="input-group-append increment-btn" style="cursor: pointer">
                         <span class="input-group-text">+</span>
                     </div>
@@ -123,11 +126,33 @@
 
 <?php
 
-var_dump($_POST); 
+            include_once dirname(__FILE__) . '/../function/product.php';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+    $qty = $_POST['qty'];
+
+    if ($quantity == "" && $qty != "1") {
+        $data = array(
+            "ID" => $_GET['ID'],
+            "quantity_prod" => $_GET['product_qty'],
+            "qty" => $qty,
+            "action" => "set",
+        );
+        $response = incrementDecrementQty($data);
+
+        if (!empty($response->Message)) {
+        echo ('
+        </br>
+        <p class="text-success">' . $response->Message . '</p>');
+        }
+        } else {
+        echo ('<p class = "text-danger">Inserisci quantità positive</p>');
+        }
+    }
+                    
 ?>
 
-            </div>
+        </div>
 
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"

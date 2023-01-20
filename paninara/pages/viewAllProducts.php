@@ -84,7 +84,7 @@
                     echo ('<td>' . $cell . '</td>');
                 }
                 echo ('<td>
-                <a href="productQuantity.php?ID='.$row['ID'].'">
+                <a href="productQuantity.php?ID='.$row['ID'].'&product_qty='.$row['quantity'].'">
                 <button type="button" id = "productButton" class="btn btn-primary">Modifica</button>
                 </td>');
                
