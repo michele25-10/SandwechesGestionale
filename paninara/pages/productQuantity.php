@@ -109,7 +109,7 @@
                 ?>
             </div>
             <div class="col-6">
-                <h2>Vendità</h2>
+                <h2>Vendita</h2>
                 </br>
                 <div class="input-group quantity" style="width: 150px">
                     <div class="input-group-prepend decrement-btn" style="cursor: pointer">
@@ -130,7 +130,11 @@
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $qty = $_POST['qty'];
-
+$product_qty  = $_GET['product_qty'];
+if($product_qty + $qty < 0 ){
+    echo ('<p class = "text-danger">Quantità venduta supera quantità in magazzino</p>');
+}
+else{
     if ($quantity == "" && $qty != "0") {
         $data = array(
             "ID" => $_GET['ID'],
@@ -148,6 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
         echo ('<p class = "text-danger">Inserisci quantità positive</p>');
         }
+} 
     }
                     
 ?>
