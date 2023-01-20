@@ -1,8 +1,8 @@
 <?php
 
-session_start(); 
-if(empty($_SESSION['user_id'])){
-    header('location: ../login.php'); 
+session_start();
+if (empty($_SESSION['user_id'])) {
+    header('location: ../login.php');
 }
 
 ?>
@@ -125,49 +125,46 @@ if(empty($_SESSION['user_id'])){
                     <div class="input-group-prepend decrement-btn" style="cursor: pointer">
                         <span class="input-group-text text-white" style="background-color: #dc3545">-</span>
                     </div>
-                    <input type="text" name="qty" class="qty-input form-control" maxlength="3" max="50" value="0" >
+                    <input type="text" name="qty" class="qty-input form-control" maxlength="3" max="50" value="0">
                     <div class="input-group-append  increment-btn" style="cursor: pointer">
                         <span class="input-group-text text-white" style="background-color: #28a745">+</span>
                     </div>
                 </div>
                 <br>
                 <button class="btn btn-outline-success" type="submit">Invia</button>
-            </form>
+                </form>
 
-<?php
+                <?php
 
-            include_once dirname(__FILE__) . '/../function/product.php';
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                include_once dirname(__FILE__) . '/../function/product.php';
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $qty = $_POST['qty'];
-$product_qty  = $_GET['product_qty'];
-if($product_qty + $qty < 0 ){
-    echo ('<p class = "text-danger">Quantità venduta supera quantità in magazzino</p>');
-}
-else{
-    if ($quantity == "" && $qty != "0") {
-        $data = array(
-            "ID" => $_GET['ID'],
-            "quantity_prod" => $_GET['product_qty'],
-            "qty" => $qty,
-            "action" => "set",
-        );
-        $response = incrementDecrementQty($data);
+                    $qty = $_POST['qty'];
+                    $product_qty = $_GET['product_qty'];
+                    if ($product_qty + $qty < 0) {
+                        echo ('<p class = "text-danger">Quantità venduta supera quantità in magazzino</p>');
+                    } else {
+                        if ($quantity == "" && $qty != "0") {
+                            $data = array(
+                                "ID" => $_GET['ID'],
+                                "quantity_prod" => $_GET['product_qty'],
+                                "qty" => $qty,
+                                "action" => "set",
+                            );
+                            $response = incrementDecrementQty($data);
 
-        if (!empty($response->Message)) {
-        echo ('
+                            if (!empty($response->Message)) {
+                                echo ('
         </br>
         <p class="text-success">' . $response->Message . '</p>');
-        }
-        } else {
-        echo ('<p class = "text-danger">Inserisci quantità positive</p>');
-        }
-} 
-    }
-                    
-?>
+                            }
+                        }
+                    }
+                }
 
-        </div>
+                ?>
+
+            </div>
 
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
