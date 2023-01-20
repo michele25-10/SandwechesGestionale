@@ -79,7 +79,7 @@
 
                     $quantity = $_POST['quantity'];
 
-                    if (isset($quantity) && $_POST['qty'] == "1") {
+                    if (isset($quantity) && $_POST['qty'] == "0") {
 
                         if ($quantity == -69) {
                             header('Location: static/albi.jpeg');
@@ -113,11 +113,11 @@
                 </br>
                 <div class="input-group quantity" style="width: 150px">
                     <div class="input-group-prepend decrement-btn" style="cursor: pointer">
-                        <span class="input-group-text">-</span>
+                        <span class="input-group-text text-white" style="background-color: #dc3545">-</span>
                     </div>
-                    <input type="text" name="qty" class="qty-input form-control" maxlength="3" max="50" value="1" >
-                    <div class="input-group-append increment-btn" style="cursor: pointer">
-                        <span class="input-group-text">+</span>
+                    <input type="text" name="qty" class="qty-input form-control" maxlength="3" max="50" value="0" >
+                    <div class="input-group-append  increment-btn" style="cursor: pointer">
+                        <span class="input-group-text text-white" style="background-color: #28a745">+</span>
                     </div>
                 </div>
                 <br>
@@ -131,7 +131,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $qty = $_POST['qty'];
 
-    if ($quantity == "" && $qty != "1") {
+    if ($quantity == "" && $qty != "0") {
         $data = array(
             "ID" => $_GET['ID'],
             "quantity_prod" => $_GET['product_qty'],
