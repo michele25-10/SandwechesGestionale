@@ -61,7 +61,7 @@
                         <li><a class="dropdown-item" href="disactiveUser.php">Disattiva Utenti</a></li>
                         <li><a class="dropdown-item" href="">Visualizza Preferiti</a></li>
                         <li><a class="dropdown-item" href="viewOrder.php">Visualizza Ordini</a></li>
-                        <li><a class="dropdown-item" href="">Visualizza Ordini Singoli</a></li>
+                        <li><a class="dropdown-item" href="getOrderByUser.php">Visualizza Ordini Singoli</a></li>
                         <li><a class="dropdown-item" href="setPassword.php">Cambia Password</a></li>
                         <li><a class="dropdown-item" href="">Visualizza Carrelli</a></li>
                     </ul>
