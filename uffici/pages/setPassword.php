@@ -19,7 +19,7 @@
 
   <div class="container">
     <div class="row mt-5">
-      <h2>Disattiva il profilo di un utente:</h2>
+      <h2>Cambia la password di un utente:</h2>
     </div>
     <div class="row mt-5">
       <table class="table table-striped">
