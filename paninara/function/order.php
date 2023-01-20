@@ -157,6 +157,32 @@ function getProductOrder($id_order){
   }
 }
 
+function getPriceOrder($id_order){
+  $url = 'http://localhost/WebApp_sandweches/food-api/API/order/getProductsOrders.php?id='.$id_order;
+
+  $json_data = file_get_contents($url);
+
+  if($json_data != false){
+    $decode_data = json_decode($json_data, $assoc=true);
+    $price_data = $decode_data;
+    if (!empty($prod_data)) {
+      $prod_arr = array();
+
+      foreach ($prod_data as $prod) {
+        $prod_record = array(
+          'price' => $prod[0],
+        );
+        array_push($prod_arr, $prod_record);
+      } 
+      return $prod_arr;
+    }else{
+    return -1; 
+  }
+  }else{
+    return -1; 
+  }
+}
+
 function setStatus($data){
   $url = 'http://localhost/webApp_sandweches/food-api/API/order/status/setStatus.php';
 

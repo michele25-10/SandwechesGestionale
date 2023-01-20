@@ -156,6 +156,19 @@
         return $result;
         }
 
+        function getPriceOrder($id_order){
+        $sql = "select sum(po.quantity*p.price) as 'price'
+            from `order` o 
+            inner join product_order po on po.`order` = o.id 
+            inner join product p on p.id = po.product 
+            where o.id='".$id_order."' 
+            group by o.id;";
+    
+            $result = $this->conn->query($sql);
+    
+            return $result;
+        }
+
         function getOrderByClassAndBreak(){
         $sql = "select distinct  o.id as 'id', c.`year` as 'year', c.`section` as 'section', o.created as 'created', p.name as 'pickup', b.`time` as 'break', s.description as 'status'
         from `order` o 
