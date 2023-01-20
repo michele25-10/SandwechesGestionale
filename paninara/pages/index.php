@@ -75,7 +75,7 @@ if(empty($_SESSION['user_id'])){
                     <h2>Benvenuto nella pagina </br>Admin della paninara</h2>
                     '); 
                 }else{
-                    echo('<p class="text-danger">Errore</p>'); 
+                    echo('<p class="text-danger"><b>Errore</b></p>'); 
                 }
                 ?>
 

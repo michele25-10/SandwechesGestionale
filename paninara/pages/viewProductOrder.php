@@ -23,7 +23,7 @@ if(empty($_SESSION['user_id'])){
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
                 <a class="navbar-brand fw-bold" href="#">
-                    <img src="assets/img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top me-2">
+                    <img src="../assets/img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top me-2">
                     Sandwech
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -133,7 +133,7 @@ if (!empty($prod_arr) && $prod_arr != -1) {
     </div>
 ');
 } else {
-    echo ('<p>Errore,  ordini non presenti nel db</p>');
+    echo ('<p class="text-danger"><b>Errore,  ordini non presenti nel db</b></p>');
 }
 }
 ?>
@@ -174,7 +174,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['annulla'])) {
                 echo('
                 <div class="row mt-5">
                 <div class="col-6">
-                <p class="text-danger">Errore</p>
+                <p class="text-danger"><b>Errore</b></p>
                 </div>
                 <div class="col-6">
 
@@ -205,7 +205,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['annulla'])) {
 
                 </div>
                 <div class="col-6">
-                <p class="text-danger">Errore</p>
+                <p class="text-danger"><b>Errore</b></p>
                 </div>
                 </div>'); 
             }
