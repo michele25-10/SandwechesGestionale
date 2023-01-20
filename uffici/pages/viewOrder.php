@@ -19,7 +19,7 @@
 
   <div class="container">
     <div class="row mt-5">
-      <h2>Ecco la lista degli ordini::</h2>
+      <h2>Ecco la lista degli ordini:</h2>
     </div>
     <div class="row mt-5">
       <?php
