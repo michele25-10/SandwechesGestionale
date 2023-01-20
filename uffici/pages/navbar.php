@@ -60,8 +60,10 @@
                 <button class="btn btn-outline-primary me-4" type="submit">Cerca</button>
             </form>
             <form class="d-flex" role="search">
-                <button class="btn btn-outline-primary" type="submit">Esci</button>
             </form>
+            <a href="../function/logout.php">
+            <button class="btn btn-outline-primary">Esci</button>
+            </a>
         </div>
     </div>
 </nav>
