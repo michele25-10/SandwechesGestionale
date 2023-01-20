@@ -19,7 +19,7 @@
 
   <div class="container">
     <div class="row mt-5">
-      <h2>Disattiva un prodotto:</h2>
+      <h2>Ecco la lista degli ordini::</h2>
     </div>
     <div class="row mt-5">
       <?php
@@ -27,7 +27,7 @@
       $order_arr = viewOrder();
       if (!empty($order_arr) && $order_arr != -1) {
 
-        echo ('<h2>Ecco la tabella degli ordini:</h2>');
+        // echo ('<h2>Ecco la tabella degli ordini:</h2>');
 
         echo ('<table class="table table-striped">');
           echo ('<thead>');
