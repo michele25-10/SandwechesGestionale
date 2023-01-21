@@ -45,5 +45,35 @@ function changePassword($data){
     return $response->message;
 
 }
+function viewUser()
+{
 
+    $url = 'http://localhost/WebApp_sandweches/food-api/API/user/getArchiveUser.php';
+
+    $json_data = file_get_contents($url);
+    if($json_data != false){
+        $decode_data = json_decode($json_data, $assoc = true);
+        $user_data = $decode_data;
+        if (!empty($user_data)) {
+            $user_arr = array();
+
+            foreach ($user_data as $user) {
+                $user_record = array(
+                    'id' => $user['id'],
+                     'name' => $user['name'],
+                     'surname' => $user['surname'],
+                     'email' => $user['email'],
+                );
+                array_push($user_arr, $user_record);
+            }
+
+            return $user_arr;
+        }else{
+            return -1; 
+        }
+    } else {
+        return -1;
+    }
+
+}
 ?>
