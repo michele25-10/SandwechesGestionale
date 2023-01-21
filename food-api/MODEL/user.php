@@ -29,6 +29,15 @@ class User extends BaseController
         $this->SendOutput($result, JSON_OK);
     }
 
+    public function getArchiveUser(){
+        $sql = "select u.id ,u.name, u.surname, u.email
+                from `user` u; "; 
+        
+        $result = $this->conn->query($sql);
+        
+        $this->SendOutput($result, JSON_OK);
+    }
+
     protected function getUserFromEmail($email)
     {
 
