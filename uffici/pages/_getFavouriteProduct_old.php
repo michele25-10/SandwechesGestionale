@@ -1,3 +1,11 @@
+<?php
+
+session_start(); 
+if(empty($_SESSION['user_id'])){
+    header('location: ../index.php'); 
+}
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -19,8 +27,6 @@
 </html>
 
 <?php
-session_start();
-
 include_once dirname(__FILE__) . '/../function/product.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

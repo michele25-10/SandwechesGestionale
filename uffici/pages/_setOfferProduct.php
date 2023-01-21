@@ -1,4 +1,11 @@
+<?php
 
+session_start(); 
+if(empty($_SESSION['user_id'])){
+    header('location: ../index.php'); 
+}
+
+?>
 
 <!doctype html>
 <html lang="en">
@@ -16,7 +23,6 @@
             <button type="submit" name="addProductOffer">Invia</button>
         </form>
         <?php
-session_start();
 
 include_once dirname(__FILE__) . '/../function/product.php';
 

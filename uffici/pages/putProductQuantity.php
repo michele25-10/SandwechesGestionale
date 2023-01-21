@@ -1,5 +1,10 @@
 <?php
-                        session_start();
+
+session_start(); 
+if(empty($_SESSION['user_id'])){
+    header('location: ../index.php'); 
+}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -44,7 +49,7 @@
                   maxlength="50" required>
               </td>
               <td>
-                <button type="submit" class="btn btn-success" name="user">Cerca</button>
+                <button type="submit" class="btn btn-success" name="user">Invia</button>
               </td>
 
               <?php
