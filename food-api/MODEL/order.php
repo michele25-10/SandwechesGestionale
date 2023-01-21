@@ -177,7 +177,9 @@
         inner join class c on c.id = uc.class 
         left join break b on b.id  = o.break 
         left join pickup p on p.id = o.pickup 
-        left join status s ON s.id = o.status;";
+        left join status s ON s.id = o.status
+        where o.status = 1
+        order by o.created asc;";
 
         $result = $this->conn->query($sql);
 
