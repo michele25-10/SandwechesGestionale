@@ -44,7 +44,7 @@
                   maxlength="50" required>
               </td>
               <td>
-                <button type="submit" class="btn btn-success" name="user">Cerca</button>
+                <button type="submit" class="btn btn-success" name="user">Invia</button>
               </td>
 
               <?php
