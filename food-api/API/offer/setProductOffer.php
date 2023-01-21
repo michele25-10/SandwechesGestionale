@@ -32,7 +32,8 @@ if($stmt->num_rows > 0){
 $result = $ProductOffer->setProductOffer($data->product, $data->offer);
 if ($stmt)
 {
-    echo "Association inserted";
+    echo json_encode(["message" => "Association inserted"]); 
+
 }
 else {
     echo "Association failed";

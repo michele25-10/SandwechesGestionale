@@ -113,7 +113,7 @@ if (empty($_SESSION['user_id'])) {
                if (!empty($user_arr) && $user_arr != -1) {
                  echo ('<hr>');
          
-                 echo ('<h2>Ecco la tabella degli Carrelli:</h2>');
+                 echo ('<h2>Ecco la tabella deii Carrelli:</h2>');
          
                  echo ('<table class="table table-striped">');
                  echo ('<thead>');

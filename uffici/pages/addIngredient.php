@@ -60,7 +60,12 @@ if(empty($_SESSION['user_id'])){
               </td>
               <td>
                 <button type="submit" class="btn btn-success" name="login">Conferma</button>
-                <?php
+              </td>
+            </form>
+          </tr>
+        </tbody>
+      </table>
+      <?php
 
                 include_once dirname(__FILE__) . '/../function/add.php';
 
@@ -76,10 +81,26 @@ if(empty($_SESSION['user_id'])){
                     ); 
                     $ing_arr = addIngredient($data);
                     if (!empty($ing_arr)){
-                        echo('<table>');
-                        echo('<tr>'); 
-                        echo('<td>Nome</td><td>Prezzo</td><td>Quantità</td>'); 
-                        echo('</tr>'); 
+                      echo ('<hr>');
+         
+                      echo ('<h2>Ecco la tabella degli Ingredienti:</h2>');
+              
+                      echo ('<table class="table table-striped">');
+                      echo ('<thead>');
+                      echo ('<tr>');
+                      echo ('<th scope="col">');
+                      echo ('Nome'); //Nome ingrediente
+                      echo ('</th>');
+                      echo ('<th scope="col">');
+                      echo ('Prezzo'); //Prezzo ingrediente
+                      echo ('</th>');
+                      echo ('<th scope="col">');
+                      echo ('Quantità'); //quantità ingrediente
+                      echo ('</th>');
+                      echo ('</tr>');
+                      echo ('</th>');
+              
+                      echo ('<tbody>');
                         //trasforma un array di array in una tabella
                         foreach($ing_arr as $row) {
                             //ogni elemento dell'array è un array a sua volta, per la precisione una riga della tabella
@@ -94,11 +115,6 @@ if(empty($_SESSION['user_id'])){
                     }
                   }
                 ?>
-              </td>
-            </form>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </div>
 

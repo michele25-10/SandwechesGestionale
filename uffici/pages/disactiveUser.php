@@ -40,11 +40,11 @@ if(empty($_SESSION['user_id'])){
             <th scope="row"></th>
             <form method="post">
               <td>
-                <input class="form-control" type="" id="id" placeholder="Id dell'utente" name="name"
+                <input class="form-control" type="" id="id" placeholder="Id dell'utente" name="id"
                   maxlength="50" required>
               </td>
               <td>
-                <button type="submit" class="btn btn-success" name="user">Conferma</button>
+                <button type="submit" class="btn btn-success" >Conferma</button>
                 <?php
                 include_once dirname(__FILE__) . '/../function/user.php';
                 $err = "";
