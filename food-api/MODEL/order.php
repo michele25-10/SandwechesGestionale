@@ -72,7 +72,14 @@
 
         function getArchiveOrderUser($id) // Ottiene gli ordini in base alla ricreazione
         {
-            $query = "SELECT * FROM $this->table_name WHERE user = $id";
+            $query =    "SELECT o.id as 'id', u.email as 'user', o.created as'created', p.name as 'pickup', b.`time`  as 'break', s.description  as 'status'
+            FROM `order` o
+            inner join `user` u on u.id = o.`user`
+            inner join pickup p on p.id = o.pickup 
+            inner join break b on b.id = o.break
+            inner join status s on s.id = o.status
+            WHERE user = '".$id."'
+            order by o.created asc;";
 
             $stmt = $this->conn->query($query);
 

@@ -33,7 +33,6 @@ if ($stmt->num_rows > 0) // Se la funzione getArchiveOrderBreak ha ritornato dei
         'pickup' => $pickup,
         'break' => $break,
         'status' => $status,
-        'json' => json_decode($json)
        );
        array_push($order_arr, $order_record);
     }

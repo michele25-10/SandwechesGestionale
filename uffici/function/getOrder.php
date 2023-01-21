@@ -2,7 +2,7 @@
 
 function viewOrder(){
 
-    $url = 'http://localhost/WebApp_sandweches/food-api/API/order/getArchiveOrder.php';
+    $url = 'http://localhost/WebApp_sandweches/food-api/API/order/getArchiveOrderPaninara.php';
     
     $json_data = file_get_contents($url);
 
@@ -53,7 +53,6 @@ function getOrderUser($data){
           'pickup' => $order['pickup'],
           'break' => $order['break'],
           'status' => $order['status'],
-          'json' => $order['json'],
         );
         array_push($order_arr, $order_record);
       }
