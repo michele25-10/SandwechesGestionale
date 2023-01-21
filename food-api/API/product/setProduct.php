@@ -19,7 +19,6 @@ if (isset($_GET["quantity"]))
 if (isset($_GET["nutritional_value"]))
     $nutritional_value = $_GET["nutritional_value"];
 
-    
 if (isset($_GET["active"]))
     $active = $_GET["active"];
 

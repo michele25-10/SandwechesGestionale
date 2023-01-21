@@ -217,13 +217,13 @@ if(empty($_SESSION['user_id'])){
         $allergen_response = setAllergenProduct($data, $id_max);
 
         if (!empty($allergen_response)) {
-          echo ('<p class="fw-bold mt-3 ms-3">' . $allergen_response->message . '</p>');
+          echo ('<p class="text-success fw-bold mt-3 ms-3">' . $allergen_response->message . '</p>');
         }
 
         $tag_res = setTagProduct($data, $id_max);
 
         if (!empty($tag_res)) {
-          echo ('<p class="fw-bold mt-3 ms-3">' . $tag_res->Setting . '</p>');
+          echo ('<p class="text-success fw-bold mt-3 ms-3">' . $tag_res->Setting . '</p>');
         }
       }else {
         echo ('<p class="text-danger fw-bold mt-3 ms-3">Errore inserimento dati dei prodotti nel db');
