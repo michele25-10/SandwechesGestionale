@@ -71,7 +71,7 @@
             <form class="d-flex" role="search">
             </form>
             <a href="../function/logout.php">
-            <button class="btn btn-outline-primary">Esci</button>
+            <button class="btn btn-outline-danger">Esci</button>
             </a>
         </div>
     </div>
