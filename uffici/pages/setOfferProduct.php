@@ -47,7 +47,7 @@ if (empty($_SESSION['user_id'])) {
                   maxlength="50" required>
               </td>
               <td>
-                <button type="submit" class="btn btn-success" name="product">Applica</button>
+                <button type="submit" class="btn btn-success" >Applica</button>
               </td>
             </form>
           </tr>
@@ -60,6 +60,7 @@ if (empty($_SESSION['user_id'])) {
       //Prodotti
       $prod_arr = getProductArchive();
       if (!empty($prod_arr) && $prod_arr != -1) {
+      
         echo ('<hr>');
 
         echo ('<h2>Ecco la tabella dei prodotti</h2>');
@@ -149,7 +150,6 @@ if (empty($_SESSION['user_id'])) {
           "product" => $_POST['product'],
           "offer" => $_POST['offer'],
         );
-  
         $response = setOffer($data);
         if (!empty($response)) {
           echo ('<p class="fw-bold mt-3 ms-3">' . $response . '</p>');
