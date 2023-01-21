@@ -10,10 +10,9 @@ $data = json_decode(file_get_contents("php://input"));
 $database = new Database();
 $db = $database->connect();
 
-
 if(empty($data) || empty($data->product) || empty($data->offer)){
     http_response_code(400);
-    die(json_encode(array("Message" => "Bad request")));
+    die(json_encode(array("message" => "Bad request")));
 }
 
 $ProductOffer = new ProductOffer($db);

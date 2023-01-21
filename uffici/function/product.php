@@ -143,7 +143,6 @@ function setOffer($data){
     );
 
     curl_setopt($curl, CURLOPT_HTTPHEADER, $headers); // setta gli headers della request
-
     curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
 
     $responseJson = curl_exec($curl);
@@ -151,7 +150,6 @@ function setOffer($data){
     curl_close($curl);
 
     $response = json_decode($responseJson);
-    
     return $response->message; 
 
 }
