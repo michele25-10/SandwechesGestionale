@@ -31,7 +31,8 @@ class User extends BaseController
 
     public function getArchiveUser(){
         $sql = "select u.id ,u.name, u.surname, u.email
-                from `user` u; "; 
+                from `user` u
+                where u.active=1;"; 
         
         $result = $this->conn->query($sql);
         
