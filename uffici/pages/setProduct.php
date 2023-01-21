@@ -1,6 +1,12 @@
 <?php
-session_start();
+
+session_start(); 
+if(empty($_SESSION['user_id'])){
+    header('location: ../index.php'); 
+}
+
 ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -110,7 +116,7 @@ session_start();
 
           echo ("</tr>\n");
         }
-        echo ('</tb>');
+        echo ('</tbody>');
         echo ('</table>');
       } else {
         echo ('<p class="text-danger fw-bold mt-3 ms-3">Errore, non ci sono allergeni nel db.</p>');
@@ -146,13 +152,14 @@ session_start();
 
           echo ("</tr>\n");
         }
-        echo ('</tb>');
+        echo ('</tbody>');
         echo ('</table>');
       } else {
         echo ('<p class="text-danger fw-bold mt-3 ms-3">Errore, non ci sono tag nel db.</p>');
       }
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $_SERVER['REQUEST_METHOD'] = 'GET';
         $data = array(
           "name" => $_POST['name'],
           "price" => $_POST['price'],
@@ -164,7 +171,6 @@ session_start();
           "tag" => $_POST['tag'],
         );
       
-
       //Prodotti
       $prod_arr = setProduct($data);
       if (!empty($prod_arr) && $prod_arr != -1) {
@@ -201,7 +207,7 @@ session_start();
 
           echo ("</tr>\n");
         }
-        echo ('</tb>');
+        echo ('</tbody>');
         echo ('</table>');
 
         $product_id = max($prod_arr);
@@ -219,10 +225,10 @@ session_start();
         if (!empty($tag_res)) {
           echo ('<p class="fw-bold mt-3 ms-3">' . $tag_res->Setting . '</p>');
         }
-      }
-      } else {
+      }else {
         echo ('<p class="text-danger fw-bold mt-3 ms-3">Errore inserimento dati dei prodotti nel db');
       }
+      } 
       ?>
 
     </div>

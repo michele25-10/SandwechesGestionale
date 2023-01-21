@@ -121,7 +121,6 @@ $this->SendOutput($result, JSON_OK);
 
 
         $this->conn->query($sql);
-        ($this->conn->query($sql));
         $this->CheckProduct();
     }
 

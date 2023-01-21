@@ -40,6 +40,7 @@ function setProduct($data){
     $url = 'http://localhost/webApp_sandweches/food-api/API/product/setProduct.php?name='.$name.'&price='.$price.'&description='.$description.'&quantity='.$quantity.'&nutritional_value='.$nutritional_value.'&active='.$active; 
 
     $json_data = file_get_contents($url);
+
     if($json_data != false){
         $decode_data = json_decode($json_data, $assoc = true);
         $prod_data = $decode_data;
@@ -55,7 +56,6 @@ function setProduct($data){
                 );
                 array_push($prod_arr, $prod_record);
             }
-
             return $prod_arr;
         }else{
             return -1; 
