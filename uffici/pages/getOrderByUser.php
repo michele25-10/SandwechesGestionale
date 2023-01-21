@@ -82,9 +82,6 @@ if(empty($_SESSION['user_id'])){
                   echo ('<th scope="col">');
                     echo ('Stato'); //Id dello stato
                   echo ('</th>');
-                  echo ('<th scope="col">');
-                    echo ('Json'); //Json
-                  echo ('</th>');
                     echo ('</tr>');
               echo ('</th>');
 
