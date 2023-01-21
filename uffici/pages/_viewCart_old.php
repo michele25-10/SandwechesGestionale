@@ -38,8 +38,6 @@ include_once dirname(__FILE__) . '/../function/cart.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (!empty($_POST['id'])) {
     $data = $_POST['id'];
-
-
     $cart_arr = viewCart($data); 
 
     if(!empty($cart_arr) && $cart_arr != -1){
