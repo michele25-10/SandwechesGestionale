@@ -44,7 +44,7 @@
                         Prodotti
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="">Aggiungi Prodotti</a></li>
+                        <li><a class="dropdown-item" href="setProduct.php">Aggiungi Prodotti</a></li>
                         <li><a class="dropdown-item" href="addTag.php">Aggiungi Tags</a></li>
                         <li><a class="dropdown-item" href="">Cancella Tags</a></li>
                         <li><a class="dropdown-item" href="disactiveProduct.php">Disattiva Prodotti</a></li>
