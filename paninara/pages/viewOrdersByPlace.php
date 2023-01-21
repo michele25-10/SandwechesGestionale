@@ -91,7 +91,7 @@ if (!empty($pick_arr) && $pick_arr != -1){
     echo ('</table>');
 }
 else{
-      echo ('<p>Il nome del punto di consegna da lei inserito è inesistente</p>'); 
+      echo ('<p class="text-danger"><b>Errore, non ci sono punti di consegna nel database</b></p>'); 
 }
 ?>
 
@@ -144,14 +144,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         echo('</tbody>'); 
         echo ('</table>');
-    }
+    }      else{
+        echo ('<p class="text-danger"><b>ID del punto di consegna da lei inserito è inesistente</b></p>'); 
+  }
       }
-      else{
-            echo ('<p>ID del punto di consegna da lei inserito è inesistente</p>'); 
-      }
-    }
-    else{
-        echo ('<p>devi inserire qualcosa</p>'); 
+
     }
 ?>
 
