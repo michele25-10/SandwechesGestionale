@@ -163,7 +163,7 @@ session_start();
           "allergen" => $_POST['allergen'],
           "tag" => $_POST['tag'],
         );
-      }
+      
 
       //Prodotti
       $prod_arr = setProduct($data);
@@ -219,6 +219,7 @@ session_start();
         if (!empty($tag_res)) {
           echo ('<p class="fw-bold mt-3 ms-3">' . $tag_res->Setting . '</p>');
         }
+      }
       } else {
         echo ('<p class="text-danger fw-bold mt-3 ms-3">Errore inserimento dati dei prodotti nel db');
       }
