@@ -47,7 +47,6 @@ if(empty($_SESSION['user_id'])){
                 <button type="submit" class="btn btn-success" >Conferma</button>
                 <?php
                 include_once dirname(__FILE__) . '/../function/user.php';
-                $err = "";
                
                 //stringa di identificazione del server, quando premi button il metodo diventa post
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
